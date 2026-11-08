@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="350" viewBox="0 0 480 350" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">静候新生</title>
+  <desc id="desc">中国水墨风的准妈妈，长发挽起，身着宽松长裙，垂眸微笑，双手轻护腹部，身旁竹叶疏影。</desc>
+  <defs>
+    <radialGradient id="paper"><stop stop-color="#FAF8ED" stop-opacity=".9"/><stop offset="1" stop-color="#FAF8ED" stop-opacity="0"/></radialGradient>
+    <linearGradient id="ink" x1="222" y1="55" x2="264" y2="139" gradientUnits="userSpaceOnUse"><stop stop-color="#333F37"/><stop offset=".5" stop-color="#515C4F"/><stop offset="1" stop-color="#68715E"/></linearGradient>
+    <linearGradient id="silk" x1="212" y1="154" x2="291" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#F7F6EA"/><stop offset=".6" stop-color="#E5E7DA"/><stop offset="1" stop-color="#F5F1E2"/></linearGradient>
+    <linearGradient id="sleeve" x1="187" y1="162" x2="253" y2="225" gradientUnits="userSpaceOnUse"><stop stop-color="#F9F7EB"/><stop offset="1" stop-color="#DBE1D1"/></linearGradient>
+    <linearGradient id="mountain" x1="294" y1="202" x2="294" y2="295" gradientUnits="userSpaceOnUse"><stop stop-color="#718675" stop-opacity=".15"/><stop offset="1" stop-color="#718675" stop-opacity="0"/></linearGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="brush-edge" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency=".085" numOctaves="2" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale=".55" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g filter="url(#brush-edge)">
+
+  <!-- Washes, not an enclosing frame: a little landscape dissolves into paper. -->
+  <ellipse cx="248" cy="181" rx="164" ry="158" fill="url(#paper)"/>
+  <path d="M100 271c28-16 46-31 68-35 13-3 29 2 40-2 27-11 41-41 66-37 17 2 28 26 46 22 25-6 44-28 65-23 17 5 27 23 45 33v69H100Z" fill="url(#mountain)"/>
+  <path d="M288 271c24-10 42-30 63-29 22 1 35 16 65 18" stroke="#8B9B85" stroke-width="5" opacity=".06" filter="url(#soft)"/>
+  <circle cx="332" cy="91" r="24" fill="#C4AE86" opacity=".13"/>
+  <ellipse cx="247" cy="314" rx="87" ry="6" fill="#6D7C67" opacity=".09" filter="url(#soft)"/>
+
+  <!-- Bamboo is built from tapered brush strokes, in several dilutions of ink. -->
+  <g stroke-linecap="round">
+    <path d="M105 307c2-36 7-72 12-104s8-56 7-78" stroke="#74856B" stroke-width="2.2" opacity=".65"/>
+    <path d="M111 268c-7-18-17-35-31-49m34 26c14-15 29-26 44-34m-39 9c-3-22-10-36-20-48m22 22c12-15 22-25 33-31" stroke="#78896E" stroke-width="1.1" opacity=".7"/>
+    <path d="m109 277 6 1m-2-31 6 1m-2-31 6 1m-1-31 6 1m-2-32 5 1" stroke="#64785F" stroke-width="1.2" opacity=".8"/>
+  </g>
+  <g fill="#647B60">
+    <path d="M108 259c-16-8-25-23-28-40 15 11 25 23 28 40Z" opacity=".55"/>
+    <path d="M98 243c-17-1-28-8-36-22 16 4 29 10 36 22Z" opacity=".35"/>
+    <path d="M122 239c6-17 18-25 36-28-10 14-22 23-36 28Z" opacity=".6"/>
+    <path d="M140 222c5-17 14-25 28-29-6 15-15 25-28 29Z" opacity=".32"/>
+    <path d="M118 208c-13-10-19-22-19-37 12 11 19 23 19 37Z" opacity=".45"/>
+    <path d="M127 184c6-12 15-19 28-21-7 11-16 19-28 21Z" opacity=".6"/>
+    <path d="M125 159c-9-13-11-28-7-43 8 14 11 29 7 43Z" opacity=".45"/>
+    <path d="M129 153c6-14 17-24 32-28-8 13-18 23-32 28Z" opacity=".28"/>
+  </g>
+  <g stroke="#9EA88C" stroke-width=".8" stroke-linecap="round" opacity=".45"><path d="m80 219 23 34m55-42-30 23m-10-117 6 35"/></g>
+
+  <!-- Hair follows the skull and is softly gathered behind the neck. -->
+  <path d="M215 108c-7-12-9-25-4-37 7-15 22-21 36-17 18 4 28 18 27 34-1 12-6 20-8 29-2 8 1 13-4 17-10 5-26 1-35-6Z" fill="url(#ink)"/>
+  <path d="M217 102c-13-2-22 6-19 17 2 10 14 16 25 11 11-6 8-23-6-28Z" fill="#4B584A"/>
+  <path d="M202 116c2-6 8-9 14-8m-12 14c5 5 11 6 17 2M216 71c7-11 20-15 32-12" stroke="#9AA089" stroke-width=".9" stroke-linecap="round" opacity=".65"/>
+  <path d="m229 110-3 25c8 8 21 10 31 3l-9-27Z" fill="#F3E5D1"/>
+  <path d="M225 75c9-6 22-5 31 1 8 7 11 19 8 31-2 11-10 20-20 20-13-1-25-16-25-29 0-10 1-18 6-23Z" fill="#FAF0DC"/>
+  <path d="M218 96c-7-4-10 1-6 7 2 3 5 4 9 3" fill="#F3E5D1"/>
+  <path d="M215 98c2-1 3 1 3 3" stroke="#AE9D82" stroke-width=".8" stroke-linecap="round"/>
+  <path d="M214 93c3-7 7-10 11-12 7-3 12-8 15-14 8 10 18 15 27 16-3-15-16-25-30-22-17 3-26 14-23 32Z" fill="url(#ink)"/>
+  <path d="M228 94c3-1 6-1 9 0m9 1c3 0 6 1 8 2" stroke="#8A8971" stroke-width=".9" stroke-linecap="round"/>
+  <path d="M229 99c3 3 6 4 9 1m9 2c2 2 5 3 8 1" stroke="#616F5C" stroke-width="1.1" stroke-linecap="round"/>
+  <path d="m242 101-1 8 3 1m-7 8c4 2 7 2 10-1" stroke="#A88E74" stroke-width=".85" stroke-linecap="round"/>
+  <ellipse cx="230" cy="109" rx="4.2" ry="2" fill="#D8AA91" opacity=".35"/>
+  <ellipse cx="255" cy="111" rx="3" ry="1.7" fill="#D8AA91" opacity=".25"/>
+  <circle cx="218" cy="108" r="1.6" fill="#B8A476"/>
+  <path d="M234 123c3 4 10 6 15 4" stroke="#CBB99D" stroke-width=".75" stroke-linecap="round"/>
+
+  <!-- The robe has a continuous shoulder-to-hem contour and a centred belly. -->
+  <path d="M226 133c-14-1-29 5-38 18-9 14-14 37-18 57 9 11 20 17 33 20-4 24-10 46-17 70 27 15 71 19 106 3-5-17-9-32-10-47 5-13 6-24 3-36-3-16-7-31-10-43-4-13-8-27-18-37l-7-4c-5 8-14 9-24-1Z" fill="url(#silk)"/>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M226 133c-14-1-29 5-38 18-9 14-14 37-18 57 8 10 20 17 33 20-4 24-10 46-17 70 27 15 71 19 106 3-5-17-9-32-10-47 5-13 6-24 3-36-3-16-7-31-10-43-4-13-8-27-18-37" stroke="#65735F" stroke-width="1.15"/>
+    <path d="M226 134c6 8 16 13 26 5m-29 3c8 6 17 10 25 10" stroke="#9AA38C" stroke-width=".8"/>
+    <path d="M253 148c-7 15-11 27-13 42" stroke="#A6AE98" stroke-width=".8"/>
+    <path d="M218 252c13 6 31 7 44 1" stroke="#8C9A7E" stroke-width=".9" opacity=".75"/>
+    <path d="M207 261c-4 11-8 22-11 34m30-32-3 39m32-36 12 36" stroke="#A8AF9B" stroke-width=".9"/>
+    <path d="M195 300c24 9 57 10 85 1" stroke="#A6AD95" stroke-width=".7"/>
+  </g>
+
+  <!-- Broad, flowing sleeves replace the short, angular cuffs. -->
+  <path d="M257 151c12 5 20 20 26 33 6 14 9 25 2 31-6 6-20 4-30-1l-4-13c8 3 16 5 19 2 1-3-4-11-9-17l-11-14Z" fill="url(#sleeve)"/>
+  <path d="M257 151c12 5 20 20 26 33 6 14 9 25 2 31-6 6-20 4-30-1m-4-13c8 3 16 5 19 2 1-3-4-11-9-17" stroke="#74816B" stroke-width="1.05" stroke-linecap="round"/>
+  <path d="m251 200 5 15" stroke="#98A38A" stroke-width=".8" stroke-linecap="round"/>
+  <!-- Only the relaxed palm and two subtle finger strokes are visible. -->
+  <path d="M252 202c-3-1-6-4-8-3-2 1 0 3 1 4-4 0-8-2-10-1-2 1-1 3 1 4l9 5c3 2 6 2 10 2" fill="#F8EBD7" stroke="#A6987B" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m237 204 9 4m-6-2 6 3" stroke="#C1AA8C" stroke-width=".6" stroke-linecap="round"/>
+
+  <path d="M197 152c-10 12-13 28-15 44-2 19 5 31 20 39 11 6 25 9 39 7l2-13c-14 1-23-2-29-7-7-6-8-15-5-24l6-18" fill="url(#sleeve)"/>
+  <path d="M197 152c-10 12-13 28-15 44-2 19 5 31 20 39 11 6 25 9 39 7m2-13c-14 1-23-2-29-7-7-6-8-15-5-24l6-18" stroke="#6D7C65" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M191 191c-4 14-1 26 8 33m-11-27c-2 11 0 19 4 25m48 7 1 13" stroke="#A5AF97" stroke-width=".75" stroke-linecap="round"/>
+  <path d="M242 231c4 0 8-2 11-2 3 0 3 2 0 4l-3 2 9-2c3-1 4 1 2 3l-9 6c-3 2-7 2-11 0" fill="#F8EBD7" stroke="#A6987B" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m247 237 9-3m-8 5 8-3" stroke="#C1AA8C" stroke-width=".6" stroke-linecap="round"/>
+
+  <!-- Quiet folds and a hint of shoes keep the stance grounded. -->
+  <path d="m214 307-1 7m13-5-1 6m29-6 1 6m13-8 2 7" stroke="#8F9A82" stroke-width=".8" stroke-linecap="round"/>
+  <path d="M213 313c4 2 8 2 12 0l8 5h-24c-2-2 0-4 4-5Zm42 1c5 1 9 0 14-1l9 4h-25c-2-1-1-2 2-3Z" fill="#89977D" opacity=".7"/>
+
+  <!-- A small branch, faded at its tips. -->
+  <path d="M341 299c-4-17-4-35 1-52m-2 28 12-13" stroke="#8C9B7E" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+  <path d="M340 271c-10-4-14-12-13-20 9 5 13 12 13 20Zm2-8c0-11 5-19 12-23 1 11-3 19-12 23Zm4 10c7-1 13-6 16-13-9 0-14 5-16 13Z" fill="#8A9D7B" opacity=".35"/>
+  <path d="M309 53c7-4 13-4 20 0m-10-1 3 5" stroke="#7B8973" stroke-width=".8" stroke-linecap="round" opacity=".45"/>
+  </g>
+</svg>

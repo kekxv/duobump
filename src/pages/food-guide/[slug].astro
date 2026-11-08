@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import SourcePanel from '../../components/SourcePanel.astro';
+import FoodContext from '../../components/FoodContext.astro';
+import contexts from '../../data/food-contexts.json';
+import foods from '../../data/foods.json';
+import { riskLabels } from '../../lib/food-search';
+import { url } from '../../lib/urls';
+export function getStaticPaths() {
+  return foods.map((food) => ({ params: { slug: food.slug }, props: { food } }));
+}
+const { food } = Astro.props;
+const ids = [
+  ...new Set([
+    ...food.preparations.flatMap((p) => p.sourceIds),
+    ...contexts
+      .filter((entry) => entry.foodIds.includes(food.id))
+      .flatMap((entry) => entry.sourceIds),
+  ]),
+];
+---
+
+<BaseLayout title={`${food.name} · 孕期食用建议`} description={food.summary} section="食物速查">
+  <div class="page-content">
+    <a href={url('/food-guide/')} class="back-link">
+      ← 返回食物速查
+    </a>
+    <div class="page-intro">
+      <span class="eyebrow">KNOW WHAT IS ON YOUR PLATE</span>
+      <div class="food-detail-icon" aria-hidden="true">
+        {food.emoji}
+      </div>
+      <h1>{food.name}</h1>
+      <p>{food.summary}</p>
+      <div class="article-meta">
+        <span>{food.category}</span>
+        <span class="review-badge">资料已核查 · 待专业审核</span>
+      </div>
+    </div>
+    <div class="food-detail-layout">
+      <div>
+        {food.preparations.map((p) => (
+          <section class="preparation-card">
+            <div class="preparation-card-top">
+              <h2>{p.label}</h2>
+              <span class:list={['risk-badge', p.risk]}>{riskLabels[p.risk]}</span>
+            </div>
+            <p>
+              <strong>怎么吃</strong>
+              <br />
+              {p.conditions}
+            </p>
+            <p>
+              <strong>为什么要注意</strong>
+              <br />
+              {p.reason}
+            </p>
+          </section>
+        ))}
+        <div class="info-note">
+          <Icon name="info" size={17} />
+          <p>{food.specialNotes}</p>
+        </div>
+        <FoodContext foodId={food.id} />
+        <div class="panel" style="margin-top:18px">
+          <h2 style="font-size:15px;font-weight:500">已经吃了，需要注意什么？</h2>
+          <p class="tiny muted" style="margin-top:10px">
+            先记下吃了什么、什么时候吃的。有发热、明显腹痛、呕吐、腹泻或其他不适时，及时联系医生；出现紧急症状立即求助。是否有风险需要结合具体情况判断。
+          </p>
+          <a href={url('/emergency/')} class="subtle-link">
+            查看就医提示 <Icon name="arrow" size={15} />
+          </a>
+        </div>
+      </div>
+      <aside class="article-side">
+        <SourcePanel ids={ids} preferChineseTitle />
+        <a href={url('/recipes/')} class="read-more-card">
+          <Icon name="bowl" size={24} />
+          <div>
+            <h3>今天吃点什么？</h3>
+            <p>看看分阶段的菜单示例</p>
+          </div>
+        </a>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

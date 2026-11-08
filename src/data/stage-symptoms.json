@@ -1,0 +1,1550 @@
+[
+  {
+    "id": "nausea",
+    "title": "恶心、孕吐",
+    "aliases": [
+      "反胃",
+      "想吐",
+      "干呕"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "早晨、晚上或闻到气味时都可能恶心，有的人反应会持续较久。",
+    "explanation": "孕吐的轻重和持续时间不同，不能用来判断胎儿发育是否正常。",
+    "care": [
+      "少量多餐，选择能接受的清淡食物，避开诱发恶心的气味。",
+      "能喝时少量多次补水，记录进食、呕吐和尿量的变化。"
+    ],
+    "contact": [
+      "反复吐到喝不进水、尿少、体重下降或明显头晕，尽快联系产科；呕血、剧烈腹痛等也需及时评估。"
+    ],
+    "sourceIds": [
+      "nhs-nausea",
+      "nhs-hyperemesis",
+      "cn-food-balance"
+    ],
+    "warningIds": [
+      "hyperemesis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "taste-smell",
+    "title": "嗅觉敏感、嘴里有怪味",
+    "aliases": [
+      "金属味",
+      "嘴苦",
+      "闻不得油烟"
+    ],
+    "stages": [
+      "early",
+      "middle"
+    ],
+    "category": "饮食与消化",
+    "description": "熟悉的气味突然难以接受，嘴里可能出现类似金属的味道。",
+    "explanation": "味觉和嗅觉改变可以出现在早孕，也可能伴随恶心；不是每个人都有。",
+    "care": [
+      "保持通风，让家人接手油烟或气味明显的家务。",
+      "选择能接受且卫生安全的食物，注意温和清洁口腔。"
+    ],
+    "contact": [
+      "因此长期吃不下、喝不进水，或同时牙痛、口腔病变时，联系产科或口腔科。"
+    ],
+    "sourceIds": [
+      "nhs-early-signs",
+      "nhs-nausea"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "appetite",
+    "title": "食欲变化、偏好改变",
+    "aliases": [
+      "馋",
+      "厌食",
+      "想吃酸",
+      "挑食"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "突然不喜欢原本爱吃的食物，或特别想吃某一类食物。",
+    "explanation": "偏好会变化，不能据此判断胎儿性别，也不意味着必须满足每一种想吃的东西。",
+    "care": [
+      "在能接受的食物里搭配谷薯、熟制蛋白质、奶豆和蔬果，不强迫自己吃固定套餐。",
+      "食品安全要求仍然适用，不因特别想吃就吃生食或不明草药。"
+    ],
+    "contact": [
+      "持续进食困难、体重明显变化，或想吃泥土等非食物时，告诉医生。"
+    ],
+    "sourceIds": [
+      "nhs-early-signs",
+      "nhs-nutrition"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "fatigue",
+    "title": "疲倦、嗜睡、精力下降",
+    "aliases": [
+      "累",
+      "没力气",
+      "总想睡"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "睡眠与精力",
+    "description": "孕早期容易困，孕晚期也可能因身体负担和夜间睡眠受影响而疲倦。",
+    "explanation": "疲倦可能随孕期变化，但明显或突然的乏力也需要评估其他原因。",
+    "care": [
+      "把活动分段安排，给休息留位置，请家人分担家务。",
+      "规律饮食，在没有运动禁忌的前提下保持适合自己的活动。"
+    ],
+    "contact": [
+      "乏力持续影响日常生活，或伴明显气短、心悸、头晕，联系产科；突然胸痛、呼吸困难或晕厥立即急救。"
+    ],
+    "sourceIds": [
+      "nhs-sleep",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "breast",
+    "title": "乳房胀痛、变大或敏感",
+    "aliases": [
+      "胸胀",
+      "乳头痛",
+      "乳晕变化"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "乳房可能变得饱满、触碰敏感，乳头和乳晕颜色也可能加深。",
+    "explanation": "乳房变化的程度不同，胀痛减轻本身不能用来判断妊娠结局。",
+    "care": [
+      "选择尺寸合适、承托舒适的内衣，减少摩擦。",
+      "不需要反复挤压乳头或按揉测试。"
+    ],
+    "contact": [
+      "新出现的局部肿块、单侧持续疼痛、红热或发热，应联系医生。"
+    ],
+    "sourceIds": [
+      "nhs-early-signs",
+      "nhs-common"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "frequency",
+    "title": "尿频、夜里起床上厕所",
+    "aliases": [
+      "小便多",
+      "总想尿",
+      "夜尿"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "白天更常去厕所，夜间也可能被尿意叫醒。",
+    "explanation": "早期即可出现，晚期还可能与子宫对膀胱的压力有关；尿痛不应一并归为正常尿频。",
+    "care": [
+      "白天保持饮水，不靠全天少喝水来减少上厕所。",
+      "睡前适当调整饮水时间，留好夜间照明，起身放慢。"
+    ],
+    "contact": [
+      "尿痛、血尿、尿液异常或突然明显尿急，应当天联系医生；伴发热、腰侧痛或明显不适及时就医。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "infection"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "constipation",
+    "title": "便秘、排便费力",
+    "aliases": [
+      "拉不出",
+      "大便干",
+      "排便困难"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "排便变少、粪便干硬，排便时需要更用力。",
+    "explanation": "激素变化、饮食活动改变等可能参与；铁剂等也可能影响排便。",
+    "care": [
+      "逐步增加全谷物、蔬果和豆类，保持饮水与适量活动。",
+      "建立规律排便习惯；怀疑铁剂等造成便秘时向医生讨论，不自行停药。"
+    ],
+    "contact": [
+      "便秘持续或疼痛明显、反复便血，联系医生；剧烈腹痛、持续呕吐等需及时评估。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-piles"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "bloating",
+    "title": "腹胀、排气增多",
+    "aliases": [
+      "胀气",
+      "肚子鼓",
+      "放屁"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "进食后容易发胀，可能伴排气、轻微不适。",
+    "explanation": "气体积聚或便秘可以造成腹部不适，但不是所有腹痛都能用胀气解释。",
+    "care": [
+      "少量进餐、慢慢吃，观察哪些食物容易让自己胀气。",
+      "在活动允许时散步，同时照顾便秘问题。"
+    ],
+    "contact": [
+      "腹痛持续或加重、出血、流液、规律发紧，及时联系产科；剧痛或晕厥立即急救。"
+    ],
+    "sourceIds": [
+      "nhs-abdominal",
+      "nhs-week18"
+    ],
+    "warningIds": [
+      "ectopic"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "discharge",
+    "title": "透明或乳白分泌物增多",
+    "aliases": [
+      "白带多",
+      "内裤湿"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "分泌物可能比孕前多，常为稀薄、透明或乳白色，没有明显异味或刺激感。",
+    "explanation": "分泌物的量可以变化；持续水样流出、异味、瘙痒或血色需要进一步判断。",
+    "care": [
+      "穿透气内裤，保持外阴清洁干爽，不做阴道冲洗。",
+      "观察颜色、气味和是否持续流出；拿不准就联系产科。"
+    ],
+    "contact": [
+      "黄绿、异味、瘙痒或尿痛需联系医生；阴道出血或疑似流水，立即联系产科。"
+    ],
+    "sourceIds": [
+      "nhs-discharge",
+      "nhs-labour"
+    ],
+    "warningIds": [
+      "waters",
+      "bleeding"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "dizziness",
+    "title": "起身时头晕、眼前发黑",
+    "aliases": [
+      "晕眩",
+      "站起来晕"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "站起太快、久站或某些体位时可能头晕。",
+    "explanation": "孕期循环变化可能有关，但不能据此排除脱水、贫血或其他问题。",
+    "care": [
+      "起身放慢，感觉发晕时立即坐下；仍不缓解可侧卧，请人陪伴。",
+      "避免在头晕时开车、独自洗热水澡或勉强站立。"
+    ],
+    "contact": [
+      "反复或持续头晕应联系医生；真正晕厥，或伴出血、剧烈腹痛、胸痛或气促，立即寻求急救。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [
+      "ectopic",
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "headache",
+    "title": "头痛",
+    "aliases": [
+      "偏头痛",
+      "头胀"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "可能出现轻度头痛，疲劳、饮水不足等因素也可能影响。",
+    "explanation": "头痛原因很多；特别是孕中晚期，严重或不同以往的头痛不能只靠休息观察。",
+    "care": [
+      "先在安静环境休息、适当补水，保持规律饮食和睡眠。",
+      "记录开始时间和伴随症状；用药先咨询医生或药师。"
+    ],
+    "contact": [
+      "新发、持续或加重的头痛需评估；剧烈头痛、视物模糊或闪光、上腹痛、突然肿胀，立即联系产科就医。"
+    ],
+    "sourceIds": [
+      "nhs-headaches",
+      "nhs-preeclampsia"
+    ],
+    "warningIds": [
+      "preeclampsia"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "mood",
+    "title": "情绪起伏、容易哭或烦躁",
+    "aliases": [
+      "情绪敏感",
+      "脾气变化",
+      "爱哭"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "情绪与感受",
+    "description": "期待、担心、烦躁或委屈可能交替出现。",
+    "explanation": "身体变化、睡眠和生活压力都可能影响情绪，不应把所有情绪都简单归结为激素。",
+    "care": [
+      "把具体需要告诉信任的人，例如希望被倾听、有人陪诊或帮忙休息。",
+      "保留轻松的活动与社交，家人先听感受，不责备或催促振作。"
+    ],
+    "contact": [
+      "情绪持续影响吃饭、睡觉、工作或关系，联系产科或心理专业人员；出现自伤想法需立即求助。"
+    ],
+    "sourceIds": [
+      "nhs-early-signs",
+      "nhs-mental"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "mental-distress",
+    "title": "持续低落、焦虑或惊恐",
+    "aliases": [
+      "抑郁",
+      "恐慌",
+      "提不起兴趣",
+      "反复担心"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "情绪与感受",
+    "description": "持续难以放松、失去兴趣、明显低落，或反复出现让自己困扰的念头。",
+    "explanation": "孕期也可能出现需要治疗的心理问题，不是意志薄弱，也不必等到生产后再求助。",
+    "care": [
+      "尽快告诉产科和信任的人，讨论心理评估与支持。",
+      "既有心理或精神科治疗不要自行中断，药物调整与医生共同决定。"
+    ],
+    "contact": [
+      "已影响日常生活就应预约评估；有自伤、伤人想法或无法保证安全时，请人陪伴并立即到急诊，必要时拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-mental",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "sleep",
+    "title": "睡不踏实、翻身困难",
+    "aliases": [
+      "失眠",
+      "夜醒",
+      "睡姿",
+      "睡不着"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "睡眠与精力",
+    "description": "可能因尿频、反酸、腹部增大或担心而睡不好。",
+    "explanation": "睡眠会随孕期变化；长期失眠也值得主动获得帮助。",
+    "care": [
+      "固定作息，睡前放松，避免傍晚大量摄入含咖啡因饮品。",
+      "28周后入睡时选择侧卧，左右均可，用枕头支撑腹部和双膝之间；醒来仰卧时转回侧卧即可。"
+    ],
+    "contact": [
+      "失眠持续影响白天状态，或伴明显低落、焦虑，联系医生；不要自行吃安眠药或草药助眠。"
+    ],
+    "sourceIds": [
+      "nhs-sleep",
+      "nhs-mental"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "dreams",
+    "title": "梦多、梦到分娩或宝宝",
+    "aliases": [
+      "噩梦",
+      "奇怪的梦"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "睡眠与精力",
+    "description": "梦境可能格外清晰，有时会梦到令人担心的分娩场景。",
+    "explanation": "梦境不预示会发生什么；紧张和睡眠变化可能让自己更在意这些梦。",
+    "care": [
+      "可与伴侣聊一聊担心，睡前尝试舒缓呼吸和放松。",
+      "把实际的分娩疑问写下来，在产检或课程中询问。"
+    ],
+    "contact": [
+      "反复噩梦或焦虑已经影响睡眠与日常生活，寻求产科或心理支持。"
+    ],
+    "sourceIds": [
+      "nhs-sleep",
+      "nhs-mental"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "gums",
+    "title": "牙龈肿胀、刷牙出血",
+    "aliases": [
+      "牙龈出血",
+      "牙痛",
+      "口腔问题"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "刷牙时容易出血，原有牙龈问题也可能加重。",
+    "explanation": "孕期口腔环境和清洁习惯变化可能参与；出血不意味着可以停止清洁或必须忍到产后。",
+    "care": [
+      "继续温和刷牙、清洁牙缝，向口腔科咨询适合自己的护理。",
+      "看牙时告知怀孕及孕周，需要的检查和治疗由口腔科与产科评估。"
+    ],
+    "contact": [
+      "反复出血、牙痛、肿胀或咀嚼困难应看口腔科；面部肿胀伴发热等明显感染表现及时就医。"
+    ],
+    "sourceIds": [
+      "cn-pregnancy-oral",
+      "nhs-week18"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "nosebleed",
+    "title": "鼻出血",
+    "aliases": [
+      "鼻血",
+      "鼻子出血"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "孕期可能比平时容易鼻出血，干燥或刺激也可能诱发。",
+    "explanation": "不能仅凭怀孕就把反复或大量鼻出血都归为小事。",
+    "care": [
+      "坐下微微前倾，用手捏住柔软鼻翼持续压迫，张口呼吸，不仰头或塞纸巾。",
+      "持续压迫10–15分钟，不频繁松开查看；保持环境舒适，避免抠鼻或用力擤鼻。"
+    ],
+    "contact": [
+      "按压10–15分钟仍流血、血量多、吞入大量血液，或伴头晕乏力、呼吸困难，及时急诊；反复发作也应就诊。"
+    ],
+    "sourceIds": [
+      "nhs-nosebleed",
+      "nhs-week18",
+      "cn-nosebleed-care"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "heat",
+    "title": "怕热、容易出汗",
+    "aliases": [
+      "燥热",
+      "汗多"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "觉得比平时热，活动后容易出汗。",
+    "explanation": "激素和皮肤供血变化可能参与，但发热、寒战不应当作普通怕热。",
+    "care": [
+      "穿宽松透气衣物，保持室内凉爽并适当补水。",
+      "觉得异常发热时测量体温，避免桑拿和过热环境。"
+    ],
+    "contact": [
+      "体温达到38℃或有寒战、明显不适，应及时联系医生；伴出血、流液或呼吸困难立即就医。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [
+      "infection"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "pigmentation",
+    "title": "乳晕变深、腹部黑线或面部色斑",
+    "aliases": [
+      "妊娠线",
+      "黄褐斑",
+      "肤色变深"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "乳晕、面部或腹部中线颜色可能加深。",
+    "explanation": "孕期色素变化因人而异，部分在产后逐渐减淡，不保证完全恢复。",
+    "care": [
+      "采用遮阳和温和防晒，减少长时间暴晒。",
+      "护肤以温和为主，想使用祛斑药物或特殊产品先咨询医生。"
+    ],
+    "contact": [
+      "新出现或迅速变化的皮损、痣出血或持续不适，应请医生查看，不把所有变化都当作妊娠斑。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-week18"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "acne",
+    "title": "皮肤出油、长痘",
+    "aliases": [
+      "痤疮",
+      "痘痘",
+      "油皮"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "皮肤可能更油、更容易长痘，也可能与孕前差别不大。",
+    "explanation": "孕期皮肤变化不一致；普通护肤和痤疮治疗药物不能混为一谈。",
+    "care": [
+      "温和清洁、保湿，避免挤压和过度去角质。",
+      "想使用祛痘药物时带成分表咨询医生或药师。"
+    ],
+    "contact": [
+      "疼痛明显、广泛皮疹或感染表现，及时咨询皮肤科；不自行沿用孕前处方。"
+    ],
+    "sourceIds": [
+      "nhs-week18"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "hair",
+    "title": "头发看起来更浓密",
+    "aliases": [
+      "毛发",
+      "发量变化"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "有的人发现头发更浓密、有光泽，也有人变化不明显。",
+    "explanation": "这是可能遇到的外观变化，发量不能代表营养是否充足。",
+    "care": [
+      "保持日常温和清洁和均衡饮食，不为追求发量额外叠加补充剂。"
+    ],
+    "contact": [
+      "突然明显脱发、头皮疼痛或皮损，向医生咨询。"
+    ],
+    "sourceIds": [
+      "nhs-week18",
+      "nhs-nutrition"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "stretch-marks",
+    "title": "妊娠纹、肚皮发紧",
+    "aliases": [
+      "长纹",
+      "肚皮痒",
+      "拉伸纹"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "腹部、乳房或大腿等处可能出现条纹，有时轻微发痒。",
+    "explanation": "是否出现受多种因素影响，没有护肤品能保证预防或消除。",
+    "care": [
+      "干燥时可温和保湿，穿舒适衣物，避免抓破。",
+      "不要因出现妊娠纹而快速减重或使用不明去纹产品。"
+    ],
+    "contact": [
+      "瘙痒明显、夜间加重，尤其手掌脚底痒，立即联系产科；不能一概归因于皮肤拉伸。"
+    ],
+    "sourceIds": [
+      "nhs-stretch",
+      "nhs-itching"
+    ],
+    "warningIds": [
+      "itching"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "itching",
+    "title": "皮肤瘙痒",
+    "aliases": [
+      "手心痒",
+      "脚底痒",
+      "晚上痒"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "瘙痒可能与干燥或皮肤变化有关，也可能没有明显皮疹。",
+    "explanation": "夜间明显、手掌脚底瘙痒等需要排查妊娠期肝内胆汁淤积等问题，不能只凭有没有疹子判断。",
+    "care": [
+      "轻度干燥可温和保湿、穿透气衣物，避免过热洗澡和抓挠。",
+      "记下部位、时间、是否影响睡眠，有持续症状就告知产科。"
+    ],
+    "contact": [
+      "手掌脚底痒、夜间明显或严重影响睡眠，应立即联系产科安排评估；首次检查正常但症状持续，也需复诊。"
+    ],
+    "sourceIds": [
+      "nhs-itching",
+      "nhs-stretch"
+    ],
+    "warningIds": [
+      "itching"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "backache",
+    "title": "腰背酸痛",
+    "aliases": [
+      "腰酸",
+      "背痛",
+      "腰骶痛"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "肌肉与关节",
+    "description": "久坐、久站或活动后腰背可能更容易酸痛。",
+    "explanation": "韧带与身体重心变化可能参与，但伴其他症状的背痛需要评估。",
+    "care": [
+      "减少搬重物和扭腰，坐下时给腰部支撑，适当变换姿势。",
+      "在无运动禁忌时轻柔活动，疼痛明显可咨询专业康复或物理治疗。"
+    ],
+    "contact": [
+      "疼痛很重或持续、伴发热、尿痛、出血或规律宫缩，及时联系产科；会阴麻木或大小便控制异常需急诊。"
+    ],
+    "sourceIds": [
+      "nhs-back",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "waters",
+      "infection"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "ligament",
+    "title": "腹部短暂牵拉或刺痛",
+    "aliases": [
+      "圆韧带痛",
+      "肚子扯着疼"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "肌肉与关节",
+    "description": "翻身、起立等动作时可能有短暂牵拉感或腹侧刺痛。",
+    "explanation": "支持子宫的韧带牵拉是可能原因之一，不能自行据此诊断所有单侧腹痛。",
+    "care": [
+      "动作放慢，改变体位或休息，观察是否很快缓解。",
+      "记录疼痛部位和持续时间，拿不准就联系产科。"
+    ],
+    "contact": [
+      "持续、加重或严重腹痛，或伴出血、发热、流液、尿痛、规律发紧，应立即评估；晕厥或剧痛寻求急救。"
+    ],
+    "sourceIds": [
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "ectopic",
+      "waters"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "pelvic-pain",
+    "title": "耻骨、骨盆或腹股沟疼痛",
+    "aliases": [
+      "耻骨痛",
+      "骨盆痛",
+      "翻身痛"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "肌肉与关节",
+    "description": "走路、爬楼、单腿站立或床上翻身时，骨盆周围可能疼痛。",
+    "explanation": "这类表现可能与孕期骨盆带疼痛有关，严重程度不同，可以寻求帮助。",
+    "care": [
+      "减少明显诱发疼痛的动作，穿衣时坐下，翻身时尽量保持双膝靠近。",
+      "告诉产科，必要时接受物理治疗或评估支撑用品，不硬撑着运动。"
+    ],
+    "contact": [
+      "影响行走、持续加重应就诊；伴发热、出血、规律腹部发紧或突发剧痛，及时到产科评估。"
+    ],
+    "sourceIds": [
+      "nhs-pelvis",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "waters"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "cramps",
+    "title": "小腿或脚部抽筋",
+    "aliases": [
+      "腿抽筋",
+      "脚抽筋"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "肌肉与关节",
+    "description": "夜间可能突然出现小腿或脚部肌肉紧缩疼痛。",
+    "explanation": "抽筋不等于一定缺钙，不宜仅凭抽筋自行加大钙或其他补充剂剂量。",
+    "care": [
+      "平时适度活动脚踝和小腿，抽筋时轻柔拉伸，避免强行用力。",
+      "把反复抽筋情况告诉医生，结合膳食和检查讨论是否需要补充。"
+    ],
+    "contact": [
+      "单侧腿持续肿、痛、红或发热，立即评估，不揉按；伴胸痛、气促立即拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-dvt"
+    ],
+    "warningIds": [
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "varicose-legs",
+    "title": "腿部静脉显露、酸胀",
+    "aliases": [
+      "静脉曲张",
+      "青筋"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "腿上静脉可能更明显，久站后酸胀。",
+    "explanation": "静脉曲张可能造成不适，但突发单侧肿痛应排除血栓。",
+    "care": [
+      "避免久站久坐，间隔活动脚踝，休息时适当抬腿。",
+      "是否使用弹力袜及合适压力，请先让专业人员评估。"
+    ],
+    "contact": [
+      "局部明显红热疼痛、突发单侧腿肿，立即就医；胸痛或气促需急救。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-dvt"
+    ],
+    "warningIds": [
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "vulvar-veins",
+    "title": "外阴静脉鼓起或坠胀",
+    "aliases": [
+      "外阴静脉曲张",
+      "下面坠胀"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "外阴也可能出现鼓起的静脉和坠胀不适。",
+    "explanation": "静脉变化并不限于腿部，具体不适仍需检查确认，不能仅靠外观自诊。",
+    "care": [
+      "减少久站，休息时变换姿势，穿宽松舒适衣物。",
+      "在产检时说明部位和对活动的影响。"
+    ],
+    "contact": [
+      "新出现的明显肿块、持续疼痛、红热或出血，及时让医生检查。"
+    ],
+    "sourceIds": [
+      "nhs-common"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "piles",
+    "title": "肛门瘙痒、痔疮样不适",
+    "aliases": [
+      "痔疮",
+      "肛门痛",
+      "便血"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "排便后可能疼、痒或摸到肛周肿块，有时纸上有血。",
+    "explanation": "痔疮可能与便秘及压力变化有关；便血不能自动归为痔疮，也要分清是否阴道出血。",
+    "care": [
+      "保持膳食纤维、饮水和适量活动，排便时避免用力和久蹲。",
+      "温和清洁肛周，药膏或栓剂使用前先询问医生或药师。"
+    ],
+    "contact": [
+      "首次或反复便血、疼痛明显应就诊；血量多、黑便、头晕或分不清出血位置，及时就医。"
+    ],
+    "sourceIds": [
+      "nhs-piles",
+      "nhs-bleeding"
+    ],
+    "warningIds": [
+      "bleeding"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "heartburn",
+    "title": "反酸、胸口烧心",
+    "aliases": [
+      "胃酸",
+      "烧心",
+      "酸水"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "餐后或躺下时，胸口有烧灼感、酸水上涌。",
+    "explanation": "激素变化和胃部压力可能参与，但不能把所有胸部疼痛都当反酸。",
+    "care": [
+      "少量多餐，睡前留出消化时间，餐后不要马上平躺。",
+      "观察个人诱因，休息时适当垫高头肩；持续不适向医生咨询，不自行用药。"
+    ],
+    "contact": [
+      "吞咽困难、持续呕吐或症状明显影响进食需评估；突发胸痛伴气促、晕眩或冷汗，立即急救。"
+    ],
+    "sourceIds": [
+      "nhs-heartburn",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "fullness",
+    "title": "容易饱、嗳气或餐后不适",
+    "aliases": [
+      "打嗝",
+      "吃一点就饱",
+      "消化不良"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "饮食与消化",
+    "description": "比以前容易吃撑、打嗝，餐后上腹不舒服。",
+    "explanation": "消化不适可能与孕期变化有关；持续或剧烈上腹痛需要另行评估。",
+    "care": [
+      "少量多餐、慢慢吃，不强迫一次吃很大份。",
+      "餐后保持直立，记录明显诱发不适的食物。"
+    ],
+    "contact": [
+      "不能正常进食、持续呕吐或吞咽困难需联系医生；严重上腹或右肋下痛、头痛或视力变化立即就医。"
+    ],
+    "sourceIds": [
+      "nhs-heartburn",
+      "nhs-preeclampsia"
+    ],
+    "warningIds": [
+      "preeclampsia"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "swelling",
+    "title": "脚踝、手指逐渐肿胀",
+    "aliases": [
+      "水肿",
+      "脚肿",
+      "戒指变紧"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "晚些时候或久站后，鞋袜、戒指可能变紧。",
+    "explanation": "逐渐出现的水肿可以见于孕期，但突然明显增加或单侧肿胀处理不同。",
+    "care": [
+      "减少久站，休息时抬脚，穿宽松鞋袜并适度活动脚踝。",
+      "戒指开始紧时及时取下，不自行用利尿药或刻意少喝水。"
+    ],
+    "contact": [
+      "面部、手脚突然明显肿胀，尤其伴头痛、视力变化或上腹痛，立即联系产科；单侧腿肿痛也要立即评估。"
+    ],
+    "sourceIds": [
+      "nhs-swelling",
+      "nhs-preeclampsia",
+      "nhs-dvt"
+    ],
+    "warningIds": [
+      "preeclampsia",
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "hand-numbness",
+    "title": "手指麻、夜间腕部不适",
+    "aliases": [
+      "手麻",
+      "腕管综合征",
+      "握不住"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "肌肉与关节",
+    "description": "手指可能麻刺、夜间更明显，有时握力受影响。",
+    "explanation": "腕部神经受压是一种可能原因，需结合检查确认，不能把所有麻木都归为腕管问题。",
+    "care": [
+      "减少反复弯腕和用力抓握，让手腕保持舒适中立位。",
+      "持续不适向医生咨询，是否需要支具由专业人员评估。"
+    ],
+    "contact": [
+      "麻木加重、持续或影响握物应就诊；突然一侧无力、面歪或说话异常，立即拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-carpal",
+      "nhs-stroke-signs"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "urine-leak",
+    "title": "咳嗽、打喷嚏时漏尿",
+    "aliases": [
+      "尿失禁",
+      "憋不住尿"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "大笑、咳嗽或突然用力时，可能漏出少量尿液。",
+    "explanation": "盆底承托变化可能参与；不确定是尿液还是阴道流水时，需要产科判断。",
+    "care": [
+      "向专业人员学习合适的盆底训练；不要用减少全天饮水的方式应对。",
+      "记录发生情境，影响生活时主动告诉产科。"
+    ],
+    "contact": [
+      "持续流液、突然一股水流出或无法确定来源，立即联系产科；尿痛、血尿也需评估。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-labour"
+    ],
+    "warningIds": [
+      "waters"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "vaginal-irritation",
+    "title": "外阴瘙痒、异味或异常白带",
+    "aliases": [
+      "霉菌",
+      "豆腐渣白带",
+      "黄绿白带"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "分泌物伴异味、黄绿颜色、豆腐渣样外观或外阴灼痛瘙痒。",
+    "explanation": "这些表现可能提示感染等问题，外观不能可靠区分病因，孕期用药也有特殊要求。",
+    "care": [
+      "联系医生检查，保持外阴清洁干爽，避免香味洗液和阴道冲洗。",
+      "不要凭既往经验自行口服或阴道用药。"
+    ],
+    "contact": [
+      "出现上述改变及时联系医生；伴发热、腹痛、出血或流水，立即联系产科评估。"
+    ],
+    "sourceIds": [
+      "nhs-discharge",
+      "nhs-thrush"
+    ],
+    "warningIds": [
+      "infection",
+      "waters"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "urinary-pain",
+    "title": "尿痛、血尿或突然尿急",
+    "aliases": [
+      "尿路感染",
+      "小便疼",
+      "膀胱炎"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "排尿刺痛、尿中带血、突然明显尿急，可能伴腹部不适。",
+    "explanation": "尿路感染需要检查和治疗；有时感染并不伴尿痛，不能只看一个症状。",
+    "care": [
+      "当天联系医生，告知孕周、发病时间和伴随症状。",
+      "保持适当饮水，不自行吃抗生素或仅靠多喝水等待。"
+    ],
+    "contact": [
+      "伴发热、寒战、腰侧痛、呕吐或明显不适时及时就医，不等常规产检。"
+    ],
+    "sourceIds": [
+      "nhs-common",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "infection"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "first-movement",
+    "title": "第一次感觉到胎动",
+    "aliases": [
+      "肚子冒泡",
+      "小鱼游",
+      "初次胎动"
+    ],
+    "stages": [
+      "middle"
+    ],
+    "category": "胎动与临产",
+    "description": "初次胎动可能像轻轻冒泡、扑动，通常在16–24周开始察觉。",
+    "explanation": "第一次怀孕可能较晚才认出来；初期感觉不规律，随后逐步熟悉宝宝自己的活动。",
+    "care": [
+      "平常留意宝宝的活动，向产科询问如何认识个人的胎动模式。",
+      "不拿别人的胎动次数比较，也不依赖家用胎心仪判断安全。"
+    ],
+    "contact": [
+      "到24周仍从未感觉胎动，联系产科；已有熟悉活动后减少、消失或明显改变，立即联系产科。"
+    ],
+    "sourceIds": [
+      "nhs-movements"
+    ],
+    "warningIds": [
+      "movement"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "movement-change",
+    "title": "胎动减少、消失或明显改变",
+    "aliases": [
+      "宝宝不动",
+      "胎动变少",
+      "胎动异常"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "胎动与临产",
+    "description": "原本熟悉的活动减少、消失，或活动模式明显不同。",
+    "explanation": "胎动需要结合个人平时模式判断，不靠网站统一次数证明安全，临近预产期也应继续有胎动。",
+    "care": [
+      "立即联系产科或产房评估，说明何时开始与平时有何不同。",
+      "不要等到第二天，也不要靠吃糖、喝冷饮或家用胎心仪后再决定是否就医。"
+    ],
+    "contact": [
+      "一发现变化就联系，不必先等满某个计数时段；联系不上尽快到有产科的医院就诊。"
+    ],
+    "sourceIds": [
+      "nhs-movements"
+    ],
+    "warningIds": [
+      "movement"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "colostrum",
+    "title": "乳房少量渗液",
+    "aliases": [
+      "初乳",
+      "乳头流水",
+      "溢乳"
+    ],
+    "stages": [
+      "late"
+    ],
+    "category": "皮肤与口腔",
+    "description": "有的人孕晚期发现乳头渗出少量液体，也有人完全没有。",
+    "explanation": "孕期可能出现乳房渗液；新出现的乳头分泌物也建议告知医生检查，不凭颜色或是否怀孕自行判定。",
+    "care": [
+      "用柔软内衣或勤换乳垫保持舒适，不反复挤压测试。",
+      "在产检时说明分泌物出现的时间、颜色和是否单侧，便于医生评估。"
+    ],
+    "contact": [
+      "新出现的乳头分泌物应请医生检查；血性、单侧持续分泌物，或伴肿块、红热疼痛，更需及时就诊。"
+    ],
+    "sourceIds": [
+      "nhs-week32",
+      "nhs-nipple-discharge"
+    ],
+    "warningIds": [],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "practice-contractions",
+    "title": "偶尔肚子发紧",
+    "aliases": [
+      "假性宫缩",
+      "练习宫缩",
+      "肚皮硬"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "胎动与临产",
+    "description": "腹部可能偶尔发紧后放松，通常不规律，也不持续越来越强。",
+    "explanation": "练习性宫缩与临产的区别并非每次都能自己判断，孕周和伴随症状很重要。",
+    "care": [
+      "停下活动，舒适休息，记录是否规律、频繁或越来越痛。",
+      "拿不准时联系产科，不把发紧都叫作假性宫缩。"
+    ],
+    "contact": [
+      "未满37周出现规律发紧或怀疑临产，立即联系产科；任何孕周伴出血、流水或胎动改变都要及时评估。"
+    ],
+    "sourceIds": [
+      "nhs-labour",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "waters"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "show",
+    "title": "黏液栓排出、少量血丝黏液",
+    "aliases": [
+      "见红",
+      "果冻状分泌物"
+    ],
+    "stages": [
+      "late"
+    ],
+    "category": "胎动与临产",
+    "description": "临近分娩时可能出现黏稠、胶冻样分泌物，带少量粉红或血丝。",
+    "explanation": "可能是宫颈开始变化的信号，但不能预测几小时后一定分娩，也不能自行把所有出血都当见红。",
+    "care": [
+      "记下孕周、颜色、量与宫缩情况，向产科确认是否需要到院。",
+      "准备好就诊资料，照常关注胎动。"
+    ],
+    "contact": [
+      "未足月、无法分清是否普通见红，或鲜血、出血增多，立即联系产科；大量出血、腹痛或晕厥需急救。"
+    ],
+    "sourceIds": [
+      "nhs-labour",
+      "nhs-discharge",
+      "nhs-bleeding"
+    ],
+    "warningIds": [
+      "bleeding",
+      "waters"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "waters",
+    "title": "突然流水或持续水样渗出",
+    "aliases": [
+      "破水",
+      "羊水",
+      "一直湿"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "胎动与临产",
+    "description": "阴道突然一股液体流出，或少量持续渗出，可能与尿液、分泌物难区分。",
+    "explanation": "是否破水需要产科评估，不能仅凭气味、颜色或能否憋住自行确定。",
+    "care": [
+      "立即联系产科，垫卫生巾观察颜色和时间，不放卫生棉条、不自行内检。",
+      "按照产科指引就诊；不要因没有宫缩就继续等待。"
+    ],
+    "contact": [
+      "液体有颜色或异味、伴发热、出血、腹痛、胎动改变或未足月，更应立即告知；大量出血或明显不适拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-labour",
+      "nhs-symptom-help"
+    ],
+    "warningIds": [
+      "waters",
+      "infection"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "labour",
+    "title": "宫缩越来越规律、增强",
+    "aliases": [
+      "临产",
+      "早产",
+      "阵痛",
+      "腰酸下坠"
+    ],
+    "stages": [
+      "middle",
+      "late"
+    ],
+    "category": "胎动与临产",
+    "description": "腹部发紧伴疼痛，逐渐更强、更密、更规律，可能伴腰酸或下坠感。",
+    "explanation": "不能只按一条网上的宫缩间隔决定是否就医，既往分娩史、孕周与到院距离都会影响安排。",
+    "care": [
+      "联系产科，说明孕周、宫缩间隔与持续时间、是否流水或出血。",
+      "按医院个人分娩计划出发，伴侣准备交通和证件。"
+    ],
+    "contact": [
+      "未满37周怀疑临产立即联系；有强烈排便感、想用力、感觉宝宝要出生，或大量出血、剧痛、晕厥时立即拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-labour",
+      "nhs-abdominal"
+    ],
+    "warningIds": [
+      "waters"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "breathlessness",
+    "title": "活动时更容易气短",
+    "aliases": [
+      "气促",
+      "喘不过气",
+      "呼吸不畅"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "孕期活动时可能比平时更容易气短，腹部增大后也可能更明显。",
+    "explanation": "气短也可能与其他健康问题有关，不能靠怀孕本身解释新发或不断加重的症状。",
+    "care": [
+      "放慢活动节奏，出现气短时停下休息，记录何时出现及是否伴心慌。",
+      "新发、反复或影响日常活动时联系产科评估，不自行吃补铁药或吸氧。"
+    ],
+    "contact": [
+      "突然气短、平卧时呼吸困难、胸痛、晕眩或单侧腿肿痛，立即就医；明显呼吸困难立即拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-symptom-help",
+      "nhs-dvt"
+    ],
+    "warningIds": [
+      "thrombosis"
+    ],
+    "careLevel": "self-care",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "bleeding",
+    "title": "阴道出血或血性分泌物",
+    "aliases": [
+      "褐色分泌物",
+      "粉色",
+      "流血",
+      " spotting"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "泌尿与分泌物",
+    "description": "少量点滴、褐色、粉色或鲜红血液，都应告知产科。",
+    "explanation": "原因可以涉及宫颈、妊娠位置或妊娠结局等；不能凭颜色、血量或受孕方式自己确定原因。",
+    "care": [
+      "尽快联系产科，说明孕周、自然受孕还是辅助生殖、用药与超声结果。",
+      "记录出血量和伴随症状，不自行停用或加用黄体支持、止血或所谓保胎药。"
+    ],
+    "contact": [
+      "大量出血、剧烈或单侧腹痛、肩痛、明显头晕或晕厥，立即寻求急救；已见宫内孕也不能忽略危险症状。"
+    ],
+    "sourceIds": [
+      "cn-early-bleeding",
+      "nhs-bleeding",
+      "nice-early"
+    ],
+    "warningIds": [
+      "bleeding",
+      "ectopic"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "fever",
+    "title": "发热、寒战或明显全身不适",
+    "aliases": [
+      "发烧",
+      "体温高",
+      "发冷"
+    ],
+    "stages": [
+      "early",
+      "middle",
+      "late"
+    ],
+    "category": "循环与呼吸",
+    "description": "体温达到38℃，或觉得异常发热、发冷打战、明显不舒服。",
+    "explanation": "发热可能提示感染，需及时查找原因；与单纯比平时怕热不同。",
+    "care": [
+      "测量并记录体温、孕周与其他症状，及时联系医生。",
+      "能饮水时适当补水，药物选择先咨询医生或药师，不用草药或抗生素自行处理。"
+    ],
+    "contact": [
+      "伴出血、流液、腹痛、气促、意识改变或病情迅速加重，立即就医，严重时拨打120。"
+    ],
+    "sourceIds": [
+      "nhs-symptom-help",
+      "nhs-labour",
+      "nhs-bleeding"
+    ],
+    "warningIds": [
+      "infection"
+    ],
+    "careLevel": "contact",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  }
+]

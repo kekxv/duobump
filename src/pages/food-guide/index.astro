@@ -1,0 +1,335 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import foods from '../../data/foods.json';
+import { riskLabels, getRecommendedPreparation, filterFoods } from '../../lib/food-search';
+import { url } from '../../lib/urls';
+const categories = [...new Set(foods.map((f) => f.category))];
+const suggestedCount = filterFoods(foods, { query: '', recommendedOnly: true }).length;
+---
+
+<BaseLayout title="食物安心速查" section="食物速查">
+  <div class="page-content" id="food-guide-root" data-food-view="all">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">A LITTLE KNOWLEDGE FOR EVERY BITE</span>
+        <h1>每一口，都更安心。</h1>
+        <p>想知道某种食物能不能吃？搜一搜，了解怎么挑、怎么做，以及需要注意什么。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="food" size={30} />
+      </div>
+    </div>
+    <section class="panel food-evidence-intro" aria-labelledby="food-evidence-title">
+      <h2 id="food-evidence-title">饮食建议的参考资料</h2>
+      <p>
+        查阅国内医院的饮食科普和中医食养资料，了解建议的依据，以及哪些情况需要咨询医生。
+      </p>
+      <details>
+        <summary>孕期参考中医食养资料，要注意什么？</summary>
+        <p>
+          药膳和草药代茶需要结合个人情况，普通成人的食养方不一定适合孕妇。资料中的“寒凉”“温热”等说法，不能直接说明孕期食用是否安全，也不能用来判断流产风险。想用药膳或中药调理时，请先咨询了解你孕情的医生或药师。
+        </p>
+      </details>
+      <a href={`${url('/references/')}#cn-food-balance`}>
+        查看国内饮食资料 <Icon name="arrow" size={13} />
+      </a>
+      <a href={`${url('/references/')}#cn-tcm-herbs`}>
+        查看中医食养资料 <Icon name="arrow" size={13} />
+      </a>
+    </section>
+    <div class="food-search-panel">
+      <div class="filter-row food-mode-row" role="group" aria-label="浏览方式">
+        <span class="filter-label">浏览</span>
+        <button type="button" class="filter-chip" data-food-mode="all" aria-pressed="true">
+          全部速查
+        </button>
+        <button type="button" class="filter-chip" data-food-mode="recommended" aria-pressed="false">
+          <Icon name="leaf" size={14} /> 建议食物
+        </button>
+      </div>
+      <label class="search-field food-input-wrap">
+        <Icon name="search" />
+        <input
+          id="food-search"
+          type="search"
+          placeholder="搜索食物，比如：咖啡、三文鱼、螃蟹…"
+          aria-label="搜索食物"
+          autocomplete="off"
+        />
+      </label>
+      <div class="filter-row" aria-label="食物分类">
+        <span class="filter-label">分类</span>
+        <button class="filter-chip" data-category="" aria-pressed="true">
+          全部食物
+        </button>
+        {categories.map((cat) => (
+          <button class="filter-chip" data-category={cat} aria-pressed="false">
+            {cat}
+          </button>
+        ))}
+      </div>
+      <div class="filter-row" aria-label="风险条件">
+        <span class="filter-label">条件</span>
+        <button class="filter-chip" data-risk="" aria-pressed="true">
+          全部条件
+        </button>
+        {Object.entries(riskLabels).map(([key, label]) => (
+          <button class="filter-chip" data-risk={key} aria-pressed="false">
+            {label}
+          </button>
+        ))}
+      </div>
+      <noscript>
+        <p class="tiny muted" style="margin-top:16px">
+          搜索筛选需要 JavaScript。你仍可浏览下方全部食物并打开详情。
+        </p>
+      </noscript>
+    </div>
+    <section
+      class="recommended-food-note"
+      id="recommended-food-note"
+      hidden
+      aria-labelledby="recommended-food-title"
+    >
+      <div>
+        <span class="eyebrow">EVERYDAY FOOD IDEAS</span>
+        <h2 id="recommended-food-title">不知道吃什么？从这些食材开始搭配。</h2>
+        <p>
+          精选 {suggestedCount}{' '}
+          种日常食材，涵盖主食、蛋奶豆类、鱼肉、蔬果和坚果。按卡片中的做法选择，注意份量，也可以搭配其他适合自己的食物，不必每样都吃。
+        </p>
+        <p>过敏、乳糖不耐受、妊娠期糖尿病等情况，请按个人饮食方案调整。</p>
+      </div>
+      <div class="recommended-food-links">
+        <a href={`${url('/references/')}#cn-food-balance`}>
+          查看饮食搭配参考 <Icon name="arrow" size={13} />
+        </a>
+        <a href={url('/recipes/')}>
+          看看一日菜单 <Icon name="arrow" size={13} />
+        </a>
+      </div>
+    </section>
+    <div class="food-results-heading">
+      <h2>
+        <span id="food-results-title">食物速查</span>{' '}
+        <span class="tiny muted" id="food-count" role="status">
+          · {foods.length} 种食物
+        </span>
+      </h2>
+      <button class="text-button" id="clear-food">
+        清除筛选 <Icon name="reset" size={13} />
+      </button>
+    </div>
+    <div class="food-grid">
+      {foods.map((food) => {
+        const recommendation = getRecommendedPreparation(food);
+        const mixed = new Set(food.preparations.map((p) => p.risk)).size > 1;
+        const risk = mixed ? 'conditional' : food.preparations[0].risk;
+        return (
+          <article class="food-card" data-food-card data-food-id={food.id}>
+            <a href={url(`/food-guide/${food.slug}/`)}>
+              <div class="food-card-top">
+                <span class="food-emoji" aria-hidden="true">
+                  {food.emoji}
+                </span>
+                <span data-general-copy class:list={['risk-badge', risk]}>
+                  {mixed ? '需看具体做法' : riskLabels[risk]}
+                </span>
+                {recommendation && (
+                  <span data-recommended-copy class="risk-badge usually-ok">
+                    推荐做法
+                  </span>
+                )}
+              </div>
+              <h3>{food.name}</h3>
+              <p data-general-copy>{food.summary}</p>
+              {recommendation && (
+                <p data-recommended-copy class="recommended-preparation">
+                  <strong>{recommendation.label}</strong>
+                  <span>{recommendation.conditions}</span>
+                </p>
+              )}
+              <div class="food-card-bottom">
+                <span>{food.category}</span>
+                <span>
+                  查看食用建议 <Icon name="arrow" size={13} />
+                </span>
+              </div>
+            </a>
+          </article>
+        );
+      })}
+    </div>
+    <div id="food-empty" class="empty-state" hidden>
+      <Icon name="search" size={29} />
+      <h3>暂时没有找到这种食物</h3>
+      <p>试试其他名称，或清除筛选。未收录不代表安全，不确定时请咨询专业人员。</p>
+      <a href={url('/emergency/')} class="subtle-link">
+        吃后不适？查看就医提示 <Icon name="arrow" size={15} />
+      </a>
+    </div>
+    <div class="info-note" style="margin-top:23px">
+      <Icon name="info" size={17} />
+      <p>
+        “通常可选”不代表不限量或适合每个人。食物过敏、妊娠期糖尿病等情况下，请以个人饮食方案为准。
+        <strong>内容已对照所列资料整理，尚未完成专业医学审核。</strong>
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+<script>
+  import foods from '../../data/foods.json';
+  import { filterFoods } from '../../lib/food-search';
+  const input = document.querySelector<HTMLInputElement>('#food-search')!;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-food-card]'));
+  const count = document.querySelector('#food-count')!;
+  let category = '',
+    risk = '',
+    mode = 'all';
+  function update() {
+    const matches = new Set(
+      filterFoods(foods, {
+        query: input.value,
+        category,
+        risk,
+        recommendedOnly: mode === 'recommended',
+      }).map((f) => f.id),
+    );
+    cards.forEach((card) => (card.hidden = !matches.has(card.dataset.foodId!)));
+    count.textContent = `· ${matches.size} 种食物`;
+    document.querySelector<HTMLElement>('#food-guide-root')!.dataset.foodView = mode;
+    document.querySelector<HTMLElement>('#recommended-food-note')!.hidden = mode !== 'recommended';
+    document.querySelector('#food-results-title')!.textContent =
+      mode === 'recommended' ? '适合日常搭配的食物' : '食物速查';
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-food-mode]')
+      .forEach((button) =>
+        button.setAttribute('aria-pressed', String(button.dataset.foodMode === mode)),
+      );
+    document.querySelector<HTMLElement>('#food-empty')!.hidden = matches.size !== 0;
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-category]')
+      .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.category === category)));
+    document
+      .querySelectorAll<HTMLButtonElement>('[data-risk]')
+      .forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.risk === risk)));
+  }
+  input.addEventListener('input', update);
+  document.querySelectorAll<HTMLButtonElement>('[data-food-mode]').forEach((button) =>
+    button.addEventListener('click', () => {
+      mode = button.dataset.foodMode!;
+      update();
+    }),
+  );
+  document.querySelectorAll<HTMLButtonElement>('[data-category]').forEach((b) =>
+    b.addEventListener('click', () => {
+      category = b.dataset.category!;
+      update();
+    }),
+  );
+  document.querySelectorAll<HTMLButtonElement>('[data-risk]').forEach((b) =>
+    b.addEventListener('click', () => {
+      risk = b.dataset.risk!;
+      update();
+    }),
+  );
+  document.querySelector('#clear-food')!.addEventListener('click', () => {
+    input.value = '';
+    category = '';
+    risk = '';
+    mode = 'all';
+    update();
+    input.focus();
+  });
+</script>
+
+<style>
+  .food-evidence-intro {
+    margin-bottom: 24px;
+  }
+  .food-evidence-intro h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+  .food-evidence-intro p {
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 10px 0;
+  }
+  .food-evidence-intro summary {
+    cursor: pointer;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  .food-evidence-intro > a {
+    display: inline-block;
+    margin: 12px 20px 0 0;
+    font-size: 12px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .food-mode-row {
+    margin-bottom: 18px;
+  }
+  .food-mode-row button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  [data-food-view='all'] [data-recommended-copy],
+  [data-food-view='recommended'] [data-general-copy] {
+    display: none;
+  }
+  .recommended-food-note {
+    border: 1px solid #dce5d2;
+    border-radius: 18px;
+    background: #edf3e6;
+    padding: 23px;
+    margin: 22px 0;
+    color: #40563b;
+  }
+  .recommended-food-note h2 {
+    font-size: 21px;
+    line-height: 1.65;
+    margin: 7px 0 10px;
+  }
+  .recommended-food-note p {
+    font-size: 13px;
+    line-height: 1.95;
+    margin-top: 7px;
+  }
+  .recommended-food-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    font-size: 12px;
+  }
+  .recommended-food-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .recommended-preparation strong {
+    display: block;
+    font-weight: 600;
+    color: #40563b;
+    margin-bottom: 6px;
+  }
+  .recommended-preparation span {
+    display: block;
+    line-height: 1.9;
+  }
+  @media (max-width: 640px) {
+    .recommended-food-note {
+      padding: 18px;
+    }
+    .recommended-food-note h2 {
+      font-size: 19px;
+    }
+  }
+</style>

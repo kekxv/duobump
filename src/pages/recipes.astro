@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import SourcePanel from '../components/SourcePanel.astro';
+import recipes from '../data/recipes.json';
+const stageNames = { early: '孕早期', middle: '孕中期', late: '孕晚期' };
+---
+
+<BaseLayout title="分阶段营养食谱" section="营养食谱">
+  <div class="page-content">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">NOURISH THE EVERYDAY</span>
+        <h1>好好吃饭，也是温柔的照顾。</h1>
+        <p>按孕期阶段准备的三套一日菜单，主食、蛋白质和蔬菜都有搭配，可根据胃口和个人情况替换。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="bowl" size={30} />
+      </div>
+    </div>
+    <div class="info-note">
+      <Icon name="info" size={17} />
+      <p>
+        以下菜单供日常搭配参考，具体份量和食材需根据个人情况调整。
+        <strong>过敏、妊娠期糖尿病、贫血或其他特殊情况，请使用专业人员为你制定的方案。</strong>
+      </p>
+    </div>
+    <div class="content-grid">
+      <div>
+        <div class="recipe-tabs" role="tablist" aria-label="按孕期阶段选择食谱">
+          {recipes.map((r, i) => (
+            <button
+              role="tab"
+              id={`recipe-tab-${r.id}`}
+              aria-controls={`recipe-${r.id}`}
+              aria-selected={i === 0 ? 'true' : 'false'}
+              tabindex={i === 0 ? 0 : -1}
+              data-recipe-tab={r.id}
+            >
+              {stageNames[r.stage as keyof typeof stageNames]}
+            </button>
+          ))}
+        </div>
+        {recipes.map((r) => (
+          <section
+            class="recipe-panel"
+            id={`recipe-${r.id}`}
+            role="tabpanel"
+            aria-labelledby={`recipe-tab-${r.id}`}
+            data-recipe-panel={r.id}
+          >
+            <div class="recipe-header">
+              <span aria-hidden="true">{r.emoji}</span>
+              <div>
+                <h2>{r.title}</h2>
+                <p>{r.subtitle}</p>
+              </div>
+            </div>
+            <div class="meal-grid">
+              {r.meals.map((meal) => (
+                <article class="meal-card">
+                  <span class="meal-slot">
+                    <Icon name={meal.slot === '加餐' ? 'leaf' : 'sun'} size={15} />
+                    {meal.slot}
+                  </span>
+                  <h3>{meal.dishes}</h3>
+                  <p>搭配提示：{meal.swaps}</p>
+                  {meal.allergens.length > 0 && (
+                    <span class="allergen">含：{meal.allergens.join('、')}</span>
+                  )}
+                </article>
+              ))}
+            </div>
+            <div class="recipe-foot">
+              <Icon name="info" size={14} /> {r.notes}
+            </div>
+          </section>
+        ))}
+        <noscript>
+          <p class="tiny muted" style="margin:15px 0">
+            未开启 JavaScript，下面按顺序展示三阶段菜单。
+          </p>
+        </noscript>
+        <div class="panel" style="margin-top:20px">
+          <h2 style="font-size:16px;font-weight:500">比固定菜单更实用的三个习惯</h2>
+          <p class="tiny muted" style="margin-top:12px;line-height:2.1">
+            ① 每天让食物多一点变化，不只追求某一种补品。
+            <br />② 肉、鱼、蛋充分熟制，蔬果清洗妥当，剩菜正确储存与加热。
+            <br />③ 按个人胃口、过敏情况和医嘱替换，不必勉强吃完规定份量。
+          </p>
+        </div>
+      </div>
+      <aside class="article-side">
+        <SourcePanel ids={['nhs-nutrition', 'nhs-food']} />
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+<script>
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-recipe-tab]'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-recipe-panel]'));
+  function select(tab: HTMLButtonElement) {
+    tabs.forEach((t) => {
+      t.setAttribute('aria-selected', String(t === tab));
+      t.tabIndex = t === tab ? 0 : -1;
+    });
+    panels.forEach((p) => (p.hidden = p.dataset.recipePanel !== tab.dataset.recipeTab));
+  }
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        const next = tabs[(i + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+        select(next);
+        next.focus();
+      }
+    });
+  });
+  select(tabs[0]);
+</script>

@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import appointments from '../data/appointments.json';
+import sources from '../data/sources.json';
+import { url } from '../lib/urls';
+const groups = [
+  {
+    id: 'early',
+    number: '01',
+    title: '孕早期',
+    weeks: '0–13 周 + 6 天',
+    text: '了解建档要求，提前安排适合自己的筛查。',
+    color: 'sage',
+  },
+  {
+    id: 'middle',
+    number: '02',
+    title: '孕中期',
+    weeks: '14–27 周 + 6 天',
+    text: '提前预约重要检查，也为结果留出沟通时间。',
+    color: 'peach',
+  },
+  {
+    id: 'late',
+    number: '03',
+    title: '孕晚期',
+    weeks: '28 周起',
+    text: '留意身体变化，确认入院和分娩安排。',
+    color: 'lavender',
+  },
+  {
+    id: 'all',
+    number: '＋',
+    title: '贯穿整个孕期',
+    weeks: '依个人产检计划',
+    text: '每次产检都值得主动说说身体和心情的变化。',
+    color: 'sage',
+  },
+];
+---
+
+<BaseLayout
+  title="产检与准备"
+  description="按阶段了解产检目的、检查前准备、就诊材料与应向医生询问的问题，附官方参考来源。"
+  section="产检与准备"
+>
+  <div class="page-content appointments-page">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">A LITTLE PREPARATION, A CALMER VISIT</span>
+        <h1>产检要做什么，提前准备哪些？</h1>
+        <p>按孕期阶段了解检查目的、预约时间和注意事项，记下需要向医生询问的问题。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="calendar" size={32} />
+      </div>
+    </div>
+    <div class="info-note">
+      <Icon name="info" size={19} />
+      <p>
+        <strong>具体检查项目和时间，以就诊医院的安排为准。</strong> 本页参考国内医院科普及英国 NHS
+        资料，帮助你了解检查、做好准备。预约、费用及是否需要空腹，请提前向医院确认。有不适时，不必等到下一次产检。
+      </p>
+    </div>
+    <section class="visit-starter" aria-labelledby="visit-starter-title">
+      <div class="visit-starter-intro">
+        <span class="eyebrow">BEFORE YOU GO</span>
+        <h2 id="visit-starter-title">
+          每次出门前，
+          <br />
+          核对这四件事。
+        </h2>
+        <p>
+          记下身体变化和想问的问题，
+          <br />
+          也可以请伴侣一起核对。
+        </p>
+      </div>
+      <div class="visit-prep-grid">
+        {[
+          ['01', '预约与路线', '确认日期、院区、报到地点、是否空腹，以及到院后的检查顺序。'],
+          ['02', '证件与报告', '带好证件、产检记录、既往报告和用药清单，其他材料按医院要求准备。'],
+          ['03', '变化与问题', '记下症状、发生时间和想问的两三个问题；不确定的结果请医生解释。'],
+          ['04', '结果与下一次', '确认报告何时出、谁负责解读、异常如何联系，并预约下一次检查。'],
+        ].map(([number, title, text]) => (
+          <div class="visit-prep-item">
+            <span>{number}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <nav class="appointment-jumps" aria-label="按孕期阶段跳转">
+      {groups.map((g) => (
+        <a href={`#${g.id}`}>
+          <span class:list={['jump-dot', g.color]}></span>
+          {g.title}
+          <Icon name="arrow" size={14} />
+        </a>
+      ))}
+    </nav>
+    <div class="appointment-layout">
+      <div class="appointment-main">
+        {groups.map((g) => (
+          <section id={g.id} class="appointment-group" aria-labelledby={`heading-${g.id}`}>
+            <div class="appointment-group-heading">
+              <span class:list={['chapter-number', g.color]}>{g.number}</span>
+              <div>
+                <span class="eyebrow">{g.weeks}</span>
+                <h2 id={`heading-${g.id}`}>{g.title}</h2>
+                <p>{g.text}</p>
+              </div>
+            </div>
+            <div class="appointment-cards">
+              {appointments
+                .filter((item) => item.stage === g.id)
+                .map((item) => (
+                  <article class="appointment-card" id={`check-${item.id}`}>
+                    <span class="appointment-when">
+                      <Icon name="clock" size={14} />
+                      {item.when}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p class="appointment-purpose">{item.purpose}</p>
+                    <p class="muted" style="font-size:12px;margin-bottom:12px">
+                      {item.kind}
+                    </p>
+                    <details>
+                      <summary>
+                        检查怎么做，能了解什么？ <Icon name="chevron" size={15} />
+                      </summary>
+                      <div data-explanation class="check-explanation">
+                        <h4>原理与过程</h4>
+                        <p>{item.how}</p>
+                        <h4>检查有哪些局限</h4>
+                        <p>{item.limitations}</p>
+                        <h4>拿到结果后怎么办</h4>
+                        <p>{item.followUp}</p>
+                      </div>
+                    </details>
+                    <details open>
+                      <summary>
+                        检查前需要准备什么 <Icon name="chevron" size={15} />
+                      </summary>
+                      <ul>
+                        {item.prepare.map((p) => (
+                          <li>{p}</li>
+                        ))}
+                      </ul>
+                    </details>
+                    <div class="doctor-questions">
+                      <span>
+                        <Icon name="users" size={15} /> 可以这样问医生
+                      </span>
+                      {item.questions.map((q) => (
+                        <p>“{q}”</p>
+                      ))}
+                    </div>
+                    {item.note && (
+                      <p class="appointment-note">
+                        <Icon name="info" size={15} />
+                        <span>{item.note}</span>
+                      </p>
+                    )}
+                    <div class="appointment-sources">
+                      参考：
+                      {item.sourceIds.map((id) => {
+                        const source = sources.find((s) => s.id === id)!;
+                        return (
+                          <a href={`${url('/references/')}#${id}`}>
+                            {source.chineseTitle}
+                            <Icon name="arrow" size={11} />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </article>
+                ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      <aside class="visit-aside">
+        <div class="panel">
+          <span class="eyebrow">GOOD TO KNOW</span>
+          <h3>筛查 ≠ 诊断</h3>
+          <p>
+            NIPT
+            的“检出率”“特异度”和“阳性预测值”含义不同，不能用一个“准确率”来概括。“低风险”不代表排除所有问题，“高风险”也不等于确诊。是否需要进一步检查，请与医生充分讨论后决定。
+          </p>
+          <a href={`${url('/references/')}#nhs-genetics`} class="subtle-link">
+            了解筛查的依据 <Icon name="arrow" size={14} />
+          </a>
+        </div>
+        <div class="panel">
+          <h3>出血后，如何理解数字？</h3>
+          <p>自然受孕、人工授精与试管不能混用一组概率。数据要同时看人群、分母、孕周和结局。</p>
+          <a href={url('/risk-guide/')} class="subtle-link">
+            了解相关研究数据 <Icon name="arrow" size={14} />
+          </a>
+        </div>
+        <div class="panel">
+          <h3>伴侣的小任务</h3>
+          <ul class="visit-partner-tasks">
+            <li>预约、请假、查路线。</li>
+            <li>整理报告，记下医生的回答。</li>
+            <li>安排返程与餐食，给对方休息时间。</li>
+            <li>先征求意愿，再参与医疗讨论。</li>
+          </ul>
+        </div>
+        <a href={url('/checklist/')} class="visit-aside-link">
+          <Icon name="bag" size={20} />
+          <span>
+            开始整理待产包<small>可勾选 · 记录物品放在哪里</small>
+          </span>
+          <Icon name="arrow" size={16} />
+        </a>
+        <a href={url('/emergency/')} class="visit-aside-link danger-link">
+          <Icon name="alert" size={20} />
+          <span>
+            出现异常，及时就医<small>查看紧急就医信号</small>
+          </span>
+          <Icon name="arrow" size={16} />
+        </a>
+      </aside>
+    </div>
+    <div class="gentle-banner">
+      <span>
+        <Icon name="book" size={20} />
+        <strong>每一条建议，都可以回到来源。</strong>
+      </span>
+      <p>本页更新于 2026-11-08 · 资料已核查，待专业医学审核。</p>
+      <a href={url('/references/')}>
+        查看参考资料 <Icon name="arrow" size={15} />
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .appointment-card {
+    scroll-margin-top: 100px;
+  }
+  .check-explanation {
+    padding: 10px 0 15px;
+  }
+  .check-explanation h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 12px 0 6px;
+    color: #455b3c;
+  }
+  .check-explanation p {
+    font-size: 13px;
+    line-height: 1.95;
+    color: #53634a;
+  }
+</style>

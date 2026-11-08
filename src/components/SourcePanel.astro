@@ -1,0 +1,35 @@
+---
+import sources from '../data/sources.json';
+import Icon from './Icon.astro';
+import { url } from '../lib/urls';
+interface Props {
+  ids: string[];
+  preferChineseTitle?: boolean;
+}
+const { ids, preferChineseTitle = false } = Astro.props;
+const selected = sources.filter((s) => ids.includes(s.id));
+---
+
+<div class="panel source-panel" data-pagefind-ignore>
+  <h3 class="source-heading">
+    <Icon name="book" size={15} /> 资料来源
+  </h3>
+  {selected.map((s) => (
+    <div class="source-item">
+      <a href={s.url} target="_blank" rel="noopener noreferrer">
+        {preferChineseTitle ? s.chineseTitle : s.title} <Icon name="external" size={11} />
+      </a>
+      <span>{s.organization}</span>
+      <br />
+      <span>适用地区：{s.region}</span>
+      <br />
+      <span>资料核查：{s.checkedAt}</span>
+    </div>
+  ))}
+  <a href={url('/references/')} class="subtle-link">
+    查看全部参考资料 <Icon name="arrow" size={13} />
+  </a>
+  <p class="tiny muted" style="margin-top:16px;font-size:9px">
+    已对照所列资料整理，尚未完成专业医学审核。个人检查、饮食和用药安排，请与医生确认。
+  </p>
+</div>

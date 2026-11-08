@@ -1,0 +1,149 @@
+[
+  {
+    "id": "early",
+    "stage": "early",
+    "title": "清淡一些，也照顾胃口",
+    "subtitle": "孕早期 · 少量多餐，按耐受调整",
+    "emoji": "🥣",
+    "meals": [
+      {
+        "slot": "早餐",
+        "dishes": "全麦吐司 + 全熟鸡蛋 + 温水",
+        "swaps": "吐司可换燕麦粥；不适时分次进食。",
+        "allergens": [
+          "蛋",
+          "小麦"
+        ]
+      },
+      {
+        "slot": "午餐",
+        "dishes": "清蒸鱼 + 清炒菜心 + 小米杂粮饭",
+        "swaps": "鱼可换熟豆腐或去皮鸡肉。",
+        "allergens": [
+          "鱼"
+        ]
+      },
+      {
+        "slot": "加餐",
+        "dishes": "无糖酸奶 + 少量坚果",
+        "swaps": "乳糖不耐受时选择适合自己的替代品。",
+        "allergens": [
+          "奶",
+          "坚果"
+        ]
+      },
+      {
+        "slot": "晚餐",
+        "dishes": "山药排骨 + 熟西兰花 + 杂粮饭",
+        "swaps": "吃肉和蔬菜，不只喝汤。",
+        "allergens": []
+      }
+    ],
+    "notes": "反复呕吐、无法进食饮水或明显不适，应联系产科。",
+    "sourceIds": [
+      "nhs-nutrition",
+      "nhs-food"
+    ],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "middle",
+    "stage": "middle",
+    "title": "吃得多样，搭配更均衡",
+    "subtitle": "孕中期 · 主食、蛋白质食物和蔬菜都要搭配",
+    "emoji": "🥗",
+    "meals": [
+      {
+        "slot": "早餐",
+        "dishes": "巴氏奶或灭菌奶 + 燕麦 + 全熟鸡蛋 + 蓝莓",
+        "swaps": "蓝莓可换洗净的当季水果。",
+        "allergens": [
+          "奶",
+          "蛋"
+        ]
+      },
+      {
+        "slot": "午餐",
+        "dishes": "彩椒炒牛肉+ 香菇青菜 + 杂粮饭",
+        "swaps": "牛肉可换鸡肉或豆腐。",
+        "allergens": []
+      },
+      {
+        "slot": "加餐",
+        "dishes": "无糖酸奶 + 少量核桃",
+        "swaps": "坚果过敏时改选适合的水果。",
+        "allergens": [
+          "奶",
+          "坚果"
+        ]
+      },
+      {
+        "slot": "晚餐",
+        "dishes": "鲫鱼炖豆腐 + 蒜蓉西兰花 + 紫薯",
+        "swaps": "紫薯计入主食，鱼肉充分熟制并注意鱼刺。",
+        "allergens": [
+          "鱼",
+          "大豆"
+        ]
+      }
+    ],
+    "notes": "不是“吃两个人的份量”。补铁补钙需结合饮食和个人医嘱。",
+    "sourceIds": [
+      "nhs-nutrition",
+      "nhs-food"
+    ],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "late",
+    "stage": "late",
+    "title": "规律吃饭，按胃口调整",
+    "subtitle": "孕晚期 · 均衡搭配，关注份量与舒适度",
+    "emoji": "🍲",
+    "meals": [
+      {
+        "slot": "早餐",
+        "dishes": "煮熟的无糖豆浆 + 蒸红薯 + 全熟鸡蛋",
+        "swaps": "红薯可换全麦面包。",
+        "allergens": [
+          "大豆",
+          "蛋"
+        ]
+      },
+      {
+        "slot": "午餐",
+        "dishes": "清蒸鳕鱼+ 白灼秋葵 + 糙米饭",
+        "swaps": "鳕鱼可换鸡肉；鱼类交替食用。",
+        "allergens": [
+          "鱼"
+        ]
+      },
+      {
+        "slot": "加餐",
+        "dishes": "适量苹果 + 少量巴旦木",
+        "swaps": "按个人控糖或过敏方案调整。",
+        "allergens": [
+          "坚果"
+        ]
+      },
+      {
+        "slot": "晚餐",
+        "dishes": "冬瓜煮虾仁 + 炒青菜 + 杂粮馒头",
+        "swaps": "虾过敏时替换熟豆腐。",
+        "allergens": [
+          "甲壳类",
+          "小麦"
+        ]
+      }
+    ],
+    "notes": "这不是妊娠期糖尿病的治疗食谱；确诊后使用个人化营养方案。",
+    "sourceIds": [
+      "nhs-nutrition",
+      "nhs-food"
+    ],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  }
+]

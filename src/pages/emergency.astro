@@ -1,0 +1,78 @@
+---
+import { getEntry, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import warnings from '../data/warning-signs.json';
+import WarningSigns from '../components/WarningSigns.astro';
+import { url } from '../lib/urls';
+import SourcePanel from '../components/SourcePanel.astro';
+const entry = (await getEntry('guides', 'emergency'))!;
+const { Content } = await render(entry);
+const printableSourceIds = [
+  ...new Set([...entry.data.sourceIds, ...warnings.flatMap((warning) => warning.sourceIds)]),
+];
+---
+
+<BaseLayout title="紧急情况与就医" section="紧急就医">
+  <div class="page-content">
+    <div class="page-intro">
+      <span class="eyebrow">WHEN TO GET HELP</span>
+      <h1 data-pagefind-meta="title">
+        出现这些症状，请及时就医。<span class="sr-only">紧急就医</span>
+      </h1>
+      <p>了解需要留意的症状，以及何时联系产科、何时呼叫急救。</p>
+    </div>
+    <section class="emergency-intro">
+      <Icon name="phone" size={30} />
+      <div>
+        <h2>出现严重症状，立即呼叫 120</h2>
+        <p>
+          大量出血、晕厥或意识异常、抽搐、严重呼吸困难、胸痛，或剧烈持续腹痛等，立即寻求急救。不要独自驾车，不为收拾物品耽误求助。
+        </p>
+        <a class="button" href="tel:120">
+          <Icon name="phone" size={16} /> 呼叫 120
+        </a>
+      </div>
+    </section>
+    <div class="info-note">
+      <Icon name="info" size={17} />
+      <p>
+        本页是<strong>待专业审核的科普预览</strong>，不能用来排除急症。中国大陆以 120
+        为急救号码；在其他地区请联系当地急救服务。
+      </p>
+    </div>
+    <p style="margin:22px 0">
+      <a class="subtle-link" href={url('/risk-guide/')}>
+        了解出血与受孕方式的数据 <Icon name="arrow" size={14} />
+      </a>
+    </p>
+    <div class="content-grid">
+      <article class="article-body">
+        <Content />
+        <div class="source-footer">
+          资料核查：2026-11-08 · 待专业医学审核。出现不适时，请直接联系当地医疗机构。
+        </div>
+      </article>
+      <aside class="article-side print-sources">
+        <div class="panel">
+          <h3>联系医院前记住</h3>
+          <p class="tiny muted">
+            孕周、症状开始时间、出血或流液情况、胎动变化、你当前的位置。无法完整说明时，先求助。
+          </p>
+          <button
+            class="button secondary full no-print"
+            id="print-emergency"
+            style="margin-top:14px"
+          >
+            <Icon name="print" size={15} /> 打印本页
+          </button>
+        </div>
+        <SourcePanel ids={printableSourceIds} />
+      </aside>
+    </div>
+    <WarningSigns />
+  </div>
+</BaseLayout>
+<script>
+  document.querySelector('#print-emergency')?.addEventListener('click', () => window.print());
+</script>

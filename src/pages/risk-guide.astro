@@ -1,0 +1,523 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import evidence from '../data/risk-evidence.json';
+import { url } from '../lib/urls';
+const labels: Record<string, string> = {
+  natural: '自然受孕研究',
+  assisted: '辅助生殖研究',
+  clinical: '检查所见研究',
+};
+const effects: Record<string, string> = { HR: 'HR', OR: 'OR', 'adjusted-OR': '调整 OR' };
+const percentage = (n: number, d: number) => {
+  const p = (n / d) * 100;
+  return p.toFixed(p < 1 ? 2 : 1) + '%';
+};
+---
+
+<BaseLayout
+  title="异常与概率"
+  description="区分自然受孕、人工授精、试管与不同移植周期，了解早孕出血、血肿及妊娠风险数据的研究人群、分母和局限。"
+  section="异常与概率"
+>
+  <div class="page-content evidence-page">
+    <div class="page-intro">
+      <span class="eyebrow">UNDERSTAND THE NUMBERS</span>
+      <h1>怎样理解孕期出血的概率？</h1>
+      <p>不同受孕方式、孕周和症状，对应的研究数据并不相同。先了解研究了谁，再看数字意味着什么。</p>
+    </div>
+    <section class="risk-alert" data-risk-emergency aria-label="出现症状先求助">
+      <Icon name="alert" size={24} />
+      <div>
+        <h2>正在出血或不舒服，先联系产科。</h2>
+        <p>
+          大量出血、剧烈腹痛、肩痛伴虚弱或晕厥、胸痛或严重气促时立即呼叫
+          120。群体概率不能帮你排除急症。
+        </p>
+        <div class="risk-alert-links">
+          <a href={url('/emergency/')}>
+            先查看紧急就医信号 <Icon name="arrow" size={14} />
+          </a>
+          <a href="tel:120">呼叫 120</a>
+        </div>
+      </div>
+    </section>
+    <section class="evidence-explainer panel" aria-labelledby="conception-title">
+      <div>
+        <span class="eyebrow">FIRST, DEFINE THE POPULATION</span>
+        <h2 id="conception-title">先分清研究中的受孕方式</h2>
+        <p>
+          自然受孕和辅助生殖都可能经历正常妊娠。比较研究时，需要区分受孕方式；“人工授精”“试管婴儿”和“人工流产史”是不同的概念。
+        </p>
+      </div>
+      <dl class="conception-grid">
+        <div>
+          <dt>自然受孕</dt>
+          <dd>
+            不能根据是否使用“保胎药”判断受孕方式。研究是否纳入促排卵或有既往疾病的人群，需要查看原文。
+          </dd>
+        </div>
+        <div>
+          <dt>人工授精（IUI / AIH）</dt>
+          <dd>
+            将精液处理后用于授精，与体外受精、胚胎移植不同。本页没有足够一致的数据给它单列通用出血率，不能套用试管数字。
+          </dd>
+        </div>
+        <div>
+          <dt>试管与胚胎移植（IVF / ICSI）</dt>
+          <dd>还需区分鲜胚、冻胚、自卵/供卵和移植数。不是所有人都接受同一方案。</dd>
+        </div>
+        <div>
+          <dt>自然周期 FET ≠ 自然受孕</dt>
+          <dd>
+            “自然周期 / 人工或激素替代周期”描述冻胚移植的内膜准备方式。两者都属于胚胎移植；下列
+            HRT-FET 研究只代表特定激素替代方案。
+          </dd>
+        </div>
+      </dl>
+    </section>
+    <section class="probability-literacy panel" aria-labelledby="numbers-title">
+      <h2 id="numbers-title">看到一个百分比，先问分母是谁。</h2>
+      <div class="literacy-grid">
+        <div>
+          <h3>发生率 ≠ 出血后的病因概率</h3>
+          <p>
+            所有孕妇里多少人出血，与已经出血的人中多少是宫外孕或流产，是不同问题。不能直接倒推。
+          </p>
+        </div>
+        <div>
+          <h3>出血 ≠ 血肿 ≠ 流产</h3>
+          <p>阴道症状、超声影像和妊娠结局分别统计。某项研究“持续妊娠率”的补集也不一定是流产率。</p>
+        </div>
+        <div>
+          <h3>OR / HR ≠ 百分比</h3>
+          <p>
+            OR 是优势比，HR 是随访中的风险率比；都不是个人发生概率。95% CI
+            是统计不确定性范围，不能当作个人风险区间。
+          </p>
+        </div>
+      </div>
+      <p class="method-note">
+        以下选取了与这些问题相关的研究，核对范围包括全文或作者摘要，并未涵盖所有证据。不同研究的时间、人群和定义不同，不能直接拿数字相除来比较受孕方式的风险。至于“这次出血是什么原因”，仍需医生结合孕周、身体状况、超声和必要的化验判断。
+      </p>
+    </section>
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">EVIDENCE, WITH CONTEXT</span>
+        <h2>关于出血及相关风险的 {evidence.length} 项研究</h2>
+      </div>
+    </div>
+    <div class="evidence-filters" role="group" aria-label="按研究人群筛选">
+      <button type="button" data-evidence-filter="all" aria-pressed="true">
+        全部研究
+      </button>
+      {Object.entries(labels).map(([key, label]) => (
+        <button type="button" data-evidence-filter={key} aria-pressed="false">
+          {label}
+        </button>
+      ))}
+    </div>
+    <p id="evidence-count" role="status" class="muted">
+      显示 {evidence.length} 项研究
+    </p>
+    <div class="evidence-list">
+      {evidence.map((study) => (
+        <article
+          id={study.id}
+          class="evidence-card"
+          data-evidence
+          data-conception={study.conception}
+        >
+          <div class="evidence-card-top">
+            <span class="study-tag">{labels[study.conception]}</span>
+            <span>
+              {study.country} · {study.design}
+            </span>
+          </div>
+          <h3>{study.title}</h3>
+          <dl class="study-context">
+            <div>
+              <dt>研究人群</dt>
+              <dd>{study.population}</dd>
+            </div>
+            <div>
+              <dt>数据年代</dt>
+              <dd>{study.dataPeriod}</dd>
+            </div>
+            <div>
+              <dt>观察窗口</dt>
+              <dd>{study.timeframe}</dd>
+            </div>
+            <div>
+              <dt>统计的结局</dt>
+              <dd>{study.outcome}</dd>
+            </div>
+          </dl>
+          <div class="study-results">
+            {study.results.map((result) => (
+              <div class="study-result">
+                <span>{result.label}</span>
+                <strong>{percentage(result.numerator, result.denominator)}</strong>
+                <small>
+                  分子 / 分母：{result.numerator.toLocaleString('en-US')} /{' '}
+                  {result.denominator.toLocaleString('en-US')}
+                </small>
+              </div>
+            ))}
+          </div>
+          {study.effects.length > 0 && (
+            <div class="study-effects">
+              {study.effects.map((effect) => (
+                <p>
+                  <span>{effect.label}</span>
+                  <strong>
+                    {effects[effect.type]} {effect.value.toFixed(2)}
+                  </strong>
+                  <small>
+                    95% CI：{effect.low.toFixed(2)}–{effect.high.toFixed(2)}；不是百分比
+                  </small>
+                </p>
+              ))}
+            </div>
+          )}
+          <p class="study-reading">
+            <strong>如何理解：</strong>
+            {study.interpretation}
+          </p>
+          <p class="study-limitations">
+            <strong>不能据此推断：</strong>
+            {study.limitations}
+          </p>
+          <div class="study-citation">
+            <p>原文位置：{study.sourceLocator}</p>
+            {study.sourceIds.map((id, index) => (
+              <a href={`${url('/references/')}#${id}`}>
+                {index === 0 ? '查看文献记录' : '查看对照文献'} <Icon name="arrow" size={13} />
+              </a>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+    <section class="panel consultation">
+      <h2>有出血时，医生为什么会问这些？</h2>
+      <ul>
+        <li>当前孕周、末次月经或移植日期，是否已经确认妊娠位置和胎心。</li>
+        <li>出血量与持续时间，是否腹痛、肩痛、头晕、发热或流液。</li>
+        <li>自然受孕、人工授精还是胚胎移植；若是移植，还包括周期方案和胚胎数量。</li>
+        <li>既往宫外孕、输卵管病史、流产史，以及黄体支持、阿司匹林或抗凝用药。</li>
+      </ul>
+      <p>
+        不要自行停药或加“保胎药”，也不以长期卧床替代评估。通过超声及必要的动态检查，才能缩小原因范围。
+      </p>
+      <a href={url('/appointments/')} class="subtle-link">
+        了解超声、hCG 与其他检查的目的 <Icon name="arrow" size={14} />
+      </a>
+    </section>
+    <p class="muted evidence-review">
+      数据核查：2026-11-08 · 医学内容待专业审核。统计资料用于理解与沟通，不提供个人诊断结论。
+    </p>
+  </div>
+</BaseLayout>
+<script>
+  const buttons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>('[data-evidence-filter]'),
+  );
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-evidence]'));
+  buttons.forEach((button) =>
+    button.addEventListener('click', () => {
+      const filter = button.dataset.evidenceFilter;
+      buttons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      cards.forEach((card) => {
+        card.hidden = filter !== 'all' && card.dataset.conception !== filter;
+      });
+      document.querySelector('#evidence-count')!.textContent =
+        `显示 ${cards.filter((card) => !card.hidden).length} / ${cards.length} 项研究`;
+    }),
+  );
+</script>
+<style>
+  .evidence-page h2 {
+    font-size: 22px;
+    line-height: 1.6;
+  }
+  .risk-alert {
+    display: flex;
+    gap: 18px;
+    padding: 24px;
+    border: 1px solid #e6cbbc;
+    border-radius: 20px;
+    background: #fff5ed;
+    margin: 25px 0;
+    color: #764a36;
+  }
+  .risk-alert > svg {
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .risk-alert p {
+    line-height: 1.9;
+    font-size: 14px;
+    margin: 8px 0;
+  }
+  .risk-alert-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .risk-alert-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .evidence-explainer,
+  .probability-literacy,
+  .consultation {
+    margin-bottom: 30px;
+    padding: 28px;
+  }
+  .evidence-explainer p,
+  .probability-literacy p,
+  .consultation p,
+  .consultation li {
+    font-size: 14px;
+    line-height: 1.95;
+    color: #55614e;
+  }
+  .conception-grid,
+  .literacy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 20px;
+  }
+  .conception-grid dt,
+  .literacy-grid h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  .conception-grid dd {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #55614e;
+  }
+  .literacy-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .method-note {
+    border-top: 1px solid #e2e7db;
+    padding-top: 18px;
+    margin-top: 20px;
+  }
+  .evidence-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .evidence-filters button {
+    font: inherit;
+    font-size: 13px;
+    padding: 10px 16px;
+    border: 1px solid #dbe2d4;
+    border-radius: 30px;
+    background: #fff;
+    color: #40533d;
+    cursor: pointer;
+  }
+  .evidence-filters button[aria-pressed='true'] {
+    background: #405a44;
+    color: #fff;
+    border-color: #405a44;
+  }
+  .evidence-filters button:focus-visible {
+    outline: 3px solid #94704c;
+    outline-offset: 3px;
+  }
+  .evidence-list {
+    display: grid;
+    gap: 24px;
+    margin: 20px 0 30px;
+  }
+  .evidence-card {
+    background: #fff;
+    border: 1px solid #e2e7db;
+    border-radius: 22px;
+    padding: 28px;
+    scroll-margin-top: 100px;
+  }
+  .evidence-card[hidden] {
+    display: none;
+  }
+  .evidence-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #64715a;
+  }
+  .study-tag {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #edf2e6;
+    color: #3e593e;
+  }
+  .evidence-card h3 {
+    font-size: 21px;
+    line-height: 1.65;
+    margin: 16px 0;
+  }
+  .study-context {
+    display: grid;
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .study-context > div {
+    display: grid;
+    grid-template-columns: 82px 1fr;
+    gap: 12px;
+  }
+  .study-context dt {
+    color: #65725b;
+  }
+  .study-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 20px 0;
+  }
+  .study-result {
+    flex: 1 1 180px;
+    padding: 17px;
+    background: #f2f5ec;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .study-result span {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .study-result strong {
+    font-family: Georgia, serif;
+    font-size: 31px;
+    font-weight: 500;
+    color: #405a44;
+  }
+  .study-result small {
+    font-size: 12px;
+    color: #52624c;
+  }
+  .study-effects {
+    border-left: 3px solid #b7c6a8;
+    padding-left: 16px;
+    margin-bottom: 18px;
+  }
+  .study-effects p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 16px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 10px;
+  }
+  .study-effects span {
+    flex-basis: 100%;
+  }
+  .study-effects strong {
+    font-size: 17px;
+  }
+  .study-effects small {
+    font-size: 12px;
+    color: #62725a;
+  }
+  .study-reading,
+  .study-limitations {
+    font-size: 14px;
+    line-height: 1.95;
+    margin-top: 13px;
+  }
+  .study-limitations {
+    background: #faf5ed;
+    padding: 15px;
+    border-radius: 12px;
+    color: #69533e;
+  }
+  .study-citation {
+    border-top: 1px solid #e4e8df;
+    margin-top: 20px;
+    padding-top: 14px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #5a6b51;
+  }
+  .study-citation p {
+    flex-basis: 100%;
+    line-height: 1.8;
+  }
+  .study-citation a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .consultation li {
+    margin-left: 20px;
+    list-style: disc;
+  }
+  .consultation p {
+    margin-top: 16px;
+  }
+  .consultation a {
+    margin-top: 15px;
+  }
+  .evidence-review {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+  @media (max-width: 640px) {
+    .risk-alert {
+      padding: 20px;
+      gap: 12px;
+    }
+    .risk-alert > svg {
+      width: 20px;
+    }
+    .evidence-page h2 {
+      font-size: 19px;
+    }
+    .evidence-explainer,
+    .probability-literacy,
+    .consultation,
+    .evidence-card {
+      padding: 20px;
+    }
+    .conception-grid,
+    .literacy-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .evidence-card h3 {
+      font-size: 19px;
+    }
+    .study-context > div {
+      grid-template-columns: 66px 1fr;
+      gap: 8px;
+    }
+    .study-result {
+      flex-basis: 100%;
+    }
+  }
+</style>

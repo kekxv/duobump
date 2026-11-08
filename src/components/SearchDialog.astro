@@ -1,0 +1,100 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/urls';
+---
+
+<dialog id="search-dialog" class="app-dialog search-dialog" aria-labelledby="search-title">
+  <div class="dialog-top">
+    <h2 id="search-title">你想了解什么？</h2>
+    <button class="icon-button" data-close-dialog aria-label="关闭搜索">
+      <Icon name="close" />
+    </button>
+  </div>
+  <label class="search-field">
+    <Icon name="search" />
+    <input
+      id="site-search-input"
+      type="search"
+      placeholder="试试「咖啡」「胎动」「待产包」"
+      aria-label="搜索全站指南"
+      autocomplete="off"
+    />
+  </label>
+  <p id="search-status" class="tiny muted" role="status">
+    输入关键词，在指南里找答案。
+  </p>
+  <div id="search-results" aria-live="polite"></div>
+  <div class="search-bottom">
+    <span class="tiny muted">在本机搜索，不上传关键词</span>
+    <a href={url('/emergency/')} class="danger-link">
+      有不适？查看紧急就医 <Icon name="arrow" size={15} />
+    </a>
+  </div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#search-dialog')!;
+  const input = document.querySelector<HTMLInputElement>('#site-search-input')!;
+  const status = document.querySelector('#search-status')!;
+  const results = document.querySelector('#search-results')!;
+  let indexPromise: Promise<any> | undefined;
+  let token = 0;
+  const trigger = document.querySelector<HTMLButtonElement>('[data-open-search]')!;
+  const openSearch = () => {
+    dialog.showModal();
+    input.focus();
+  };
+  dialog.addEventListener('close', () => trigger.focus());
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      event.stopPropagation();
+      dialog.close();
+    }
+  });
+  document.querySelector('[data-open-search]')!.addEventListener('click', openSearch);
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (!dialog.open) openSearch();
+    }
+  });
+  input.addEventListener('input', async () => {
+    const generation = ++token;
+    const query = input.value.trim();
+    results.replaceChildren();
+    if (!query) {
+      status.textContent = '输入关键词，在指南里找答案。';
+      return;
+    }
+    status.textContent = '正在查找…';
+    try {
+      const searchBase = import.meta.env.DEV
+        ? `${import.meta.env.BASE_URL}__search/`
+        : `${import.meta.env.BASE_URL}pagefind/`;
+      indexPromise ??= import(/* @vite-ignore */ `${searchBase}pagefind.js`);
+      const pagefind = await indexPromise;
+      await pagefind.options({ baseUrl: import.meta.env.BASE_URL });
+      const response = await pagefind.search(query);
+      const found = await Promise.all(response.results.slice(0, 8).map((r: any) => r.data()));
+      if (generation !== token) return;
+      status.textContent = found.length
+        ? `找到 ${response.results.length} 条相关内容`
+        : '暂未找到，试试更短的词；未收录不代表安全。';
+      for (const item of found) {
+        const a = document.createElement('a');
+        a.className = 'search-result';
+        a.href = item.url;
+        const title = document.createElement('strong');
+        title.textContent = item.meta.title;
+        const summary = document.createElement('span');
+        summary.textContent = item.excerpt.replace(/<[^>]*>/g, '');
+        a.append(title, summary);
+        results.append(a);
+      }
+    } catch {
+      if (generation === token)
+        status.textContent = '搜索索引暂时无法加载，请通过左侧分类继续浏览。';
+      indexPromise = undefined;
+    }
+  });
+</script>

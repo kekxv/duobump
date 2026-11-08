@@ -1,0 +1,1413 @@
+[
+  {
+    "id": "coffee",
+    "slug": "coffee",
+    "name": "咖啡",
+    "emoji": "☕",
+    "category": "饮品",
+    "summary": "关注一天的咖啡因总量，不只看杯数。",
+    "aliases": ["coffee", "美式", "拿铁", "浓缩"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "含咖啡因咖啡",
+        "risk": "conditional",
+        "conditions": "每天所有来源的咖啡因合计不超过 200mg；查看实际饮品含量。",
+        "reason": "咖啡、茶、巧克力等会叠加；同样杯型的咖啡因也可能不同。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "salmon",
+    "slug": "salmon",
+    "name": "三文鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "生吃与熟吃，要分开看。",
+    "aliases": ["salmon", "刺身", "寿司"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选正规来源，充分加热；鱼类多样化，油性鱼按适用指南限量。",
+        "reason": "熟制有助于降低食源性感染风险，不能替代对储存条件的检查。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "刺身 / 生食",
+        "risk": "avoid",
+        "conditions": "孕期避免生鱼刺身，改选熟制菜品。",
+        "reason": "生鱼可能携带致病微生物；冷冻不等于消除所有食源性风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "tea",
+    "slug": "tea",
+    "name": "茶",
+    "emoji": "🍵",
+    "category": "饮品",
+    "summary": "注意咖啡因与添加糖，查看配料和份量。",
+    "aliases": ["绿茶", "红茶", "乌龙茶"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "含咖啡因产品",
+        "risk": "conditional",
+        "conditions": "计入每日不超过 200mg 的咖啡因总量，避免因含量不明而大量饮用。",
+        "reason": "咖啡因可能来自多种饮品及食品；含量取决于产品和制备方式。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "cola",
+    "slug": "cola",
+    "name": "可乐",
+    "emoji": "🥤",
+    "category": "饮品",
+    "summary": "注意咖啡因与添加糖，查看配料和份量。",
+    "aliases": ["汽水"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "含咖啡因产品",
+        "risk": "conditional",
+        "conditions": "计入每日不超过 200mg 的咖啡因总量，避免因含量不明而大量饮用。",
+        "reason": "咖啡因可能来自多种饮品及食品；含量取决于产品和制备方式。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "chocolate",
+    "slug": "chocolate",
+    "name": "巧克力",
+    "emoji": "🍫",
+    "category": "零食",
+    "summary": "注意咖啡因与添加糖，查看配料和份量。",
+    "aliases": ["黑巧克力"],
+    "keywords": ["零食"],
+    "preparations": [
+      {
+        "label": "含咖啡因产品",
+        "risk": "conditional",
+        "conditions": "计入每日不超过 200mg 的咖啡因总量，避免因含量不明而大量饮用。",
+        "reason": "咖啡因可能来自多种饮品及食品；含量取决于产品和制备方式。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "milk-tea",
+    "slug": "milk-tea",
+    "name": "奶茶",
+    "emoji": "🧋",
+    "category": "饮品",
+    "summary": "注意咖啡因与添加糖，查看配料和份量。",
+    "aliases": ["珍珠奶茶"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "含咖啡因产品",
+        "risk": "conditional",
+        "conditions": "计入每日不超过 200mg 的咖啡因总量，避免因含量不明而大量饮用。",
+        "reason": "咖啡因可能来自多种饮品及食品；含量取决于产品和制备方式。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "energy-drink",
+    "slug": "energy-drink",
+    "name": "能量饮料",
+    "emoji": "🥤",
+    "category": "饮品",
+    "summary": "注意咖啡因与添加糖，查看配料和份量。",
+    "aliases": ["功能饮料"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "含咖啡因产品",
+        "risk": "conditional",
+        "conditions": "计入每日不超过 200mg 的咖啡因总量，避免因含量不明而大量饮用。",
+        "reason": "咖啡因可能来自多种饮品及食品；含量取决于产品和制备方式。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "alcohol",
+    "slug": "alcohol",
+    "name": "酒精饮品",
+    "emoji": "🍷",
+    "category": "饮品",
+    "summary": "孕期选择不含酒精的饮品。",
+    "aliases": ["啤酒", "红酒", "白酒", "果酒", "酒酿"],
+    "keywords": ["饮品"],
+    "preparations": [
+      {
+        "label": "酒及含酒精饮料",
+        "risk": "avoid",
+        "conditions": "不饮酒；调酒、果酒等同样包含酒精。",
+        "reason": "孕期饮酒可能影响胎儿发育。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "milk",
+    "slug": "milk",
+    "name": "牛奶",
+    "emoji": "🥛",
+    "category": "蛋奶豆类",
+    "summary": "选择经过巴氏杀菌或超高温灭菌的产品。",
+    "aliases": ["纯牛奶", "鲜奶", "生奶"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "杀菌奶",
+        "risk": "usually-ok",
+        "conditions": "查看杀菌标识、保质期和储存要求，开封后妥善冷藏。",
+        "reason": "杀菌与正确储存有助于降低食源性风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "未经杀菌的生奶",
+        "risk": "avoid",
+        "conditions": "不要直接饮用未经杀菌的生奶。",
+        "reason": "未杀菌乳制品可能携带李斯特菌等致病微生物。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "yogurt",
+    "slug": "yogurt",
+    "name": "酸奶",
+    "emoji": "🥣",
+    "category": "蛋奶豆类",
+    "summary": "选择杀菌乳制成、妥善保存的产品。",
+    "aliases": ["酸牛奶", "无糖酸奶"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "正规包装酸奶",
+        "risk": "usually-ok",
+        "conditions": "查看原料与储存要求，可优先选择少添加糖的产品。",
+        "reason": "乳制品可作为均衡饮食的一部分，储存和保质期仍然重要。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "cheese",
+    "slug": "cheese",
+    "name": "奶酪",
+    "emoji": "🧀",
+    "category": "蛋奶豆类",
+    "summary": "不同奶酪的风险条件不同。",
+    "aliases": ["芝士", "布里", "卡芒贝尔"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "杀菌乳制硬质或普通软奶酪",
+        "risk": "usually-ok",
+        "conditions": "确认种类、原料与保存条件；不确定时选择充分加热。",
+        "reason": "奶酪需要按种类判断，并非所有软奶酪都相同。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "白霉或蓝纹软奶酪",
+        "risk": "conditional",
+        "conditions": "包括 Brie、Camembert 等，需加热至整体热透后食用。",
+        "reason": "某些软奶酪即使使用杀菌乳，也需注意李斯特菌风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "eggs",
+    "slug": "eggs",
+    "name": "鸡蛋",
+    "emoji": "🥚",
+    "category": "蛋奶豆类",
+    "summary": "日常购买的普通鸡蛋，建议做熟再吃。",
+    "aliases": ["溏心蛋", "水煮蛋", "煎蛋", "鸡蛋羹"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "全熟蛋",
+        "risk": "usually-ok",
+        "conditions": "蛋白和蛋黄充分凝固；注意餐具与生蛋接触后的清洁。",
+        "reason": "充分加热有助于降低沙门氏菌等食源性风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "溏心蛋 / 生蛋",
+        "risk": "avoid",
+        "conditions": "不将英国特定认证鸡蛋的例外直接用于国内鸡蛋。",
+        "reason": "来源和生产标准不同，普通鸡蛋以充分熟制为宜。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "tofu",
+    "slug": "tofu",
+    "name": "豆腐",
+    "emoji": "🧊",
+    "category": "蛋奶豆类",
+    "summary": "充分加热，注意保鲜。",
+    "aliases": ["豆干", "豆制品"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "熟制豆腐",
+        "risk": "usually-ok",
+        "conditions": "正规来源、按要求冷藏，熟制后及时食用。",
+        "reason": "豆类可作为均衡饮食中的蛋白质来源。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "soy-milk",
+    "slug": "soy-milk",
+    "name": "豆浆",
+    "emoji": "🥛",
+    "category": "蛋奶豆类",
+    "summary": "选择充分煮熟、妥善保存的豆浆。",
+    "aliases": ["无糖豆浆"],
+    "keywords": ["蛋奶豆类"],
+    "preparations": [
+      {
+        "label": "熟豆浆",
+        "risk": "usually-ok",
+        "conditions": "确认充分煮熟，优先少糖或无添加糖，不能完全替代所有乳制品。",
+        "reason": "豆类饮品可纳入多样饮食，营养构成需看产品标签。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "shrimp",
+    "slug": "shrimp",
+    "name": "虾",
+    "emoji": "🦐",
+    "category": "鱼虾海鲜",
+    "summary": "正规来源、做熟后食用，过敏者避免。",
+    "aliases": ["虾仁", "对虾"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选择可靠来源，充分加热，避免生熟交叉污染。",
+        "reason": "NHS 将充分熟制的甲壳类与贝类列为通常可食用食物。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生食 / 腌醉",
+        "risk": "avoid",
+        "conditions": "避免生食、醉制或仅用酸汁腌制的做法。",
+        "reason": "生贝类和海鲜可能携带致病细菌；腌制不等于充分熟制。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "crab",
+    "slug": "crab",
+    "name": "螃蟹",
+    "emoji": "🦀",
+    "category": "鱼虾海鲜",
+    "summary": "正规来源、做熟后食用，过敏者避免。",
+    "aliases": ["大闸蟹", "蟹"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选择可靠来源，充分加热，避免生熟交叉污染。",
+        "reason": "NHS 将充分熟制的甲壳类与贝类列为通常可食用食物。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生食 / 腌醉",
+        "risk": "avoid",
+        "conditions": "避免生食、醉制或仅用酸汁腌制的做法。",
+        "reason": "生贝类和海鲜可能携带致病细菌；腌制不等于充分熟制。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "oyster",
+    "slug": "oyster",
+    "name": "生蚝",
+    "emoji": "🦪",
+    "category": "鱼虾海鲜",
+    "summary": "正规来源、做熟后食用，过敏者避免。",
+    "aliases": ["牡蛎"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选择可靠来源，充分加热，避免生熟交叉污染。",
+        "reason": "NHS 将充分熟制的甲壳类与贝类列为通常可食用食物。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生食 / 腌醉",
+        "risk": "avoid",
+        "conditions": "避免生食、醉制或仅用酸汁腌制的做法。",
+        "reason": "生贝类和海鲜可能携带致病细菌；腌制不等于充分熟制。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "scallop",
+    "slug": "scallop",
+    "name": "扇贝",
+    "emoji": "🐚",
+    "category": "鱼虾海鲜",
+    "summary": "正规来源、做熟后食用，过敏者避免。",
+    "aliases": ["贝类"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选择可靠来源，充分加热，避免生熟交叉污染。",
+        "reason": "NHS 将充分熟制的甲壳类与贝类列为通常可食用食物。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生食 / 腌醉",
+        "risk": "avoid",
+        "conditions": "避免生食、醉制或仅用酸汁腌制的做法。",
+        "reason": "生贝类和海鲜可能携带致病细菌；腌制不等于充分熟制。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "squid",
+    "slug": "squid",
+    "name": "鱿鱼",
+    "emoji": "🦑",
+    "category": "鱼虾海鲜",
+    "summary": "正规来源、做熟后食用，过敏者避免。",
+    "aliases": ["乌贼"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "选择可靠来源，充分加热，避免生熟交叉污染。",
+        "reason": "NHS 将充分熟制的甲壳类与贝类列为通常可食用食物。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生食 / 腌醉",
+        "risk": "avoid",
+        "conditions": "避免生食、醉制或仅用酸汁腌制的做法。",
+        "reason": "生贝类和海鲜可能携带致病细菌；腌制不等于充分熟制。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "cod",
+    "slug": "cod",
+    "name": "鳕鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "选可靠来源，充分煮熟，鱼类交替食用。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "熟制鱼肉",
+        "risk": "usually-ok",
+        "conditions": "充分熟制、去除鱼刺，鱼种多样化；具体摄入量按当地建议。",
+        "reason": "熟鱼可作为蛋白质来源；汤不能替代吃鱼肉。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "seabass",
+    "slug": "seabass",
+    "name": "鲈鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "选可靠来源，充分煮熟，鱼类交替食用。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "熟制鱼肉",
+        "risk": "usually-ok",
+        "conditions": "充分熟制、去除鱼刺，鱼种多样化；具体摄入量按当地建议。",
+        "reason": "熟鱼可作为蛋白质来源；汤不能替代吃鱼肉。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "tilapia",
+    "slug": "tilapia",
+    "name": "罗非鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "选可靠来源，充分煮熟，鱼类交替食用。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "熟制鱼肉",
+        "risk": "usually-ok",
+        "conditions": "充分熟制、去除鱼刺，鱼种多样化；具体摄入量按当地建议。",
+        "reason": "熟鱼可作为蛋白质来源；汤不能替代吃鱼肉。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "carp",
+    "slug": "carp",
+    "name": "鲫鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "选可靠来源，充分煮熟，鱼类交替食用。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "熟制鱼肉",
+        "risk": "usually-ok",
+        "conditions": "充分熟制、去除鱼刺，鱼种多样化；具体摄入量按当地建议。",
+        "reason": "熟鱼可作为蛋白质来源；汤不能替代吃鱼肉。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "tuna",
+    "slug": "tuna",
+    "name": "金枪鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "种类与食用量都重要，不宜长期单一大量吃。",
+    "aliases": ["吞拿鱼"],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "熟制 / 罐装",
+        "risk": "conditional",
+        "conditions": "参考鱼种和当地汞风险建议控制份量；未知鱼种先核实。",
+        "reason": "不同鱼种的汞含量不同，充分加热不能去除汞。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "shark",
+    "slug": "shark",
+    "name": "鲨鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "孕期改选其他合适的鱼类。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "各类做法",
+        "risk": "avoid",
+        "conditions": "不因充分煮熟而忽略鱼种的汞风险。",
+        "reason": "NHS 孕期食物指南建议避免这类鱼。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "swordfish",
+    "slug": "swordfish",
+    "name": "剑鱼",
+    "emoji": "🐟",
+    "category": "鱼虾海鲜",
+    "summary": "孕期改选其他合适的鱼类。",
+    "aliases": [],
+    "keywords": ["鱼虾海鲜"],
+    "preparations": [
+      {
+        "label": "各类做法",
+        "risk": "avoid",
+        "conditions": "不因充分煮熟而忽略鱼种的汞风险。",
+        "reason": "NHS 孕期食物指南建议避免这类鱼。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "beef",
+    "slug": "beef",
+    "name": "牛肉",
+    "emoji": "🥩",
+    "category": "肉类",
+    "summary": "做熟后食用，避免交叉污染。",
+    "aliases": ["牛排"],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "家庭烹饪选择充分煮熟，处理生肉后清洁手和厨具。",
+        "reason": "肉类可提供蛋白质等营养；生或未熟肉存在食源性感染风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生肉 / 未熟肉",
+        "risk": "avoid",
+        "conditions": "避免生食及中心未熟的做法。",
+        "reason": "未充分加热的肉可能存在弓形虫等病原体风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "chicken",
+    "slug": "chicken",
+    "name": "鸡肉",
+    "emoji": "🍗",
+    "category": "肉类",
+    "summary": "做熟后食用，避免交叉污染。",
+    "aliases": ["鸡胸肉"],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "家庭烹饪选择充分煮熟，处理生肉后清洁手和厨具。",
+        "reason": "肉类可提供蛋白质等营养；生或未熟肉存在食源性感染风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生肉 / 未熟肉",
+        "risk": "avoid",
+        "conditions": "避免生食及中心未熟的做法。",
+        "reason": "未充分加热的肉可能存在弓形虫等病原体风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "pork",
+    "slug": "pork",
+    "name": "猪肉",
+    "emoji": "🥩",
+    "category": "肉类",
+    "summary": "做熟后食用，避免交叉污染。",
+    "aliases": ["瘦肉"],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "家庭烹饪选择充分煮熟，处理生肉后清洁手和厨具。",
+        "reason": "肉类可提供蛋白质等营养；生或未熟肉存在食源性感染风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生肉 / 未熟肉",
+        "risk": "avoid",
+        "conditions": "避免生食及中心未熟的做法。",
+        "reason": "未充分加热的肉可能存在弓形虫等病原体风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "lamb",
+    "slug": "lamb",
+    "name": "羊肉",
+    "emoji": "🥩",
+    "category": "肉类",
+    "summary": "做熟后食用，避免交叉污染。",
+    "aliases": [],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "充分熟制",
+        "risk": "usually-ok",
+        "conditions": "家庭烹饪选择充分煮熟，处理生肉后清洁手和厨具。",
+        "reason": "肉类可提供蛋白质等营养；生或未熟肉存在食源性感染风险。",
+        "sourceIds": ["nhs-food"]
+      },
+      {
+        "label": "生肉 / 未熟肉",
+        "risk": "avoid",
+        "conditions": "避免生食及中心未熟的做法。",
+        "reason": "未充分加热的肉可能存在弓形虫等病原体风险。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "liver",
+    "slug": "liver",
+    "name": "动物肝脏",
+    "emoji": "🥩",
+    "category": "肉类",
+    "summary": "按本条引用的 NHS 指南，孕期避免肝脏及肝制品。",
+    "aliases": ["猪肝", "鸡肝"],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "肝脏及肝制品",
+        "risk": "avoid",
+        "conditions": "本条采用英国 NHS 孕期避免肝脏及肝制品的建议；不要自行用肝脏或维生素 A 补充剂补铁。",
+        "reason": "肝脏及肝制品维生素 A 含量高。若需要按中国大陆个人医嘱处理，请先咨询，不把未核实的地区差异当作可食结论。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "cured-meat",
+    "slug": "cured-meat",
+    "name": "腊肉与冷切肉",
+    "emoji": "🥓",
+    "category": "肉类",
+    "summary": "充分加热并留意盐分与储存。",
+    "aliases": ["火腿", "香肠", "培根", "萨拉米"],
+    "keywords": ["肉类"],
+    "preparations": [
+      {
+        "label": "腌制 / 冷食肉",
+        "risk": "conditional",
+        "conditions": "不直接冷食未充分加热的腌肉；少量并注意保存。",
+        "reason": "部分腌制肉需要热透食用，均衡饮食也需控制高盐食物。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "apple",
+    "slug": "apple",
+    "name": "苹果",
+    "emoji": "🍎",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "banana",
+    "slug": "banana",
+    "name": "香蕉",
+    "emoji": "🍌",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "orange",
+    "slug": "orange",
+    "name": "橙子",
+    "emoji": "🍊",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "blueberry",
+    "slug": "blueberry",
+    "name": "蓝莓",
+    "emoji": "🫐",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "strawberry",
+    "slug": "strawberry",
+    "name": "草莓",
+    "emoji": "🍓",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "kiwi",
+    "slug": "kiwi",
+    "name": "猕猴桃",
+    "emoji": "🥝",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "grape",
+    "slug": "grape",
+    "name": "葡萄",
+    "emoji": "🍇",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "watermelon",
+    "slug": "watermelon",
+    "name": "西瓜",
+    "emoji": "🍉",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "mango",
+    "slug": "mango",
+    "name": "芒果",
+    "emoji": "🥭",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "avocado",
+    "slug": "avocado",
+    "name": "牛油果",
+    "emoji": "🥑",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "longan",
+    "slug": "longan",
+    "name": "桂圆",
+    "emoji": "🍈",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "lychee",
+    "slug": "lychee",
+    "name": "荔枝",
+    "emoji": "🍒",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "durian",
+    "slug": "durian",
+    "name": "榴莲",
+    "emoji": "🍈",
+    "category": "水果",
+    "summary": "洗净、适量，优先完整水果而不是果汁。",
+    "aliases": [],
+    "keywords": ["水果"],
+    "preparations": [
+      {
+        "label": "新鲜水果",
+        "risk": "usually-ok",
+        "conditions": "洗净后食用，切开后及时食用或冷藏；有控糖要求按个人方案安排。",
+        "reason": "多数水果可纳入多样饮食，不因为某种水果的名称就直接推断致流产。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "spinach",
+    "slug": "spinach",
+    "name": "菠菜",
+    "emoji": "🥬",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "broccoli",
+    "slug": "broccoli",
+    "name": "西兰花",
+    "emoji": "🥦",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "tomato",
+    "slug": "tomato",
+    "name": "番茄",
+    "emoji": "🍅",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "carrot",
+    "slug": "carrot",
+    "name": "胡萝卜",
+    "emoji": "🥕",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "cucumber",
+    "slug": "cucumber",
+    "name": "黄瓜",
+    "emoji": "🥒",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "pumpkin",
+    "slug": "pumpkin",
+    "name": "南瓜",
+    "emoji": "🎃",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "mushroom",
+    "slug": "mushroom",
+    "name": "蘑菇",
+    "emoji": "🍄",
+    "category": "蔬菜",
+    "summary": "清洗、妥善保存，需熟制的食材充分加热。",
+    "aliases": [],
+    "keywords": ["蔬菜"],
+    "preparations": [
+      {
+        "label": "清洗 / 熟制蔬菜",
+        "risk": "usually-ok",
+        "conditions": "去除泥土并清洗；菇类等需充分熟制，不采食不明野生品种。",
+        "reason": "蔬菜是多样饮食的一部分，清洗和正确处理有助于减少污染。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "oats",
+    "slug": "oats",
+    "name": "燕麦",
+    "emoji": "🌾",
+    "category": "谷物坚果",
+    "summary": "作为主食的一部分，注意合理份量与搭配。",
+    "aliases": ["燕麦片"],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "常规熟制",
+        "risk": "usually-ok",
+        "conditions": "与蛋白质和蔬菜搭配；有控糖要求按个人饮食方案安排份量。",
+        "reason": "全谷物及淀粉类食物可提供能量，不能因“粗粮”就无限量吃。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "brown-rice",
+    "slug": "brown-rice",
+    "name": "糙米",
+    "emoji": "🍚",
+    "category": "谷物坚果",
+    "summary": "作为主食的一部分，注意合理份量与搭配。",
+    "aliases": ["杂粮饭"],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "常规熟制",
+        "risk": "usually-ok",
+        "conditions": "与蛋白质和蔬菜搭配；有控糖要求按个人饮食方案安排份量。",
+        "reason": "全谷物及淀粉类食物可提供能量，不能因“粗粮”就无限量吃。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "whole-wheat",
+    "slug": "whole-wheat",
+    "name": "全麦面包",
+    "emoji": "🍞",
+    "category": "谷物坚果",
+    "summary": "作为主食的一部分，注意合理份量与搭配。",
+    "aliases": ["全麦吐司"],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "常规熟制",
+        "risk": "usually-ok",
+        "conditions": "与蛋白质和蔬菜搭配；有控糖要求按个人饮食方案安排份量。",
+        "reason": "全谷物及淀粉类食物可提供能量，不能因“粗粮”就无限量吃。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "sweet-potato",
+    "slug": "sweet-potato",
+    "name": "红薯",
+    "emoji": "🍠",
+    "category": "谷物坚果",
+    "summary": "作为主食的一部分，注意合理份量与搭配。",
+    "aliases": ["紫薯"],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "常规熟制",
+        "risk": "usually-ok",
+        "conditions": "与蛋白质和蔬菜搭配；有控糖要求按个人饮食方案安排份量。",
+        "reason": "全谷物及淀粉类食物可提供能量，不能因“粗粮”就无限量吃。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "corn",
+    "slug": "corn",
+    "name": "玉米",
+    "emoji": "🌽",
+    "category": "谷物坚果",
+    "summary": "作为主食的一部分，注意合理份量与搭配。",
+    "aliases": [],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "常规熟制",
+        "risk": "usually-ok",
+        "conditions": "与蛋白质和蔬菜搭配；有控糖要求按个人饮食方案安排份量。",
+        "reason": "全谷物及淀粉类食物可提供能量，不能因“粗粮”就无限量吃。",
+        "sourceIds": ["nhs-nutrition"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "walnut",
+    "slug": "walnut",
+    "name": "核桃",
+    "emoji": "🌰",
+    "category": "谷物坚果",
+    "summary": "无过敏时适量选择，不代替其他蛋白质来源。",
+    "aliases": [],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "正规食用坚果",
+        "risk": "usually-ok",
+        "conditions": "选无霉变、少盐的食用产品；已知坚果过敏者避免。",
+        "reason": "坚果可纳入多样饮食，并非孕期必须额外忌口的类别。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "almond",
+    "slug": "almond",
+    "name": "巴旦木（扁桃仁）",
+    "emoji": "🌰",
+    "category": "谷物坚果",
+    "summary": "无过敏时适量选择，不代替其他蛋白质来源。",
+    "aliases": ["杏仁", "巴旦木", "扁桃仁", "almond"],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "正规食用坚果",
+        "risk": "usually-ok",
+        "conditions": "选无霉变、少盐的食用产品；已知坚果过敏者避免。",
+        "reason": "坚果可纳入多样饮食，并非孕期必须额外忌口的类别。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "本页仅指正规食用巴旦木（扁桃仁），不指药用苦杏仁或名称不明的杏仁产品。已知坚果过敏者避免；特殊情况按个人医嘱调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "peanut",
+    "slug": "peanut",
+    "name": "花生",
+    "emoji": "🥜",
+    "category": "谷物坚果",
+    "summary": "无过敏时适量选择，不代替其他蛋白质来源。",
+    "aliases": [],
+    "keywords": ["谷物坚果"],
+    "preparations": [
+      {
+        "label": "正规食用坚果",
+        "risk": "usually-ok",
+        "conditions": "选无霉变、少盐的食用产品；已知坚果过敏者避免。",
+        "reason": "坚果可纳入多样饮食，并非孕期必须额外忌口的类别。",
+        "sourceIds": ["nhs-food"]
+      }
+    ],
+    "specialNotes": "以上建议供一般孕期参考。如有食物过敏、妊娠期糖尿病或其他特殊情况，请按医生或营养师为你制定的方案调整。",
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  }
+]

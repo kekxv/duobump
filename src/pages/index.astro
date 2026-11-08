@@ -1,0 +1,351 @@
+---
+import sources from '../data/sources.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/urls';
+const stages = [
+  {
+    id: 'early',
+    name: '孕早期',
+    weeks: '0–13⁺⁶ 周',
+    title: '小小生命，悄悄萌芽',
+    desc: '适应身体变化，建立产检计划。',
+    icon: 'leaf',
+    color: 'sage',
+    number: '01',
+    tags: ['认识早孕反应', '首次产检', '叶酸与用药'],
+  },
+  {
+    id: 'middle',
+    name: '孕中期',
+    weeks: '14–27⁺⁶ 周',
+    title: '开始感受宝宝的活动',
+    desc: '均衡饮食，迎接与宝宝的互动。',
+    icon: 'sun',
+    color: 'peach',
+    number: '02',
+    tags: ['检查预约', '均衡营养', '认识胎动'],
+  },
+  {
+    id: 'late',
+    name: '孕晚期',
+    weeks: '28 周起',
+    title: '把期待，慢慢准备好',
+    desc: '留意胎动变化，一起准备见面。',
+    icon: 'baby',
+    color: 'lavender',
+    number: '03',
+    tags: ['待产准备', '分娩征兆', '入院路线'],
+  },
+];
+---
+
+<BaseLayout title="一起，把期待变成安心" section="一起开始">
+  <div class="page-content home-page">
+    <div class="welcome-row">
+      <div>
+        <p class="eyebrow">
+          <span class="small-sun">✳</span> A LITTLE GUIDE, A LOT OF LOVE
+        </p>
+        <h1>一起，把期待变成安心。</h1>
+        <p class="page-subtitle">从孕期第一天，到第一次见面。每一步，我们一起准备。</p>
+      </div>
+      <span class="welcome-tag">
+        <span></span> 为妈妈，也为爸爸
+      </span>
+    </div>
+    <section class="hero-panel" aria-label="开始专属孕期旅程">
+      <div class="hero-copy">
+        <span class="hero-kicker">
+          <Icon name="spark" size={16} /> 两个人的准备，一个新的开始
+        </span>
+        <h2>
+          肚子里是小小的你，
+          <br />
+          身边是大大的爱。
+        </h2>
+        <p>
+          了解身体的变化，记住重要的小事。
+          <br />
+          让科学的指引，陪伴每一个期待的日常。
+        </p>
+        <button class="button primary" data-open-pregnancy>
+          开启我的孕期旅程 <Icon name="arrow" size={17} />
+        </button>
+        <span class="hero-privacy">
+          <Icon name="lock" size={12} /> 无需注册 · 个人设置仅保存在本机
+        </span>
+      </div>
+      <div class="hero-art">
+        <img
+          src={url('/images/together.svg')}
+          width="480"
+          height="350"
+          alt="中国水墨淡彩插画：准妈妈身着宽松长裙，垂眸微笑，双手轻护腹部，背景是竹叶和淡淡远山"
+          fetchpriority="high"
+        />
+      </div>
+      <svg class="hero-flower" viewBox="0 0 120 120" fill="currentColor" aria-hidden="true">
+        <ellipse cx="60" cy="60" rx="16" ry="60" />
+        <ellipse cx="60" cy="60" rx="16" ry="60" transform="rotate(60 60 60)" />
+        <ellipse cx="60" cy="60" rx="16" ry="60" transform="rotate(120 60 60)" />
+      </svg>
+    </section>
+    <section class="quick-tools" aria-label="常用工具">
+      <a
+        class="quick-tool"
+        href={url('/food-guide/')}
+        aria-label="这个，可以吃吗？60 种食物，安心速查，打开食物速查"
+      >
+        <span class="tool-icon sage">
+          <Icon name="food" size={23} />
+        </span>
+        <div>
+          <h3>这个，可以吃吗？</h3>
+          <p>60 种食物，安心速查</p>
+        </div>
+        <Icon name="chevron" size={17} />
+      </a>
+      <a class="quick-tool" href={url('/for-dad/')}>
+        <span class="tool-icon peach">
+          <Icon name="users" size={23} />
+        </span>
+        <div>
+          <h3>准爸爸，行动起来</h3>
+          <p>让陪伴成为具体的小事</p>
+        </div>
+        <Icon name="chevron" size={17} />
+      </a>
+      <a class="quick-tool" href={url('/checklist/')}>
+        <span class="tool-icon lavender">
+          <Icon name="bag" size={23} />
+        </span>
+        <div>
+          <h3>见面前，准备好了没？</h3>
+          <p>一份可以打勾的待产清单</p>
+        </div>
+        <Icon name="chevron" size={17} />
+      </a>
+    </section>
+    <section class="home-action-grid" aria-label="从了解，到行动">
+      <a href={url('/appointments/')} class="home-action-card action-care">
+        <div class="action-card-top">
+          <span class="eyebrow">YOUR NEXT APPOINTMENT</span>
+          <Icon name="calendar" size={25} />
+        </div>
+        <h2>
+          下一次产检，
+          <br />
+          心里更有底。
+        </h2>
+        <p>
+          检查什么、出门带什么、结果怎么问。
+          <br />
+          把准备做好，把问题说清楚。
+        </p>
+        <span class="action-link">
+          查看产检与准备 <Icon name="arrow" size={17} />
+        </span>
+        <div class="action-decor" aria-hidden="true">
+          <span>＋</span>
+        </div>
+      </a>
+      <a href={url('/references/')} class="home-action-card action-sources">
+        <div class="action-card-top">
+          <span class="eyebrow">LESS GUESSING, MORE KNOWING</span>
+          <Icon name="book" size={25} />
+        </div>
+        <h2>
+          指南里的建议，
+          <br />
+          参考了哪些资料？
+        </h2>
+        <p>
+          {sources.length} 份国内外科普与研究资料，附原文链接。
+          <br />
+          查看来源，了解哪些建议适合自己的情况。
+        </p>
+        <span class="action-link">
+          打开参考资料 <Icon name="arrow" size={17} />
+        </span>
+        <span class="source-card-number" aria-hidden="true">
+          {sources.length}
+          <span>READ & UNDERSTAND</span>
+        </span>
+      </a>
+    </section>
+    <section class="journey-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR PREGNANCY JOURNEY</span>
+          <h2>每个阶段，都值得好好照顾</h2>
+        </div>
+        <a class="subtle-link" href={url('/overview/')}>
+          查看完整时间轴 <Icon name="arrow" size={16} />
+        </a>
+      </div>
+      <div class="stage-grid">
+        {stages.map((stage) => (
+          <a href={url(`/overview/${stage.id}/`)} class:list={['stage-card', stage.color]}>
+            <div class="stage-card-top">
+              <span class="stage-icon">
+                <Icon name={stage.icon} size={25} />
+              </span>
+              <span class="stage-number" aria-hidden="true">
+                {stage.number}
+              </span>
+            </div>
+            <div class="stage-card-label">
+              <h3>{stage.name}</h3>
+              <span>{stage.weeks}</span>
+            </div>
+            <h4>{stage.title}</h4>
+            <p>{stage.desc}</p>
+            <div class="stage-tags">
+              {stage.tags.map((tag) => (
+                <span>{tag}</span>
+              ))}
+            </div>
+            <span class="stage-card-link">
+              了解这个阶段 <Icon name="arrow" size={15} />
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+    <section class="home-bottom-grid">
+      <div class="week-preview panel">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">ONE STEP AT A TIME</span>
+            <h2>按孕期阶段，做好日常准备</h2>
+          </div>
+          <Icon name="calendar" size={22} />
+        </div>
+        <div class="stage-tabs" role="tablist" aria-label="按阶段查看日常准备">
+          <button
+            id="tab-early"
+            role="tab"
+            aria-selected="true"
+            aria-controls="stage-summary"
+            data-stage="early"
+          >
+            孕早期
+          </button>
+          <button
+            id="tab-middle"
+            role="tab"
+            aria-selected="false"
+            aria-controls="stage-summary"
+            tabindex="-1"
+            data-stage="middle"
+          >
+            孕中期
+          </button>
+          <button
+            id="tab-late"
+            role="tab"
+            aria-selected="false"
+            aria-controls="stage-summary"
+            tabindex="-1"
+            data-stage="late"
+          >
+            孕晚期
+          </button>
+        </div>
+        <div id="stage-summary" class="stage-summary" role="tabpanel" aria-labelledby="tab-early">
+          <span>0–13 周 + 6 天 · 慢慢适应新的变化</span>
+          <p>联系产科了解首次检查，核对既往用药。伴侣可以接手有异味的家务，给妈妈多一点休息。</p>
+          <a href={url('/overview/early/')} id="stage-detail-link" class="subtle-link">
+            看看这个阶段的准备 <Icon name="arrow" size={15} />
+          </a>
+        </div>
+      </div>
+      <div class="little-tasks panel">
+        <div class="section-heading compact">
+          <div>
+            <span class="eyebrow">BETTER TOGETHER</span>
+            <h2 id="tasks-heading">从这些小事，开始准备</h2>
+          </div>
+          <span class="mini-heart">♡</span>
+        </div>
+        <div id="personal-tasks">
+          <a class="personal-task" href={url('/for-dad/')}>
+            <span>
+              <Icon name="check" size={14} /> 留十分钟，听听彼此的心情
+            </span>
+            <small>一起</small>
+          </a>
+          <a class="personal-task" href={url('/recipes/')}>
+            <span>
+              <Icon name="check" size={14} /> 为今天搭配一顿均衡的饭
+            </span>
+            <small>饮食</small>
+          </a>
+          <a class="personal-task" href={url('/checklist/')}>
+            <span>
+              <Icon name="check" size={14} /> 记下待产物品和收纳位置
+            </span>
+            <small>清单</small>
+          </a>
+        </div>
+        <button class="text-button task-set-button" data-open-pregnancy>
+          <Icon name="calendar" size={14} />
+          <span id="hero-week-status">设置孕周，查看本阶段的准备</span>
+          <Icon name="arrow" size={14} />
+        </button>
+      </div>
+    </section>
+    <div class="gentle-banner">
+      <span>
+        <Icon name="shield" size={20} />
+        <strong>少一点信息焦虑，多一点有据可依。</strong>
+      </span>
+      <p>每项建议附有参考来源，具体检查、用药和身体不适，请与产科医生确认。</p>
+      <a href={url('/references/')}>
+        查看参考资料 <Icon name="arrow" size={15} />
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+<script>
+  import { url } from '../lib/urls';
+  const content = {
+    early: {
+      label: '0–13 周 + 6 天 · 慢慢适应新的变化',
+      text: '联系产科了解首次检查，核对既往用药。伴侣可以接手有异味的家务，给妈妈多一点休息。',
+    },
+    middle: {
+      label: '14–27 周 + 6 天 · 一起感受宝宝的回应',
+      text: '确认系统超声和糖代谢筛查安排，保持多样饮食与适合自己的活动。记录想在下次产检询问的问题。',
+    },
+    late: {
+      label: '28 周起 · 把期待一点点准备好',
+      text: '留意宝宝平常的胎动模式，发生变化及时联系产科。一起整理待产包，确认白天和夜间的入院交通。',
+    },
+  };
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-stage]'));
+  function select(tab: HTMLButtonElement) {
+    const stage = tab.dataset.stage as keyof typeof content;
+    tabs.forEach((t) => {
+      t.setAttribute('aria-selected', String(t === tab));
+      t.tabIndex = t === tab ? 0 : -1;
+    });
+    const panel = document.querySelector('#stage-summary')!;
+    panel.setAttribute('aria-labelledby', tab.id);
+    panel.querySelector('span')!.textContent = content[stage].label;
+    panel.querySelector('p')!.textContent = content[stage].text;
+    (panel.querySelector('a') as HTMLAnchorElement).href = url(`/overview/${stage}/`);
+  }
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+        select(next);
+        next.focus();
+      }
+    });
+  });
+</script>

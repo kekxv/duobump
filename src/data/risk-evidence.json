@@ -1,0 +1,185 @@
+[
+  {
+    "id": "natural-2026",
+    "title": "自然受孕：出血本身能说明结局吗？",
+    "conception": "natural",
+    "population": "RFTS 美国社区早孕队列；该队列不含辅助生殖受孕，5425 人纳入分析",
+    "design": "前瞻性队列二次分析，2026 年发表",
+    "country": "美国",
+    "dataPeriod": "2000–2012",
+    "timeframe": "孕早期出血；妊娠丢失结局随访",
+    "sampleSize": 5425,
+    "outcome": "孕早期出血的发生频率及其与妊娠丢失的关联",
+    "results": [
+      {
+        "type": "fraction",
+        "label": "报告孕早期出血",
+        "numerator": 1354,
+        "denominator": 5425
+      }
+    ],
+    "effects": [
+      {
+        "type": "HR",
+        "label": "任何出血 vs 未出血：妊娠丢失",
+        "value": 0.89,
+        "low": 0.75,
+        "high": 1.07
+      }
+    ],
+    "interpretation": "该研究未发现出血本身与妊娠丢失显著相关；超声表现提供了额外信息。HR 是随访中的风险率比，不是发生概率。",
+    "limitations": "研究排除了妊娠丢失前 4 天内结束的出血，不能用于正在发生的流产或急诊分诊；数据年代早、症状自报。末次月经误差或排卵时间差也会影响孕周，不能自行按“落后 5 天”诊断胚胎异常。与下方 2009 分析有同队列重叠，不是两次独立验证。",
+    "sourceLocator": "Results、Table 1 及 Discussion；纳入方法追溯 RFTS 队列说明",
+    "sourceIds": ["us-bleeding-2026", "us-bleeding-2009"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "natural-2009",
+    "title": "自然受孕：出血程度与流产风险",
+    "conception": "natural",
+    "population": "美国 RFTS 社区队列 4510 人；未用辅助生殖，异位妊娠被排除",
+    "design": "前瞻性队列分析，2009 年发表",
+    "country": "美国",
+    "dataPeriod": "2000 年起，末次月经在 2008-07-14 前的纳入人群",
+    "timeframe": "孕早期出血；随访至孕 20 周前流产",
+    "sampleSize": 4510,
+    "outcome": "出血频率与重度出血的相对关联",
+    "results": [
+      {
+        "type": "fraction",
+        "label": "报告任何出血或点滴出血",
+        "numerator": 1204,
+        "denominator": 4510
+      }
+    ],
+    "effects": [
+      {
+        "type": "OR",
+        "label": "重度出血 vs 无出血：流产（未调整）",
+        "value": 3,
+        "low": 1.9,
+        "high": 4.6
+      }
+    ],
+    "interpretation": "较早分析发现重度出血，尤其伴疼痛，与流产有关；OR 3.0 不表示流产概率 3%、30% 或一定增加 3 倍。",
+    "limitations": "“重度”按受试者月经最多时的血量定义；排除紧邻流产的出血，不能据此分诊。2026 年同队列分析未发现单看重度或疼痛出血就与丢失显著相关；观察方法、样本和模型不同，不把旧结论作为固定倍数，不能将两篇样本相加。",
+    "sourceLocator": "Abstract Results、Methods、Discussion；与 2026 分析对照",
+    "sourceIds": ["us-bleeding-2009", "us-bleeding-2026"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "hrt-fet",
+    "title": "HRT-FET：孕 8 周前少量出血常见吗？",
+    "conception": "assisted",
+    "population": "丹麦公立生殖中心；特定激素替代周期（HRT）冻胚移植方案，妊娠试验阳性者",
+    "design": "前瞻性队列二次分析，2023 年发表；论文另含系统综述",
+    "country": "丹麦",
+    "dataPeriod": "2020-01 至 2022-11",
+    "timeframe": "妊娠试验阳性至孕 8 周前；持续妊娠观察至 12 周",
+    "sampleSize": 320,
+    "outcome": "出血/点滴出血，以及不同组 12 周持续妊娠比例",
+    "results": [
+      {
+        "type": "fraction",
+        "label": "孕 8 周前出血或点滴出血（论文取整为 47%）",
+        "numerator": 149,
+        "denominator": 320
+      },
+      {
+        "type": "fraction",
+        "label": "出血组：12 周持续妊娠",
+        "numerator": 106,
+        "denominator": 149
+      },
+      {
+        "type": "fraction",
+        "label": "未出血组：12 周持续妊娠",
+        "numerator": 115,
+        "denominator": 171
+      }
+    ],
+    "effects": [],
+    "interpretation": "多数描述为点滴出血。两组 12 周持续妊娠差异未达统计学显著（P=0.45）；不能把“无显著差异”理解为保证安全，也不能把持续妊娠的补集直接当作流产率。",
+    "limitations": "仅适用于该 HRT-FET 方案；自然周期 FET、鲜胚和人工授精不是同一人群。该研究另附综述的出血定义不同，不能混用合并率。摘要公开、全文受限，数据仅取已读摘要，不支持对大量出血作保证。不能与美国自然受孕研究直接相除计算倍数。",
+    "sourceLocator": "作者摘要 Main results / Limitations；本卡仅摘取 320 人队列结果，不是综述合并数据",
+    "sourceIds": ["dk-hrt-bleeding"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "sch-china",
+    "title": "超声发现血肿，等于这次出血会流产吗？",
+    "conception": "clinical",
+    "population": "余姚市人民医院 1144 例单胎；要求 7 周前初次超声及 14 周前至少两次超声，含少量 IVF",
+    "design": "单中心回顾性队列，2024 年发表",
+    "country": "中国大陆",
+    "dataPeriod": "2021-01 至 2021-12",
+    "timeframe": "孕 5～13+6 周超声；流产结局为孕 20 周前",
+    "sampleSize": 1144,
+    "outcome": "有/无绒毛膜下血肿（SCH）两组的孕 20 周前流产",
+    "results": [
+      {
+        "type": "fraction",
+        "label": "有血肿组：孕 20 周前流产",
+        "numerator": 55,
+        "denominator": 559
+      },
+      {
+        "type": "fraction",
+        "label": "无血肿组：孕 20 周前流产",
+        "numerator": 34,
+        "denominator": 585
+      }
+    ],
+    "effects": [
+      {
+        "type": "adjusted-OR",
+        "label": "有血肿 vs 无血肿：孕 20 周前流产",
+        "value": 1.94,
+        "low": 1.19,
+        "high": 3.15
+      }
+    ],
+    "interpretation": "血肿是超声影像所见，与阴道流血不是同一个指标。观察到关联，不代表每个血肿都会流产；也不是“所有出血者的流产率”。",
+    "limitations": "排除胎心率 <100 次/分、多胎及部分疾病；并非全国或急诊出血人群，也没有足够的 IVF 分层结果。回顾性、治疗因素和筛选会影响结果，不能据此自行用黄体酮、阿司匹林或卧床。其他研究结果不完全一致，临床需结合孕周和复查。",
+    "sourceLocator": "Methods；Table 2 的原始计数；Table 3 的调整 OR 与正文说明",
+    "sourceIds": ["cn-sch-outcomes"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  },
+  {
+    "id": "art-ectopic",
+    "title": "试管后看到宫内孕，是否就完全排除宫外孕？",
+    "conception": "assisted",
+    "population": "美国 NASS 胚胎移植后 553577 次临床妊娠；包含鲜胚/冻胚及自卵/供卵",
+    "design": "全国登记数据回顾性分析，2015 年发表",
+    "country": "美国",
+    "dataPeriod": "2001–2011（历史数据）",
+    "timeframe": "胚胎移植后的临床妊娠定位结局",
+    "sampleSize": 553577,
+    "outcome": "异位妊娠（含宫内外同时妊娠）在已建立临床妊娠中的比例",
+    "results": [
+      {
+        "type": "fraction",
+        "label": "异位妊娠（包含下列同时妊娠）",
+        "numerator": 9480,
+        "denominator": 553577
+      },
+      {
+        "type": "fraction",
+        "label": "其中：宫内与宫外同时妊娠",
+        "numerator": 485,
+        "denominator": 553577
+      }
+    ],
+    "effects": [],
+    "interpretation": "看到宫内孕并不能绝对排除同时存在宫外妊娠。485 例已包含在 9480 例中，不要相加。",
+    "limitations": "这是旧年代美国临床妊娠的背景比例，不是全部移植周期成功率，也不是当前中国发生率，更不是“出血后有多少概率宫外孕”。移植技术、胚胎数量和输卵管病史会影响风险；单侧剧痛、肩痛、晕厥等仍立即就医。",
+    "sourceLocator": "Abstract Methods、Methods 分母定义及 Results",
+    "sourceIds": ["us-art-ectopic"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-08"
+  }
+]

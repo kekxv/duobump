@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import items from '../data/checklist.json';
+const categories = [...new Set(items.map((i) => i.category))];
+---
+
+<BaseLayout title="待产准备清单" section="待产清单">
+  <div class="page-content">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">PACK A LITTLE, PREPARE TOGETHER</span>
+        <h1>见面之前，一起准备好。</h1>
+        <p>物品在哪里，流程怎么走，让两个人都心里有数。医院要求不同，采购前先核对。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="bag" size={30} />
+      </div>
+    </div>
+    <section class="progress-panel" aria-label="待产清单完成进度">
+      <span class="progress-circle" id="progress-percent">
+        0%
+      </span>
+      <div class="progress-copy">
+        <h2>每准备一件，就从容一点。</h2>
+        <p id="checklist-progress" aria-live="polite">
+          已完成 0 / {items.length} 项，不必一次做完。
+        </p>
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="清单进度"
+          aria-valuemin="0"
+          aria-valuemax={items.length}
+          aria-valuenow="0"
+        >
+          <span id="progress-fill" style="width:0%"></span>
+        </div>
+      </div>
+      <Icon name="heart" size={25} class="no-print" />
+    </section>
+    <div class="checklist-toolbar no-print">
+      <label class="checkbox-label">
+        <input id="show-unfinished" type="checkbox" /> 只看未完成
+      </label>
+      <div class="checklist-actions">
+        <button class="button secondary" id="print-checklist">
+          <Icon name="print" size={15} /> 打印清单
+        </button>
+        <button class="text-button" id="reset-checklist">
+          <Icon name="reset" size={14} /> 重置清单
+        </button>
+      </div>
+    </div>
+    <p class="storage-note" id="checklist-status" role="status">
+      <Icon name="lock" size={12} /> 仅在此浏览器保存，不上传，也不会自动同步给伴侣。
+    </p>
+    <noscript>
+      <div class="info-note">
+        勾选自动保存与筛选需要 JavaScript。你可以打印这份清单，在纸上记录。
+      </div>
+    </noscript>
+    <div class="checklist-groups">
+      {categories.map((category) => {
+        const group = items.filter((item) => item.category === category);
+        return (
+          <section class="checklist-group">
+            <h2>
+              <span aria-hidden="true">{group[0].emoji}</span>
+              {category}
+              <small>{group.length} 项</small>
+            </h2>
+            {group.map((item) => (
+              <div class="checklist-row" data-checklist-row={item.id}>
+                <div class="checklist-row-top">
+                  <label>
+                    <input type="checkbox" data-check-id={item.id} />
+                    <span>
+                      {item.title}
+                      {item.required && <small class="required-mark">优先</small>}
+                    </span>
+                  </label>
+                  <small class="owner-label">{item.defaultOwner}</small>
+                </div>
+                <input
+                  class="location-input"
+                  type="text"
+                  data-location={item.id}
+                  maxlength={100}
+                  aria-label={`${item.title}的收纳位置`}
+                  placeholder="记下放在哪里 / 补充备注"
+                />
+              </div>
+            ))}
+          </section>
+        );
+      })}
+    </div>
+    <div class="info-note" style="margin-top:23px">
+      <Icon name="info" size={17} />
+      <p>
+        清单用于日常准备，不意味着每项都要购买。
+        <strong>遇到紧急情况，先求助，不为拿齐待产物品延误就医。</strong>
+      </p>
+    </div>
+  </div>
+  <dialog
+    data-pagefind-ignore
+    id="reset-dialog"
+    class="app-dialog reset-dialog"
+    aria-labelledby="reset-title"
+  >
+    <h2 id="reset-title">重新开始这份清单？</h2>
+    <p class="muted">将清除勾选和收纳备注，孕周设置不受影响。</p>
+    <div class="dialog-actions">
+      <button class="button secondary" data-close-dialog>
+        保留清单
+      </button>
+      <button class="button primary" id="confirm-reset">
+        确认重置
+      </button>
+    </div>
+  </dialog>
+</BaseLayout>
+<script>
+  import items from '../data/checklist.json';
+  import { browserStorage, readChecklist, saveChecklist, resetChecklist } from '../lib/storage';
+  const storage = browserStorage();
+  const ids = items.map((i) => i.id);
+  const loaded = readChecklist(storage, ids);
+  let state = loaded.state;
+  const status = document.querySelector('#checklist-status')!;
+  const checkboxes = Array.from(document.querySelectorAll<HTMLInputElement>('[data-check-id]'));
+  const locations = Array.from(document.querySelectorAll<HTMLInputElement>('[data-location]'));
+  const onlyUnfinished = document.querySelector<HTMLInputElement>('#show-unfinished')!;
+  function update() {
+    const checked = new Set(state.checkedIds);
+    checkboxes.forEach((input) => {
+      input.checked = checked.has(input.dataset.checkId!);
+      const row = input.closest<HTMLElement>('[data-checklist-row]')!;
+      row.classList.toggle('is-done', input.checked);
+      row.hidden = onlyUnfinished.checked && input.checked;
+    });
+    document.querySelector('#checklist-progress')!.textContent =
+      `已完成 ${checked.size} / ${ids.length} 项，不必一次做完。`;
+    const percent = Math.round((checked.size / ids.length) * 100);
+    document.querySelector('#progress-percent')!.textContent = `${percent}%`;
+    (document.querySelector('#progress-fill') as HTMLElement).style.width = `${percent}%`;
+    document
+      .querySelector('[role="progressbar"]')!
+      .setAttribute('aria-valuenow', String(checked.size));
+  }
+  function persist() {
+    if (!saveChecklist(storage, state).persisted)
+      status.textContent = '本次会话可用；浏览器未能保存，刷新后可能丢失。';
+  }
+  checkboxes.forEach((input) =>
+    input.addEventListener('change', () => {
+      const set = new Set(state.checkedIds);
+      input.checked ? set.add(input.dataset.checkId!) : set.delete(input.dataset.checkId!);
+      state.checkedIds = [...set];
+      persist();
+      update();
+    }),
+  );
+  locations.forEach((input) => {
+    input.value = state.locations[input.dataset.location!] || '';
+    input.addEventListener('input', () => {
+      state.locations[input.dataset.location!] = input.value.slice(0, 100);
+      persist();
+    });
+  });
+  onlyUnfinished.addEventListener('change', update);
+  document.querySelector('#print-checklist')!.addEventListener('click', () => {
+    const previous = onlyUnfinished.checked;
+    onlyUnfinished.checked = false;
+    update();
+    window.print();
+    onlyUnfinished.checked = previous;
+    update();
+  });
+  const dialog = document.querySelector<HTMLDialogElement>('#reset-dialog')!;
+  document.querySelector('#reset-checklist')!.addEventListener('click', () => dialog.showModal());
+  document.querySelector('#confirm-reset')!.addEventListener('click', () => {
+    const cleared = resetChecklist(storage);
+    if (!cleared)
+      status.textContent =
+        '已重置本次会话；浏览器未能删除已保存数据，请通过浏览器设置清除此网站数据。';
+    state = { version: 1, checkedIds: [], locations: {} };
+    locations.forEach((i) => (i.value = ''));
+    update();
+    dialog.close();
+  });
+  if (loaded.notice === 'unavailable')
+    status.textContent = '本次会话可用；浏览器未能保存，刷新后可能丢失。';
+  else if (loaded.notice === 'unsupported')
+    status.textContent =
+      '发现无法识别的旧版或新版清单；暂以空清单开始，原数据在你更改清单前保持不动。';
+  else if (loaded.notice === 'corrupt')
+    status.textContent = '已保存清单无法读取；暂以空清单开始，原数据在你更改清单前保持不动。';
+  update();
+</script>

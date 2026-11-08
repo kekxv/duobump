@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/urls';
+---
+
+<BaseLayout title="页面未找到" section="找回方向">
+  <div class="page-content">
+    <div class="not-found">
+      <span class="eyebrow">404 · A LITTLE DETOUR</span>
+      <Icon name="leaf" size={56} />
+      <h1>没有找到这个页面</h1>
+      <p>链接可能有误，或页面已移动。你可以返回首页继续浏览。</p>
+      <a class="button primary" href={url('/')}>
+        回到首页 <Icon name="arrow" size={16} />
+      </a>
+      <a class="button secondary" href={url('/emergency/')}>
+        查看紧急就医
+      </a>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import SourcePanel from '../../components/SourcePanel.astro';
+import { url } from '../../lib/urls';
+import symptoms from '../../data/stage-symptoms.json';
+const stages = [
+  {
+    id: 'early',
+    name: '孕早期',
+    weeks: '0–13 周 + 6 天',
+    icon: 'leaf',
+    color: 'sage',
+    title: '慢慢适应，悄悄生长',
+    desc: '联系产科，建立自己的产检计划。',
+    tags: ['早孕反应', '首次检查', '用药核对'],
+  },
+  {
+    id: 'middle',
+    name: '孕中期',
+    weeks: '14–27 周 + 6 天',
+    icon: 'sun',
+    color: 'peach',
+    title: '新的变化，温柔回应',
+    desc: '安排检查，开始认识宝宝的活动。',
+    tags: ['系统超声', '均衡营养', '认识胎动'],
+  },
+  {
+    id: 'late',
+    name: '孕晚期',
+    weeks: '28 周起',
+    icon: 'baby',
+    color: 'lavender',
+    title: '一点一点，准备见面',
+    desc: '关注胎动，沟通分娩与入院准备。',
+    tags: ['胎动变化', '待产包', '入院交通'],
+  },
+];
+---
+
+<BaseLayout title="孕期时间轴" section="孕期时间轴">
+  <div class="page-content">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">FORTY WEEKS, ONE BEAUTIFUL JOURNEY</span>
+        <h1>每一步，都有新的期待。</h1>
+        <p>身体的变化、重要的检查、两个人的准备。沿着时间轴，找到现在需要的那一页。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="timeline" size={31} />
+      </div>
+    </div>
+    <div class="info-note">
+      <Icon name="info" size={17} />
+      <p>
+        本指南按以下阶段介绍：孕早期为 14 周前，孕中期为 14 周至 27 周 + 6 天，孕晚期从 28 周开始。
+        <strong>具体检查时间以当地医院及个人医嘱为准。</strong>
+      </p>
+    </div>
+    <a class="overview-appointment-link" href={url('/appointments/')}>
+      <span class="tool-icon sage">
+        <Icon name="calendar" size={25} />
+      </span>
+      <span>
+        <strong>下一次产检，需要准备什么？</strong>
+        <small>按阶段了解检查目的、预约要求和检查前准备。</small>
+      </span>
+      <Icon name="arrow" size={20} />
+    </a>
+    <div class="stage-grid stage-overview-grid">
+      {stages.map((s, i) => (
+        <a href={url(`/overview/${s.id}/`)} class:list={['stage-card', s.color]}>
+          <div class="stage-card-top">
+            <span class="stage-icon">
+              <Icon name={s.icon} size={25} />
+            </span>
+            <span class="stage-number" aria-hidden="true">
+              0{i + 1}
+            </span>
+          </div>
+          <div class="stage-card-label">
+            <h3>{s.name}</h3>
+          </div>
+          <span class="tiny muted" style="margin-top:5px">
+            {s.weeks}
+          </span>
+          <h4>{s.title}</h4>
+          <p>{s.desc}</p>
+          <div class="stage-tags">
+            {s.tags.map((t) => (
+              <span>{t}</span>
+            ))}
+          </div>
+          <span class="stage-card-link">
+            查看阶段指南 <Icon name="arrow" size={15} />
+          </span>
+        </a>
+      ))}
+    </div>
+    <section class="overview-symptoms" aria-labelledby="overview-symptom-heading">
+      <div>
+        <h2 id="overview-symptom-heading">身体有了新变化，先有个了解</h2>
+        <p>大到临产信号，小到牙龈出血、手麻和睡不踏实，按阶段看看如何照顾自己、何时联系医生。</p>
+      </div>
+      <div class="overview-symptom-links">
+        {stages.map((s) => (
+          <a href={`${url(`/overview/${s.id}/`)}#stage-symptoms`}>
+            <strong>了解{s.name}的身体变化</strong>
+            <span>
+              {symptoms.filter((row) => row.stages.includes(s.id)).length} 项状况 · 照护与就医提醒
+            </span>
+            <Icon name="arrow" size={17} />
+          </a>
+        ))}
+      </div>
+      <small>常见不等于可以忽略，没列出的症状也可能需要评估。有不适或担心时，请联系产科。</small>
+    </section>
+    <div class="content-grid">
+      <section class="panel check-windows" style="margin-top:0">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR APPOINTMENT NOTES</span>
+            <h2>产检前，先把这些问清楚</h2>
+          </div>
+        </div>
+        {[
+          [
+            '尽早联系',
+            '首次就诊与建档',
+            '向计划就诊的医院核对预约、材料及既往病史准备。早孕超声的时间与复查由医生判断。',
+          ],
+          [
+            '孕早期',
+            '筛查的选择与窗口',
+            '了解 NT、血清学筛查、NIPT 的区别、适用情况和医院预约窗口；筛查不是诊断。',
+          ],
+          [
+            '孕中期',
+            '系统超声与糖代谢筛查',
+            '核实系统超声预约时间，以及糖耐量检查的适用安排和准备要求。国内常见窗口需向就诊医院确认。',
+          ],
+          [
+            '孕晚期',
+            '随访、胎动与分娩准备',
+            '讨论个人产检频率、是否安排胎心监护及 GBS 筛查，提前确认出现不适时如何联系产科。',
+          ],
+        ].map(([when, title, desc]) => (
+          <div class="window-row">
+            <span>{when}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </div>
+          </div>
+        ))}
+        <p class="tiny muted" style="margin-top:18px">
+          有不适时，请及时联系产科，不必等到下一次预约。以上内容帮助你做好就诊准备，具体检查由医生安排。
+        </p>
+      </section>
+      <aside class="article-side">
+        <SourcePanel ids={['nhs-appointments']} />
+        <button class="button primary full" data-open-pregnancy style="margin-top:4px">
+          <Icon name="calendar" size={17} /> 计算我的孕周
+        </button>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .overview-symptoms {
+    margin: 28px 0;
+    padding: 26px;
+    border: 1px solid #dce4d3;
+    border-radius: 18px;
+    background: #f4f7ee;
+  }
+  .overview-symptoms h2 {
+    font-size: 21px;
+    margin: 0 0 9px;
+    color: #3d5637;
+  }
+  .overview-symptoms p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #626f56;
+  }
+  .overview-symptom-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+    margin: 20px 0 14px;
+  }
+  .overview-symptom-links a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    padding: 17px;
+    border: 1px solid #dce3d4;
+    border-radius: 12px;
+    background: white;
+    color: #40583a;
+  }
+  .overview-symptom-links strong {
+    font-size: 15px;
+  }
+  .overview-symptom-links span {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-size: 11px;
+    color: #65745a;
+    line-height: 1.7;
+  }
+  .overview-symptom-links svg {
+    align-self: center;
+  }
+  .overview-symptoms small {
+    color: #53624b;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  @media (max-width: 700px) {
+    .overview-symptoms {
+      padding: 20px;
+    }
+    .overview-symptom-links {
+      grid-template-columns: 1fr;
+      gap: 9px;
+    }
+    .overview-symptom-links a {
+      padding: 14px;
+    }
+    .overview-symptoms h2 {
+      font-size: 19px;
+    }
+  }
+</style>

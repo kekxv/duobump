@@ -1,0 +1,272 @@
+[
+  {
+    "id": "id-card",
+    "title": "身份证与就诊卡",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "妈妈",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "health-record",
+    "title": "母子健康手册 / 产检病历",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "共同",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "test-results",
+    "title": "检查报告与用药清单",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "payment",
+    "title": "医保与支付方式",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "admission-info",
+    "title": "医院入院要求",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "contacts",
+    "title": "产科与紧急联系人",
+    "category": "证件资料",
+    "emoji": "📁",
+    "defaultOwner": "伴侣",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "clothes",
+    "title": "宽松换洗衣物",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "妈妈",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "underwear",
+    "title": "舒适内衣与一次性内裤",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "妈妈",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "pads",
+    "title": "产褥垫与卫生巾",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "slippers",
+    "title": "防滑拖鞋与袜子",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "妈妈",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "toiletries",
+    "title": "洗漱与基础护肤用品",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "妈妈",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "towels",
+    "title": "毛巾与纸巾",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "cup",
+    "title": "水杯与吸管",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "charger",
+    "title": "手机与充电器",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "snacks",
+    "title": "医院允许的补给食品",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "feeding",
+    "title": "按需准备哺乳用品",
+    "category": "妈妈用品",
+    "emoji": "🌷",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "baby-clothes",
+    "title": "宝宝换洗衣物",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "diapers",
+    "title": "新生儿纸尿裤",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "伴侣",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "blanket",
+    "title": "包被与毯子",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "baby-towel",
+    "title": "柔软纱布巾",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "baby-wipes",
+    "title": "棉柔巾",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "car-seat",
+    "title": "合规婴儿安全座椅",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "discharge-clothes",
+    "title": "出院衣物",
+    "category": "宝宝用品",
+    "emoji": "🧸",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "route",
+    "title": "确认去医院的路线",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "伴侣",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "transport",
+    "title": "安排白天与夜间交通",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "伴侣",
+    "required": true,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "leave",
+    "title": "确认请假与交接",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "care",
+    "title": "安排家中照护事宜",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "bag-location",
+    "title": "确认待产包收纳位置",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "hospital-rules",
+    "title": "确认陪护与探视规定",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "伴侣",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  },
+  {
+    "id": "birth-plan",
+    "title": "沟通分娩偏好与支持方式",
+    "category": "交通后勤",
+    "emoji": "🚗",
+    "defaultOwner": "共同",
+    "required": false,
+    "note": "以就诊医院的实际要求为准；可按家庭情况调整。"
+  }
+]

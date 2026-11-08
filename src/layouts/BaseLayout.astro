@@ -1,0 +1,278 @@
+---
+import '../styles/global.css';
+import '../styles/refresh.css';
+import Icon from '../components/Icon.astro';
+import PregnancyDialog from '../components/PregnancyDialog.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import { url } from '../lib/urls';
+interface Props {
+  title: string;
+  description?: string;
+  section?: string;
+}
+const {
+  title,
+  description = '从孕期第一天，到第一次见面。陪准妈妈和伴侣一起，把每一步走得更安心。',
+  section = '孕期指南',
+} = Astro.props;
+const nav = [
+  ['/', 'home', '一起开始'],
+  ['/overview/', 'timeline', '孕期时间轴'],
+  ['/appointments/', 'calendar', '产检与准备'],
+  ['/risk-guide/', 'book', '异常与概率'],
+  ['/for-mom/', 'heart', '准妈妈指南'],
+  ['/for-dad/', 'users', '准爸爸指南'],
+  ['/food-guide/', 'food', '食物速查'],
+  ['/recipes/', 'bowl', '营养食谱'],
+  ['/checklist/', 'checklist', '待产清单'],
+  ['/references/', 'book', '参考资料'],
+];
+const current = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={import.meta.env.PUBLIC_RELEASE === 'true' ? 'index,follow' : 'noindex,nofollow'}
+    />
+    <meta name="theme-color" content="#f8f9f5" />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <script is:inline defer data-hash-router src={url('/hash-router.js')}></script>
+    <title>{title} · DuoBump 双人孕期指南</title>
+  </head>
+  <body>
+    <noscript>
+      <style>
+        @media (max-width: 1023px) {
+          .sidebar {
+            position: static;
+            transform: none;
+            width: 100%;
+            height: auto;
+            padding: 20px;
+          }
+          .sidebar .brand,
+          .sidebar .nav-label,
+          .sidebar-bottom {
+            display: none;
+          }
+          .main-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+          }
+          .nav-item {
+            font-size: 12px;
+            min-height: 44px;
+            padding: 8px 10px;
+          }
+          .app-shell {
+            margin: 0;
+          }
+          .topbar {
+            display: none;
+          }
+        }
+      </style>
+    </noscript>
+    <a href="#main-content" class="skip-link">
+      跳到主要内容
+    </a>
+    <button class="sidebar-scrim" id="sidebar-scrim" aria-label="关闭导航" tabindex="-1"></button>
+    <aside class="sidebar" id="sidebar" aria-label="网站导航">
+      <a class="brand" href={url('/')}>
+        <span class="brand-mark">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path
+              d="M17 28C5 21 2 10 9 8c5-2 8 4 8 8 1-7 6-13 11-9 8 7-4 17-11 21Z"
+              fill="currentColor"
+            />
+            <path
+              d="M17 28c5-6 4-12 1-16"
+              stroke="#f7f8f1"
+              stroke-width="1.6"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        <span>
+          DuoBump<span class="brand-sub">双人孕期指南</span>
+        </span>
+      </a>
+      <div class="nav-label">为爱，一起准备</div>
+      <nav class="main-nav" aria-label="主要导航">
+        {nav.map(([path, icon, label]) => (
+          <a
+            href={url(path)}
+            class:list={[
+              'nav-item',
+              { active: path === '/' ? current === url('/') : current.startsWith(url(path)) },
+            ]}
+            aria-current={
+              (path === '/' ? current === url('/') : current.startsWith(url(path)))
+                ? 'page'
+                : undefined
+            }
+          >
+            <Icon name={icon} size={19} />
+            <span>{label}</span>
+            {path === '/checklist/' && <span class="nav-count">30</span>}
+          </a>
+        ))}
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="together-note">
+          <span class="note-heart">
+            <Icon name="heart" size={22} />
+          </span>
+          <strong>
+            怀孕是一段旅程，
+            <br />
+            也是两个人的成长。
+          </strong>
+          <p>多一点了解，多一份陪伴。</p>
+          <span class="note-sprig" aria-hidden="true">
+            ✳
+          </span>
+        </div>
+        <a href={url('/emergency/')} class="emergency-nav">
+          <Icon name="alert" size={18} />
+          <span>紧急就医</span>
+          <Icon name="chevron" size={14} />
+        </a>
+        <a href={url('/references/')} class="about-nav">
+          <Icon name="book" size={17} /> 参考资料与原文网址
+        </a>
+        <div class="sidebar-foot">
+          WITH LOVE, FOR YOUR LITTLE ONE <span>✳</span>
+        </div>
+      </div>
+    </aside>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-start">
+          <button
+            class="icon-button mobile-menu"
+            id="menu-toggle"
+            aria-label="打开导航"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            <Icon name="menu" />
+          </button>
+          <span class="breadcrumb">
+            孕育小生命<span>/</span>
+            <strong>{section}</strong>
+          </span>
+        </div>
+        <div class="topbar-actions">
+          <button class="search-trigger" data-open-search>
+            <Icon name="search" size={17} />
+            <span>搜索指南</span>
+            <kbd aria-hidden="true">⌘ K</kbd>
+          </button>
+          <span class="topbar-divider"></span>
+          <button class="week-button" data-open-pregnancy aria-label="设置我的孕周">
+            <Icon name="calendar" size={17} />
+            <span id="header-week">设置我的孕周</span>
+          </button>
+        </div>
+      </header>
+      <main
+        tabindex="-1"
+        id="main-content"
+        data-pagefind-body={title === '页面未找到' ? undefined : true}
+      >
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div>
+          <a class="footer-logo" href={url('/')}>
+            <Icon name="leaf" size={18} /> DuoBump
+          </a>
+          <span>为每一份期待，准备多一点安心。</span>
+        </div>
+        <div>
+          <a href={url('/references/')}>参考资料</a>
+          <a href={url('/about/')}>关于与免责声明</a>
+          <span class="preview-label">科普预览 · 待专业审核</span>
+        </div>
+        <p>
+          本站内容仅供科普与日常准备参考，不能替代专业医疗评估。检查、用药及身体不适，请遵从专业产科医生建议。
+        </p>
+      </footer>
+    </div>
+    <a href={url('/emergency/')} class="mobile-emergency">
+      <Icon name="alert" size={16} /> 紧急就医
+    </a>
+    <PregnancyDialog />
+    <SearchDialog />
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('#menu-toggle')!;
+      const scrim = document.querySelector('#sidebar-scrim')!;
+      const sidebar = document.querySelector<HTMLElement>('#sidebar')!;
+      const shell = document.querySelector<HTMLElement>('.app-shell')!;
+      const media = matchMedia('(max-width:1023px)');
+      const setMenu = (open: boolean, focus = true) => {
+        document.body.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        sidebar.inert = media.matches && !open;
+        shell.inert = media.matches && open;
+        if (open) {
+          sidebar.setAttribute('role', 'dialog');
+          sidebar.setAttribute('aria-modal', 'true');
+          sidebar.querySelector<HTMLAnchorElement>('a')?.focus();
+        } else {
+          sidebar.removeAttribute('role');
+          sidebar.removeAttribute('aria-modal');
+          if (focus) toggle.focus();
+        }
+      };
+      sidebar.inert = media.matches;
+      media.addEventListener('change', () => setMenu(false, false));
+      sidebar.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && document.body.classList.contains('nav-open')) {
+          const links = Array.from(sidebar.querySelectorAll<HTMLAnchorElement>('a'));
+          const first = links[0],
+            last = links[links.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+      toggle.addEventListener('click', () =>
+        setMenu(!document.body.classList.contains('nav-open')),
+      );
+      scrim.addEventListener('click', () => setMenu(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('nav-open')) setMenu(false);
+      });
+      document.querySelectorAll<HTMLDialogElement>('dialog').forEach((dialog) => {
+        dialog
+          .querySelectorAll('[data-close-dialog]')
+          .forEach((button) => button.addEventListener('click', () => dialog.close()));
+        dialog.addEventListener('click', (e) => {
+          if (e.target === dialog) {
+            const r = dialog.getBoundingClientRect();
+            if (
+              e.clientX < r.left ||
+              e.clientX > r.right ||
+              e.clientY < r.top ||
+              e.clientY > r.bottom
+            )
+              dialog.close();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import sources from '../data/sources.json';
+import { url } from '../lib/urls';
+---
+
+<BaseLayout
+  title="参考资料"
+  description="查阅孕期指南参考的国内外科普资料和研究原文，了解来源、发布日期与适用范围。"
+  section="参考资料"
+>
+  <div class="page-content references-page">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">READ THE SOURCES, KEEP YOUR PEACE OF MIND</span>
+        <h1>参考资料</h1>
+        <p>查阅指南中的资料来源，了解建议的依据。有疑问时，也可以带着原文向医生咨询。</p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="book" size={32} />
+      </div>
+    </div>
+    <section class="reference-hero">
+      <div>
+        <span class="eyebrow">OUR SOURCE LIBRARY</span>
+        <h2>从日常建议到研究数据，查找你需要的资料。</h2>
+        <p>
+          这里收录了国内外卫生机构、医院的科普文章和相关研究。每份资料都附有原文链接、来源机构和日期，可按地区、类型或关键词查找。
+        </p>
+      </div>
+      <div class="reference-stat">
+        <strong>{sources.length.toString().padStart(2, '0')}</strong>
+        <span>
+          份参考资料
+          <br />
+          全部附原文网址
+        </span>
+      </div>
+    </section>
+    <div class="info-note">
+      <Icon name="info" size={19} />
+      <p>
+        <strong>本站内容尚未完成专业医学审核。</strong>{' '}
+        医院科普和研究结果可帮助理解相关问题，不能代替个人诊疗建议。不同地区的筛查、食品标准和就医流程可能不同，请以就诊医院的要求为准。“本站核查”是整理时核对原文的日期，不是医生审核日期。
+      </p>
+    </div>
+    <div class="reference-region-filters" role="group" aria-label="按资料适用地区筛选">
+      <button type="button" data-region-filter="all" aria-pressed="true">
+        全部资料
+      </button>
+      <button type="button" data-region-filter="CN" aria-pressed="false">
+        中国大陆
+      </button>
+      <button type="button" data-region-filter="GB" aria-pressed="false">
+        英国资料
+      </button>
+      <button type="button" data-region-filter="OTHER" aria-pressed="false">
+        其他地区
+      </button>
+    </div>
+    <div
+      class="reference-region-filters reference-type-filters"
+      role="group"
+      aria-label="按资料类型筛选"
+    >
+      <button type="button" data-type-filter="all" aria-pressed="true">
+        全部类型
+      </button>
+      <button type="button" data-type-filter="food" aria-pressed="false">
+        饮食与安全
+      </button>
+      <button type="button" data-type-filter="tcm" aria-pressed="false">
+        中医食养
+      </button>
+      <button type="button" data-type-filter="identity" aria-pressed="false">
+        食材辨识
+      </button>
+    </div>
+    <div class="reference-toolbar">
+      <label class="reference-search">
+        <Icon name="search" size={18} />
+        <input
+          id="reference-search"
+          type="search"
+          aria-label="搜索参考资料"
+          placeholder="搜索主题、机构或网址，如 OGTT、疾控"
+        />
+      </label>
+      <p id="reference-count" role="status">
+        共 {sources.length} 份资料
+      </p>
+    </div>
+    <div class="reference-groups">
+      {[
+        { title: '风险数据与原始研究', label: 'RESEARCH & EVIDENCE', category: 'research' },
+        { title: '产检、筛查与孕周', label: 'CARE & SCREENING', category: 'care' },
+        {
+          title: '饮食、日常与分娩准备',
+          label: 'EVERYDAY & BIRTH',
+          category: 'daily',
+        },
+        {
+          title: '中医食养与注意事项',
+          label: 'TRADITIONAL FOOD THERAPY · SCOPE & LIMITS',
+          category: 'tcm',
+        },
+      ].map((group) => (
+        <section class="reference-group">
+          <div class="section-heading">
+            <div>
+              <span class="eyebrow">{group.label}</span>
+              <h2>{group.title}</h2>
+            </div>
+          </div>
+          <div class="reference-grid">
+            {sources
+              .filter((s) => s.category === group.category)
+              .map((s) => (
+                <article
+                  id={s.id}
+                  class="reference-card"
+                  data-reference
+                  data-region={s.regionCode}
+                  data-source-type={s.sourceType || 'other'}
+                  data-search={`${s.chineseTitle} ${s.title} ${s.topics} ${s.organization} ${s.publisherLabel} ${s.region} ${s.url}`.toLowerCase()}
+                >
+                  <div class="reference-card-heading">
+                    <span class="reference-book">
+                      <Icon name="book" size={20} />
+                    </span>
+                    <span class="reference-org-tag">{s.publisherLabel}</span>
+                  </div>
+                  <h3>{s.chineseTitle}</h3>
+                  <p
+                    class="reference-english"
+                    lang={s.language || (s.regionCode === 'CN' ? 'zh-CN' : 'en')}
+                  >
+                    {s.title}
+                  </p>
+                  <p class="reference-topics">{s.topics}</p>
+                  {s.sourceType === 'tcm' && (
+                    <p class="reference-topics">
+                      <strong>中医食养科普</strong> ·
+                      介绍传统食养观点和注意事项，不能据此认定某种食物在孕期安全或有效。
+                    </p>
+                  )}
+                  <dl class="reference-meta">
+                    <div>
+                      <dt>来源机构</dt>
+                      <dd>{s.organization}</dd>
+                    </div>
+                    <div>
+                      <dt>适用地区</dt>
+                      <dd>{s.region}</dd>
+                    </div>
+                    {s.publishedAt && (
+                      <div>
+                        <dt>{s.dateLabel || '原文发布'}</dt>
+                        <dd>{s.publishedAt}</dd>
+                      </div>
+                    )}
+                    <div>
+                      <dt>本站核查</dt>
+                      <dd>{s.checkedAt} · 待专业审核</dd>
+                    </div>
+                  </dl>
+                  {s.accessNote && <p class="reference-topics">阅读提示：{s.accessNote}</p>}
+                  <a class="reference-url" href={s.url} target="_blank" rel="noopener noreferrer">
+                    {s.url}
+                    <Icon name="external" size={14} />
+                  </a>
+                </article>
+              ))}
+          </div>
+        </section>
+      ))}
+    </div>
+    <p id="reference-empty" class="empty-state" hidden>
+      没有找到符合条件的资料。试试其他关键词，或清空搜索并选择“全部资料”和“全部类型”。
+    </p>
+    <section class="reference-principles panel">
+      <div>
+        <span class="eyebrow">HOW TO USE THIS LIBRARY</span>
+        <h2>阅读资料时，留意这三点</h2>
+      </div>
+      <div>
+        <h3>先看适用地区</h3>
+        <p>
+          不同地区的检查时间和流程可能不同，以就诊医院的安排为准。研究按参与者所在地区分类，与文章使用的语言无关。
+        </p>
+      </div>
+      <div>
+        <h3>留意发布日期</h3>
+        <p>
+          建议可能随时间更新，使用前可打开原文查看最新说明。本站标注的核查日期不代表原文的更新时间。
+        </p>
+      </div>
+      <div>
+        <h3>把问题带给医生</h3>
+        <p>
+          研究结论不等于临床指南，也不能直接判断个人风险。检查结果和治疗选择，需要医生结合你的情况解释。
+        </p>
+      </div>
+    </section>
+    <a href={url('/about/')} class="subtle-link">
+      了解内容原则、隐私与免责声明 <Icon name="arrow" size={15} />
+    </a>
+  </div>
+</BaseLayout>
+<script>
+  const input = document.querySelector<HTMLInputElement>('#reference-search')!;
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-reference]'));
+  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-region-filter]'));
+  const typeFilters = Array.from(
+    document.querySelectorAll<HTMLButtonElement>('[data-type-filter]'),
+  );
+  let region = 'all';
+  let sourceType = 'all';
+  function update() {
+    const query = input.value.trim().toLowerCase();
+    let count = 0;
+    cards.forEach((card) => {
+      card.hidden = !(
+        (region === 'all' ||
+          card.dataset.region === region ||
+          (region === 'OTHER' && !['CN', 'GB'].includes(card.dataset.region || ''))) &&
+        (sourceType === 'all' || card.dataset.sourceType === sourceType) &&
+        (card.dataset.search || '').includes(query)
+      );
+      if (!card.hidden) count++;
+    });
+    document.querySelectorAll<HTMLElement>('.reference-group').forEach((group) => {
+      group.hidden = !group.querySelector('[data-reference]:not([hidden])');
+    });
+    document.querySelector('#reference-count')!.textContent =
+      `显示 ${count} / ${cards.length} 份资料`;
+    (document.querySelector('#reference-empty') as HTMLElement).hidden = count > 0;
+  }
+  input.addEventListener('input', update);
+  typeFilters.forEach((button) =>
+    button.addEventListener('click', () => {
+      sourceType = button.dataset.typeFilter!;
+      typeFilters.forEach((filter) =>
+        filter.setAttribute('aria-pressed', String(filter === button)),
+      );
+      update();
+    }),
+  );
+  filters.forEach((button) =>
+    button.addEventListener('click', () => {
+      region = button.dataset.regionFilter!;
+      filters.forEach((filter) => filter.setAttribute('aria-pressed', String(filter === button)));
+      update();
+    }),
+  );
+</script>
+<style>
+  .reference-region-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 28px 0 16px;
+  }
+  .reference-region-filters button {
+    border: 1px solid var(--border, #d9ddd5);
+    border-radius: 999px;
+    padding: 10px 18px;
+    background: var(--surface, #fff);
+    color: var(--text, #353e33);
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+  }
+  .reference-region-filters button[aria-pressed='true'] {
+    background: #3e5946;
+    color: #fff;
+    border-color: #3e5946;
+  }
+  .reference-region-filters button:focus-visible {
+    outline: 3px solid #94704c;
+    outline-offset: 3px;
+  }
+</style>

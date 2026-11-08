@@ -1,0 +1,79 @@
+[
+  {
+    "id": "first-visit",
+    "fromDay": 0,
+    "toDay": 97,
+    "role": "共同",
+    "title": "联系产科，确认建册与首次检查安排",
+    "href": "/overview/early/",
+    "sourceIds": ["nhs-appointments"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "ask-supplements",
+    "fromDay": 0,
+    "toDay": 97,
+    "role": "妈妈",
+    "title": "核对叶酸、既往用药与补充剂",
+    "href": "/for-mom/",
+    "sourceIds": ["nhs-nutrition"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "support",
+    "fromDay": 0,
+    "toDay": 294,
+    "role": "伴侣",
+    "title": "接手一项家务，留一点倾听的时间",
+    "href": "/for-dad/",
+    "sourceIds": ["nhs-appointments"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "scan",
+    "fromDay": 98,
+    "toDay": 167,
+    "role": "共同",
+    "title": "向医院确认系统超声的预约窗口",
+    "href": "/overview/middle/",
+    "sourceIds": ["nhs-appointments"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "ogtt",
+    "fromDay": 168,
+    "toDay": 195,
+    "role": "妈妈",
+    "title": "确认糖代谢筛查与检查前准备",
+    "href": "/overview/middle/",
+    "sourceIds": ["nhs-appointments"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "movement",
+    "fromDay": 196,
+    "toDay": 294,
+    "role": "共同",
+    "title": "留意宝宝平常的胎动模式",
+    "href": "/overview/late/",
+    "sourceIds": ["nhs-movements"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  },
+  {
+    "id": "birth-bag",
+    "fromDay": 196,
+    "toDay": 294,
+    "role": "伴侣",
+    "title": "一起整理待产包并确认入院路线",
+    "href": "/checklist/",
+    "sourceIds": ["nhs-labour"],
+    "reviewStatus": "source-checked",
+    "updatedAt": "2026-11-07"
+  }
+]

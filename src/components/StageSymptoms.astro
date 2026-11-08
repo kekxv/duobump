@@ -1,0 +1,634 @@
+---
+import symptoms from '../data/stage-symptoms.json';
+import sources from '../data/sources.json';
+import warnings from '../data/warning-signs.json';
+import { filterStageSymptoms } from '../lib/stage-symptoms';
+import { url } from '../lib/urls';
+import Icon from './Icon.astro';
+interface Props {
+  stage: string;
+}
+const { stage } = Astro.props;
+const rows = filterStageSymptoms(symptoms, { stage });
+const stages = [
+  { id: 'early', label: '孕早期' },
+  { id: 'middle', label: '孕中期' },
+  { id: 'late', label: '孕晚期' },
+];
+const categories = [...new Set(rows.map((row) => row.category))];
+const stageName = stages.find((s) => s.id === stage)?.label;
+---
+
+<section
+  id="stage-symptoms"
+  class="stage-symptoms"
+  aria-labelledby="symptom-heading"
+  data-stage={stage}
+>
+  <div class="symptom-heading-row">
+    <span class="symptom-heading-icon">
+      <Icon name="heart" size={24} />
+    </span>
+    <div>
+      <span class="eyebrow">KNOW YOUR CHANGES</span>
+      <h2 id="symptom-heading">{stageName}，可能遇到的身体与情绪变化</h2>
+    </div>
+  </div>
+  <p class="symptom-intro">
+    从小不适到需要评估的变化，都可以在这里查一查。展开条目，了解表现、照护方式和就医时机。
+  </p>
+  <p class="symptom-scope">
+    阶段只是便于查阅，许多变化会跨阶段出现，也不是每个人都会经历。常见不等于可以忽略；这里没有列出所有疾病，没找到症状或症状不典型，也不能排除问题。
+  </p>
+  <nav class="symptom-stage-nav" aria-label="按孕期查看身体变化">
+    {stages.map((s) => (
+      <a
+        href={`${url(`/overview/${s.id}/`)}#stage-symptoms`}
+        data-symptom-stage={s.id}
+        aria-current={s.id === stage ? 'page' : undefined}
+      >
+        {s.label}
+        <Icon name="arrow" size={13} />
+      </a>
+    ))}
+  </nav>
+  <div class="symptom-tools" hidden>
+    <label class="symptom-search-label" for="symptom-search">
+      搜索本阶段状况
+    </label>
+    <div class="symptom-search-row">
+      <div class="symptom-search-field">
+        <Icon name="search" size={18} />
+        <input
+          id="symptom-search"
+          type="search"
+          placeholder="试试“反胃”“手麻”“睡不着”"
+          autocomplete="off"
+        />
+      </div>
+      <button type="button" id="symptom-reset">
+        清除状况筛选
+      </button>
+    </div>
+    <div class="symptom-categories" role="group" aria-label="按状况类别筛选">
+      <button type="button" data-symptom-category="" aria-pressed="true">
+        全部状况
+      </button>
+      {categories.map((category) => (
+        <button type="button" data-symptom-category={category} aria-pressed="false">
+          {category}
+        </button>
+      ))}
+    </div>
+  </div>
+  <aside id="symptom-urgent" class="symptom-urgent" aria-label="不要等待的情况">
+    <Icon name="alert" size={20} />
+    <div>
+      <strong>明显不适时，先求助，再查资料</strong>
+      <p>
+        阴道出血、疑似破水、胎动减少或明显改变，以及严重头痛、视力变化或突然肿胀，应立即联系产科。发热或寒战也需及时评估。大量出血、剧烈腹痛、胸痛、明显呼吸困难、晕厥或意识异常，立即寻求急救。
+      </p>
+      <div class="symptom-urgent-links">
+        <a href="tel:120">拨打 120</a>
+        <a href={url('/risk-guide/')}>
+          查看异常信号与风险说明 <Icon name="arrow" size={13} />
+        </a>
+      </div>
+    </div>
+  </aside>
+  <div class="symptom-results-header">
+    <p id="symptom-count" role="status" aria-live="polite" aria-atomic="true">
+      本阶段 {rows.length} 项状况
+    </p>
+    <span>点击条目展开</span>
+  </div>
+  <p id="symptom-empty" class="symptom-empty" hidden>
+    没有找到匹配的状况。试试其他说法，或清除筛选；如果有不适或担心，请直接联系产科。
+  </p>
+  <div class="symptom-list">
+    {rows.map((row) => (
+      <details
+        class="symptom-card"
+        id={`symptom-${row.id}`}
+        data-symptom={row.id}
+        data-category={row.category}
+        data-search={[
+          row.title,
+          ...row.aliases,
+          row.description,
+          row.explanation,
+          ...row.care,
+          ...row.contact,
+        ].join(' ')}
+      >
+        <summary>
+          <span class="symptom-summary-copy">
+            <span class="symptom-tags">
+              <span>{row.category}</span>
+              {row.careLevel === 'contact' && (
+                <span class="symptom-contact-badge">需要联系医生</span>
+              )}
+            </span>
+            <strong>{row.title}</strong>
+            <span class="symptom-description">{row.description}</span>
+          </span>
+          <span class="symptom-expand" aria-hidden="true">
+            +
+          </span>
+        </summary>
+        <div class="symptom-detail">
+          <h3>怎样理解</h3>
+          <p>{row.explanation}</p>
+          <h3>可以怎样照顾自己</h3>
+          <ul>
+            {row.care.map((text) => (
+              <li>{text}</li>
+            ))}
+          </ul>
+          <div class="symptom-contact">
+            <h3>什么时候联系医生</h3>
+            <ul>
+              {row.contact.map((text) => (
+                <li>{text}</li>
+              ))}
+            </ul>
+          </div>
+          {row.warningIds.length > 0 && (
+            <div class="symptom-warning-links">
+              <span>相关就医提醒</span>
+              {row.warningIds.map((id) => (
+                <a href={`${url('/emergency/')}#warning-${id}`}>
+                  {warnings.find((warning) => warning.id === id)?.title}
+                  <Icon name="arrow" size={12} />
+                </a>
+              ))}
+            </div>
+          )}
+          <div class="symptom-sources">
+            <h3>参考原文</h3>
+            {row.sourceIds.map((id) => {
+              const source = sources.find((s) => s.id === id)!;
+              return (
+                <a href={source.url} target="_blank" rel="noopener noreferrer">
+                  {source.chineseTitle || source.title}
+                  <span>
+                    {source.publisherLabel || source.organization}
+                    <Icon name="external" size={12} />
+                  </span>
+                </a>
+              );
+            })}
+            <small>资料核查：{row.updatedAt} · 待专业医学审核</small>
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+<script>
+  import { filterStageSymptoms } from '../lib/stage-symptoms';
+  const section = document.querySelector<HTMLElement>('#stage-symptoms')!;
+  const stage = section.dataset.stage!;
+  const input = section.querySelector<HTMLInputElement>('#symptom-search')!;
+  const buttons = Array.from(
+    section.querySelectorAll<HTMLButtonElement>('[data-symptom-category]'),
+  );
+  const cards = Array.from(section.querySelectorAll<HTMLDetailsElement>('[data-symptom]'));
+  const rows = cards.map((card) => ({
+    id: card.dataset.symptom!,
+    title: card.dataset.search || '',
+    category: card.dataset.category || '',
+    stages: [stage],
+  }));
+  let category = '';
+  const update = () => {
+    const matches = new Set(
+      filterStageSymptoms(rows, { stage, query: input.value, category }).map((row) => row.id),
+    );
+    cards.forEach((card) => {
+      card.hidden = !matches.has(card.dataset.symptom!);
+    });
+    buttons.forEach((button) =>
+      button.setAttribute('aria-pressed', String(button.dataset.symptomCategory === category)),
+    );
+    section.querySelector('#symptom-count')!.textContent =
+      `显示 ${matches.size} / ${cards.length} 项状况`;
+    section.querySelector<HTMLElement>('#symptom-empty')!.hidden = matches.size > 0;
+  };
+  input.addEventListener('input', update);
+  buttons.forEach((button) =>
+    button.addEventListener('click', () => {
+      category = button.dataset.symptomCategory!;
+      update();
+    }),
+  );
+  section.querySelector('#symptom-reset')!.addEventListener('click', () => {
+    input.value = '';
+    category = '';
+    update();
+    input.focus();
+  });
+  section.querySelector<HTMLElement>('.symptom-tools')!.hidden = false;
+</script>
+<style>
+  .stage-symptoms {
+    margin-top: 42px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line, #dfe5d8);
+    scroll-margin-top: 90px;
+  }
+  .stage-symptoms:focus {
+    outline: none;
+  }
+  .stage-symptoms:focus-visible .symptom-heading-row {
+    outline: 2px solid #778d63;
+    outline-offset: 8px;
+    border-radius: 6px;
+  }
+  .symptom-heading-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+  }
+  .symptom-heading-icon {
+    background: #e8eedf;
+    color: #496044;
+    display: grid;
+    place-items: center;
+    width: 47px;
+    height: 47px;
+    border-radius: 15px;
+    flex-shrink: 0;
+  }
+  .stage-symptoms h2 {
+    font-size: 23px;
+    line-height: 1.55;
+    margin: 4px 0 0;
+  }
+  .symptom-intro {
+    margin: 17px 0 8px;
+  }
+  .symptom-scope {
+    font-size: 12px;
+    color: #63705c;
+    line-height: 1.9;
+  }
+  .symptom-stage-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 22px 0;
+  }
+  .symptom-stage-nav a {
+    padding: 10px 15px;
+    border: 1px solid #dce2d6;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .symptom-stage-nav a[aria-current] {
+    color: white;
+    background: #466148;
+    border-color: #466148;
+  }
+  .symptom-tools {
+    border: 1px solid #e0e6d9;
+    background: #f7f9f3;
+    padding: 18px;
+    border-radius: 15px;
+  }
+  .symptom-search-label {
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 9px;
+  }
+  .symptom-search-row {
+    display: flex;
+    align-items: stretch;
+    gap: 9px;
+  }
+  .symptom-search-field {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    background: white;
+    border: 1px solid #cfd8c6;
+    border-radius: 9px;
+    flex: 1;
+    min-width: 0;
+    color: #66775b;
+  }
+  .symptom-search-field input {
+    border: 0;
+    background: transparent;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 0;
+    font: inherit;
+    font-size: 13px;
+    color: #354532;
+    outline: none;
+  }
+  .symptom-search-field:focus-within {
+    outline: 2px solid #486649;
+    outline-offset: 2px;
+  }
+  #symptom-reset {
+    font: inherit;
+    font-size: 12px;
+    background: white;
+    border: 1px solid #cfd8c6;
+    border-radius: 9px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .symptom-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+  }
+  .symptom-categories button {
+    border: 1px solid #d5ddce;
+    border-radius: 20px;
+    padding: 8px 11px;
+    color: #4b5d43;
+    background: white;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    min-height: 38px;
+  }
+  .symptom-categories button[aria-pressed='true'] {
+    background: #466148;
+    border-color: #466148;
+    color: white;
+  }
+  .symptom-urgent {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 18px;
+    background: #fbf0e7;
+    border: 1px solid #eedbca;
+    border-radius: 13px;
+    color: #714c35;
+    margin: 19px 0;
+  }
+  .symptom-urgent > svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .symptom-urgent strong {
+    font-size: 14px;
+  }
+  .symptom-urgent p {
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 8px 0 10px;
+  }
+  .symptom-urgent-links {
+    display: flex;
+    gap: 12px 20px;
+    flex-wrap: wrap;
+  }
+  .symptom-urgent-links a {
+    color: #744c30;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    text-underline-offset: 3px;
+  }
+  .symptom-results-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    color: #65715b;
+    font-size: 12px;
+    margin: 20px 0 12px;
+  }
+  .symptom-results-header p {
+    margin: 0;
+    font-size: 12px;
+  }
+  .symptom-empty {
+    background: #f5f7f0;
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 13px;
+  }
+  .symptom-list {
+    display: grid;
+    gap: 11px;
+  }
+  .symptom-card {
+    background: white;
+    border: 1px solid #dde4d6;
+    border-radius: 14px;
+    overflow: hidden;
+    scroll-margin-top: 90px;
+  }
+  .symptom-card summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 19px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .symptom-card summary::-webkit-details-marker {
+    display: none;
+  }
+  .symptom-summary-copy {
+    min-width: 0;
+  }
+  .symptom-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 10px;
+    color: #5d7050;
+  }
+  .symptom-tags > span {
+    display: inline-block;
+    padding: 3px 8px;
+    background: #f0f4e9;
+    border-radius: 5px;
+  }
+  .symptom-tags .symptom-contact-badge {
+    background: #f9eade;
+    color: #795039;
+  }
+  .symptom-summary-copy > strong {
+    display: block;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 600;
+    color: #35492f;
+  }
+  .symptom-description {
+    display: block;
+    font-size: 12px;
+    line-height: 1.85;
+    color: #626f58;
+    margin-top: 4px;
+  }
+  .symptom-expand {
+    font-size: 22px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    color: #5e7750;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f0f4e9;
+    transition: transform 0.2s;
+  }
+  .symptom-card[open] .symptom-expand {
+    transform: rotate(45deg);
+  }
+  .symptom-detail {
+    padding: 2px 19px 20px;
+    border-top: 1px solid #edf0e8;
+  }
+  .stage-symptoms h3 {
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 16px 0 7px;
+  }
+  .symptom-detail p,
+  .symptom-detail li {
+    font-size: 13px;
+    line-height: 1.95;
+    margin: 3px 0;
+  }
+  .symptom-detail ul {
+    padding-left: 19px;
+    margin: 0;
+  }
+  .symptom-detail li {
+    list-style: disc;
+  }
+  .symptom-contact {
+    background: #fcf4ed;
+    border-radius: 9px;
+    padding: 1px 14px 12px;
+    margin-top: 16px;
+    color: #714e35;
+  }
+  .symptom-warning-links {
+    display: grid;
+    gap: 6px;
+    margin: 17px 0;
+    font-size: 12px;
+  }
+  .symptom-warning-links > span {
+    color: #6a755e;
+  }
+  .symptom-warning-links a {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    text-underline-offset: 3px;
+  }
+  .symptom-sources {
+    border-top: 1px solid #edf0e8;
+    padding-top: 1px;
+    margin-top: 18px;
+  }
+  .symptom-sources a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 3px 10px;
+    font-size: 12px;
+    padding: 4px 0;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+  .symptom-sources a span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: #67745c;
+  }
+  .symptom-sources small {
+    display: block;
+    font-size: 10px;
+    color: #69765f;
+    margin-top: 10px;
+  }
+  .stage-symptoms :is(button, a, summary):focus-visible {
+    outline: 3px solid #94704c;
+    outline-offset: 3px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  @media (max-width: 600px) {
+    .stage-symptoms h2 {
+      font-size: 20px;
+    }
+    .symptom-search-row {
+      flex-wrap: wrap;
+    }
+    .symptom-search-field {
+      flex-basis: 100%;
+    }
+    .symptom-tools {
+      padding: 14px;
+    }
+    #symptom-reset {
+      min-height: 40px;
+    }
+    .symptom-card summary {
+      padding: 16px 14px;
+      gap: 9px;
+    }
+    .symptom-detail {
+      padding: 2px 14px 17px;
+    }
+    .symptom-urgent {
+      padding: 15px 12px;
+    }
+    .symptom-stage-nav a {
+      padding: 10px 12px;
+    }
+  }
+  @media print {
+    .symptom-tools,
+    .symptom-expand,
+    .symptom-stage-nav {
+      display: none !important;
+    }
+    .symptom-card {
+      display: block !important;
+      break-inside: avoid;
+      margin-bottom: 12px;
+    }
+    .symptom-card::details-content {
+      display: block;
+      content-visibility: visible;
+    }
+    .symptom-detail {
+      display: block !important;
+    }
+    .symptom-sources a::after {
+      content: ' (' attr(href) ')';
+      font-size: 9px;
+      overflow-wrap: anywhere;
+    }
+  }
+</style>

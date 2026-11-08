@@ -1,0 +1,123 @@
+---
+import contexts from '../data/food-contexts.json';
+import sources from '../data/sources.json';
+interface Props {
+  foodId: string;
+}
+const { foodId } = Astro.props;
+const selected = contexts.filter((entry) => entry.foodIds.includes(foodId));
+const kinds: Record<string, string> = {
+  nutrition: '国内营养科普',
+  'food-safety': '国内食品安全科普',
+  tcm: '中医食养科普',
+  identity: '食材名称辨识',
+};
+const scopes: Record<string, string> = {
+  'food-specific': '与这类食材有关',
+  'food-group': '同类食物的建议',
+  'general-use': '一般食养提醒',
+};
+---
+
+<section class="food-contexts" aria-labelledby="food-context-heading">
+  <h2 id="food-context-heading">相关饮食资料</h2>
+  <p class="context-intro">
+    看看国内医院和中医食养资料怎么说。每条说明都附有原文，并注明哪些情况需要另行判断。
+  </p>
+  {selected.map((entry) => (
+    <article
+      class:list={['context-card', { 'tcm-context': entry.kind === 'tcm' }]}
+      data-food-context-kind={entry.kind}
+      data-context-id={entry.id}
+    >
+      <div class="context-labels">
+        <span>{kinds[entry.kind]}</span>
+        <span>{scopes[entry.scope]}</span>
+      </div>
+      <h3>{entry.title}</h3>
+      <p>{entry.note}</p>
+      <p class="context-limit">
+        <strong>阅读提示：</strong>
+        {entry.limitation}
+      </p>
+      <details>
+        <summary>查看参考原文</summary>
+        <p>{entry.sourceLocator}</p>
+        {entry.sourceIds.map((id) => {
+          const source = sources.find((item) => item.id === id)!;
+          return (
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              {source.chineseTitle} ↗
+            </a>
+          );
+        })}
+        <p class="context-date">资料核查：{entry.updatedAt} · 待专业审核</p>
+      </details>
+    </article>
+  ))}
+</section>
+<style>
+  .food-contexts {
+    margin-top: 32px;
+  }
+  .food-contexts > h2 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .context-intro {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 10px 0 18px;
+  }
+  .context-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    margin: 14px 0;
+    background: #fff;
+  }
+  .tcm-context {
+    border-left: 3px solid #ad8b60;
+  }
+  .context-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    color: #586c50;
+    font-size: 11px;
+  }
+  .context-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 12px 0;
+  }
+  .context-card p {
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 10px 0;
+  }
+  .context-limit {
+    color: var(--muted);
+  }
+  details {
+    margin-top: 14px;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    font-size: 12px;
+  }
+  summary {
+    cursor: pointer;
+    color: #536b48;
+  }
+  details a {
+    display: block;
+    margin: 10px 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    overflow-wrap: anywhere;
+  }
+  .context-date {
+    color: var(--muted);
+  }
+</style>

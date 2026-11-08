@@ -1,0 +1,208 @@
+---
+import Icon from './Icon.astro';
+import milestones from '../data/milestones.json';
+---
+
+<dialog id="pregnancy-dialog" class="app-dialog" aria-labelledby="pregnancy-title">
+  <div class="dialog-top">
+    <span class="eyebrow">YOUR LITTLE TIMELINE</span>
+    <button type="button" class="icon-button" data-close-dialog aria-label="关闭孕周工具">
+      <Icon name="close" />
+    </button>
+  </div>
+  <span class="dialog-icon">
+    <Icon name="calendar" size={28} />
+  </span>
+  <h2 id="pregnancy-title">计算当前孕周</h2>
+  <p class="muted">日期只用于估算与内容推荐，不会上传。</p>
+  <form id="pregnancy-form">
+    <label class="field-label" for="lmp-date">
+      末次月经第一天
+    </label>
+    <input id="lmp-date" name="lmp" type="date" min="2020-01-01" max="2200-12-31" />
+    <div class="field-divider">或者，使用医生确认的日期</div>
+    <label class="field-label" for="due-date">
+      医生确认的预产期 <span class="muted">（优先采用）</span>
+    </label>
+    <input id="due-date" name="dueDate" type="date" min="2020-01-01" max="2200-12-31" />
+    <label class="checkbox-label remember-label">
+      <input id="remember-pregnancy" type="checkbox" /> 在当前浏览器记住我的设置
+    </label>
+    <button class="button primary full" type="submit">
+      查看我的孕周 <Icon name="arrow" size={17} />
+    </button>
+    <div
+      id="pregnancy-result"
+      class="pregnancy-result"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+    <button class="text-button full" type="button" id="clear-pregnancy">
+      清除孕周设置
+    </button>
+  </form>
+  <p class="tiny muted">
+    按末次月经估算的预产期可能需要调整；月经不规则、辅助生殖或已由超声校正时，请采用医生确认的日期。
+  </p>
+</dialog>
+<script define:vars={{ milestones }}>
+  window.__duobumpMilestones = milestones;
+</script>
+<script>
+  import { calculatePregnancy, localToday, getMilestones } from '../lib/pregnancy';
+  import { browserStorage, PREGNANCY_KEY, removeStoredValue } from '../lib/storage';
+  import { withBase } from '../lib/urls';
+  const dialog = document.querySelector<HTMLDialogElement>('#pregnancy-dialog')!;
+  const lmp = document.querySelector<HTMLInputElement>('#lmp-date')!;
+  const due = document.querySelector<HTMLInputElement>('#due-date')!;
+  const remember = document.querySelector<HTMLInputElement>('#remember-pregnancy')!;
+  const output = document.querySelector<HTMLElement>('#pregnancy-result')!;
+  const stageNames = { early: '孕早期', middle: '孕中期', late: '孕晚期' };
+  let sessionInput: { lmp?: string; dueDate?: string } = {};
+  let calculatedDay = localToday();
+  const defaultTasks = Array.from(document.querySelector('#personal-tasks')?.childNodes || []).map(
+    (node) => node.cloneNode(true),
+  );
+  function clearPersonalization(showDefault = false) {
+    const label = document.querySelector('#header-week');
+    if (label) {
+      label.textContent = '设置我的孕周';
+      label.closest('button')?.setAttribute('aria-label', '设置我的孕周');
+    }
+    const hero = document.querySelector('#hero-week-status');
+    if (hero) hero.textContent = '设置孕周，查看本阶段的准备';
+    const tasks = document.querySelector('#personal-tasks');
+    tasks?.replaceChildren(
+      ...(showDefault ? defaultTasks.map((node) => node.cloneNode(true)) : []),
+    );
+    const heading = document.querySelector('#tasks-heading');
+    if (heading)
+      heading.textContent = showDefault
+        ? '从这些小事，开始准备'
+        : '请先核对日期，再查看本阶段的准备';
+  }
+  function refreshDay() {
+    if ((sessionInput.lmp || sessionInput.dueDate) && localToday() !== calculatedDay)
+      update(sessionInput);
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') refreshDay();
+  });
+  window.addEventListener('focus', refreshDay);
+  window.setInterval(refreshDay, 60000);
+  function update(input: typeof sessionInput, show = false) {
+    calculatedDay = localToday();
+    const result = calculatePregnancy(input, calculatedDay);
+    if (show) output.hidden = false;
+    if (!result.ok) {
+      clearPersonalization();
+      sessionInput = {};
+      const messages = {
+        'missing-input': '请填写一种日期，再查看孕周。',
+        'invalid-date': '日期无效，请检查后重新输入。',
+        'future-lmp': '末次月经日期不能晚于今天，请核对。',
+        'out-of-range': '日期超出工具展示范围，请核对并按产科建议随访。',
+      };
+      if (show) {
+        output.textContent = messages[result.code];
+        output.classList.add('is-error');
+      }
+      return false;
+    }
+    output.classList.remove('is-error');
+    output.textContent = `${result.weeks} 周 + ${result.days} 天 · ${stageNames[result.stage]}\n预计预产期：${result.dueDate}（${result.basis === 'doctor' ? '医生确认日期' : '末次月经估算'}）`;
+    const label = document.querySelector('#header-week');
+    if (label) {
+      label.textContent = `${result.weeks} 周 + ${result.days} 天`;
+      label.closest('button')?.setAttribute('aria-label', `设置我的孕周，${label.textContent}`);
+    }
+    const hero = document.querySelector('#hero-week-status');
+    if (hero)
+      hero.textContent = `${stageNames[result.stage]} · ${result.weeks} 周 + ${result.days} 天`;
+    const data = (window as any).__duobumpMilestones || [];
+    const tasks = getMilestones(result.weeks * 7 + result.days, data);
+    const tasksBox = document.querySelector('#personal-tasks');
+    if (tasksBox) {
+      tasksBox.replaceChildren();
+      for (const task of tasks) {
+        const a = document.createElement('a');
+        a.href = withBase(task.href, import.meta.env.BASE_URL);
+        a.className = 'personal-task';
+        const span = document.createElement('span');
+        span.textContent = task.title;
+        const role = document.createElement('small');
+        role.textContent = task.role;
+        a.append(span, role);
+        tasksBox.append(a);
+      }
+    }
+    const heading = document.querySelector('#tasks-heading');
+    if (heading) heading.textContent = '这个阶段，一起做点小准备';
+    sessionInput = input;
+    return true;
+  }
+  document.querySelectorAll<HTMLButtonElement>('[data-open-pregnancy]').forEach((button) =>
+    button.addEventListener('click', () => {
+      lmp.value = sessionInput.lmp || '';
+      due.value = sessionInput.dueDate || '';
+      if (sessionInput.lmp || sessionInput.dueDate) update(sessionInput);
+      dialog.showModal();
+    }),
+  );
+  document.querySelector('#pregnancy-form')!.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const input = { lmp: lmp.value, dueDate: due.value };
+    if (!update(input, true)) return;
+    try {
+      if (remember.checked) {
+        const storage = browserStorage();
+        if (!storage) throw Error();
+        storage.setItem(PREGNANCY_KEY, JSON.stringify({ version: 1, ...input }));
+      } else {
+        if (!removeStoredValue(browserStorage(), PREGNANCY_KEY)) {
+          output.append('\n浏览器未能删除已保存数据，请在浏览器设置中清除此网站数据。');
+        }
+      }
+    } catch {
+      output.append('\n本次会话可用，浏览器未能保存设置。');
+    }
+  });
+  document.querySelector('#clear-pregnancy')!.addEventListener('click', () => {
+    const cleared = removeStoredValue(browserStorage(), PREGNANCY_KEY);
+    lmp.value = '';
+    due.value = '';
+    remember.checked = false;
+    sessionInput = {};
+    output.hidden = false;
+    output.textContent = cleared
+      ? '已清除孕周设置。'
+      : '已清除本次会话设置；浏览器未能删除已保存数据，请在浏览器设置中清除此网站数据。';
+    const label = document.querySelector('#header-week');
+    if (label) {
+      label.textContent = '设置我的孕周';
+      label.closest('button')?.setAttribute('aria-label', '设置我的孕周');
+    }
+    const hero = document.querySelector('#hero-week-status');
+    if (hero) hero.textContent = '设置孕周，查看本阶段的准备';
+    clearPersonalization(true);
+  });
+  remember.addEventListener('change', () => {
+    if (!remember.checked) {
+      const removed = removeStoredValue(browserStorage(), PREGNANCY_KEY);
+      if (!removed) {
+        remember.checked = true;
+        output.hidden = false;
+        output.textContent =
+          '浏览器未能删除已保存日期，记忆设置仍保留。请在浏览器设置中清除此网站数据。';
+      }
+    }
+  });
+  try {
+    const saved = JSON.parse(browserStorage()?.getItem(PREGNANCY_KEY) || 'null');
+    if (saved?.version === 1 && update(saved)) {
+      sessionInput = saved;
+      remember.checked = true;
+    }
+  } catch {}
+</script>

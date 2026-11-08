@@ -1,0 +1,87 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SourcePanel from '../components/SourcePanel.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/urls';
+interface Props {
+  data: {
+    title: string;
+    summary: string;
+    icon: string;
+    eyebrow: string;
+    sourceIds: string[];
+    updatedAt: string;
+  };
+  headings?: { depth: number; slug: string; text: string }[];
+  section?: string;
+}
+const { data, headings = [], section = '孕期指南' } = Astro.props;
+---
+
+<BaseLayout title={data.title} description={data.summary} section={section}>
+  <div class="page-content">
+    <a href={url('/')} class="back-link">
+      ← 返回首页
+    </a>
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">{data.eyebrow}</span>
+        <h1>{data.title}</h1>
+        <p>{data.summary}</p>
+        <div class="article-meta">
+          <span>
+            <Icon name="clock" size={12} /> 更新于 {data.updatedAt}
+          </span>
+          <span class="review-badge">资料已核查 · 待专业审核</span>
+        </div>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name={data.icon} size={32} />
+      </div>
+    </div>
+    <div class="info-note">
+      <Icon name="info" size={17} />
+      <p>
+        本页内容供孕期了解和日常准备参考。<strong>检查、用药和身体不适，请与产科医生确认。</strong>
+      </p>
+    </div>
+    <div class="content-grid">
+      <article class="article-body">
+        <slot />
+        <div class="source-footer">
+          本页为科普资料整理，尚未完成专业医学审核。个体情况不同，请勿用于自行诊断或调整治疗。
+        </div>
+      </article>
+      <aside class="article-side" aria-label="本页目录和来源">
+        {headings.length > 0 && (
+          <div class="panel toc-panel">
+            <h3>这篇指南里</h3>
+            {headings
+              .filter((h) => h.depth === 2)
+              .map((h) => (
+                <a class="toc-link" href={`#${h.slug}`}>
+                  {h.text}
+                </a>
+              ))}
+          </div>
+        )}
+        <SourcePanel ids={data.sourceIds} />
+        <div class="panel article-related">
+          <h3>也许你还想看看</h3>
+          <a href={url('/appointments/')}>
+            产检与检查前准备 <Icon name="arrow" size={14} />
+          </a>
+          <a href={url('/food-guide/')}>
+            食物速查 <Icon name="arrow" size={14} />
+          </a>
+          <a href={url('/checklist/')}>
+            待产清单 <Icon name="arrow" size={14} />
+          </a>
+          <a href={url('/emergency/')} class="danger-link">
+            何时需要立即就医 <Icon name="arrow" size={14} />
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

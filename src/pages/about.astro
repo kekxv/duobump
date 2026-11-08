@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import sources from '../data/sources.json';
+import { url } from '../lib/urls';
+---
+
+<BaseLayout title="关于指南与资料来源" section="关于指南">
+  <div class="page-content">
+    <div class="page-intro-row">
+      <div class="page-intro">
+        <span class="eyebrow">BUILT WITH CARE, GROUNDED IN SOURCES</span>
+        <h1>关于这份孕期指南</h1>
+        <p>
+          DuoBump 是为准妈妈与伴侣准备的双人孕期指南。希望少一点信息焦虑，多一点理解与共同准备。
+        </p>
+      </div>
+      <div class="page-intro-icon">
+        <Icon name="book" size={30} />
+      </div>
+    </div>
+    <div class="info-note">
+      <Icon name="info" size={17} />
+      <p>
+        <strong>当前为科普预览版，尚未完成专业医学审核。</strong>
+        资料来源已标注，不能替代专业医疗评估；公开发布前需完成审核。
+      </p>
+    </div>
+    <div class="content-grid">
+      <article class="article-body">
+        <h2 id="principles">内容如何整理</h2>
+        <p>
+          指南优先参考公共卫生机构和专业组织的资料，风险数据另参考经过同行评议的原始研究。各篇指南和食物建议都附有来源；研究资料会注明核对了摘要还是全文。检查时间供预约参考，需要结合个人情况决定的事项会另外提醒。
+        </p>
+        <p>
+          国内资料包括卫健委发布的医院科普、疾控中心资料、中医食养科普及中国医院的原始研究。部分资料来自英国
+          NHS
+          等海外机构。医院科普不代表全国统一规范，不同地区的食品标准、筛查和就医流程也可能不同，实际安排请向就诊医院确认。
+        </p>
+        <h2 id="review">“资料已核查”是什么意思？</h2>
+        <p>
+          表示整理时对照过所列原文，不代表医生已经审核了本站内容，也不能替代个人诊疗建议。专业审核完成后，会注明审核人和日期。
+        </p>
+        <p>当前版本的医学内容仍待专业审核，因此页面保留了“科普预览”的提示。</p>
+        <h2 id="privacy">个人设置如何保存</h2>
+        <ul>
+          <li>无需注册，不收集姓名、病历、身份证或联系方式。</li>
+          <li>孕周日期默认不保存；只有勾选“记住我的设置”后，才保存在当前浏览器。</li>
+          <li>待产勾选和收纳备注保存在当前浏览器，不会自动同步给伴侣。</li>
+          <li>全站搜索在当前浏览器内完成，不上传搜索词。</li>
+          <li>浏览器无法保存数据时，工具仍可使用，但刷新或关闭页面后，设置和记录可能丢失。</li>
+        </ul>
+        <p>
+          你可以在孕周工具里清除日期，在待产页单独重置清单。本站不接入第三方广告或访问统计；托管服务仍可能按其政策记录访问日志。
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <button class="button secondary" data-open-pregnancy>
+            <Icon name="calendar" size={15} /> 管理孕周设置
+          </button>
+          <a class="button secondary" href={url('/checklist/')}>
+            <Icon name="checklist" size={15} /> 管理待产清单
+          </a>
+        </div>
+        <h2 id="disclaimer">医学免责声明</h2>
+        <blockquote>
+          本站内容仅供孕期科普与日常准备参考，不能替代专业医疗评估。个体情况存在差异，身体不适、检查及用药问题，请遵从专业产科医生建议。
+        </blockquote>
+        <p>
+          紧急症状的列举不可能涵盖所有情况。没有在本站找到症状或食物，不意味着安全；不要根据网页自行诊断、停药或延迟求助。
+        </p>
+        <h2 id="updates">更新与反馈</h2>
+        <p>
+          2026-11-08：补充产检说明、风险研究、国内饮食与中医食养参考，完善食物速查和参考资料页。
+          2026-11-07：完成首版三阶段指南、食物速查、孕周工具和待产清单。资料计划每季度复核，重要建议变化时及时更新。
+        </p>
+        <p>
+          反馈问题时，请附上页面地址、具体说明和可供核对的来源。请勿在公开反馈中提交病历、证件或其他个人隐私资料。
+        </p>
+      </article>
+      <aside class="article-side">
+        <div class="panel">
+          <h3>这份指南坚持</h3>
+          <p class="tiny muted" style="line-height:2.2">
+            有来源，不制造焦虑。
+            <br />
+            讲条件，不给绝对保证。
+            <br />
+            支持共同参与。
+            <br />
+            尊重每一个人的差异。
+          </p>
+        </div>
+      </aside>
+    </div>
+    <section class="section-spacer">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">SOURCE LIBRARY</span>
+          <h2>指南参考了哪些资料</h2>
+        </div>
+      </div>
+      <a class="button secondary" href={url('/references/')}>
+        查看全部资料与原文网址 <Icon name="arrow" size={15} />
+      </a>
+      <div class="about-sources">
+        {sources.map((source) => (
+          <article class="about-source">
+            <h3>{source.chineseTitle}</h3>
+            <p>
+              {source.organization}
+              <br />
+              适用地区：{source.region}
+              <br />
+              资料核查：{source.checkedAt} · 不等于专业审核
+            </p>
+            <a href={source.url} target="_blank" rel="noopener noreferrer">
+              查看原文 <Icon name="external" size={13} />
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

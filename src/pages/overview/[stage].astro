@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import StageSymptoms from '../../components/StageSymptoms.astro';
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides
+    .filter((e) => ['early', 'middle', 'late'].includes(e.id))
+    .map((entry) => ({ params: { stage: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<ArticleLayout
+  data={entry.data}
+  headings={[...headings, { depth: 2, slug: 'stage-symptoms', text: '身体与情绪变化速查' }]}
+  section="孕期时间轴"
+>
+  <a class="symptom-jump" href="#stage-symptoms">
+    身体有了新变化？查看本阶段状况与照护建议 ↓
+  </a>
+  <Content />
+  <StageSymptoms stage={entry.id} />
+</ArticleLayout>
+<style>
+  .symptom-jump {
+    display: block;
+    background: #edf3e5;
+    border: 1px solid #dce5d1;
+    border-radius: 12px;
+    padding: 15px 18px;
+    margin-bottom: 26px;
+    font-size: 13px;
+    line-height: 1.8;
+    text-underline-offset: 3px;
+    color: #405d37;
+  }
+</style>
