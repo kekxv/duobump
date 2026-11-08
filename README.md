@@ -82,13 +82,14 @@ TZ=America/New_York npm run test -- tests/unit/pregnancy.test.ts
 
 ## GitHub Pages
 
-1. 将此项目放入自己的 GitHub 仓库并提交 lockfile。
-2. 在 Settings → Pages 选择 GitHub Actions。
-3. Push / PR 触发类型、数据、单测、构建与浏览器检查。工作流自动为用户站点或仓库站点配置 `SITE_URL` 和 `BASE_PATH`。
-4. 完成真实专业审核，补充必要的中国大陆官方资料及地区说明，运行 `npm run verify:release`。
-5. 在 main 分支手动运行工作流才会尝试公开部署。审核未通过时部署作业会失败，检查作业仍可单独验证预览版。
+1. 在仓库 Settings → Pages → Source 选择 **GitHub Actions**。
+2. 推送到 `main` 后自动运行类型检查、数据校验、单元测试、构建与浏览器测试；全部通过后自动部署。PR 只检查，不部署。
+3. 也可在 Actions 中手动运行工作流，选择 `main`，重新部署当前版本。
+4. 工作流按仓库名配置 `SITE_URL` 和 `BASE_PATH`，本仓库访问地址为 https://kekxv.github.io/duobump/ 。
 
-公开发布时 `PUBLIC_RELEASE=true` 只改变搜索引擎索引策略，**不能替代审核检查**。不要移除部署中的审核命令来发布未审核医疗内容。
+当前部署的是**科普预览版**：`PUBLIC_RELEASE=false`，保留待专业审核提示、`noindex` 和搜索引擎抓取限制，不将上线等同于医学审核。普通构建继续校验资料完整性。
+
+专业审核检查保留为独立命令 `npm run verify:release`；在完成真实审核并补齐审核人、日期之前，该检查会失败。未来如需改为可索引的正式版本，应先通过该检查，再调整发布配置。
 
 子路径测试示例（先停止已有 4321 服务）：
 

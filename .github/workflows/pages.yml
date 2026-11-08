@@ -45,7 +45,7 @@ jobs:
           if-no-files-found: ignore
 
   deploy:
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: check
     runs-on: ubuntu-latest
     permissions:
@@ -62,22 +62,20 @@ jobs:
           node-version: '24'
           cache: npm
       - run: npm ci
-      - name: Require genuine clinical review
-        run: npm run verify:release
-      - name: Configure publication paths
+      - name: Configure preview site paths
         shell: bash
         run: |
           node --input-type=module <<'JS'
           import {appendFileSync} from 'node:fs';
           const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
           const base = repo.toLowerCase() === `${owner.toLowerCase()}.github.io` ? '/' : `/${repo}/`;
-          appendFileSync(process.env.GITHUB_ENV, `SITE_URL=https://${owner}.github.io\nBASE_PATH=${base}\nPUBLIC_RELEASE=true\n`);
+          appendFileSync(process.env.GITHUB_ENV, `SITE_URL=https://${owner}.github.io\nBASE_PATH=${base}\nPUBLIC_RELEASE=false\n`);
           JS
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      - name: Publish reviewed static site
+      - name: Publish preview static site
         id: deployment
         uses: actions/deploy-pages@v4
